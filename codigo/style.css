@@ -1,0 +1,20 @@
+body{
+	background-color: rgb(129,129,129);
+	background-image: url(./images/bg1.png);
+	margin: 0 auto 0 auto;
+	width: 80%;
+	min-width: 925px;
+	height: 100%;
+}
+header{
+	width: 100%;
+	background-color: blue;
+	position: relative;
+overflow: hidden;
+width: 70%;
+margin: 10px auto 10px;
+border-radius: 8px;
+background: #025BA3;
+text-align:center;
+display: inline-block;
+}

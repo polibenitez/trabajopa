@@ -1,0 +1,153 @@
+
+@font-face {
+       font-family: 'fuente-personalizada';
+       src :url('./images/fuentes/kaushan-script/KaushanScript-Regular.otf');
+ 
+}
+@font-face {
+       font-family: 'My-fuente';
+       src :url('./images/fuentes/alex-brush/AlexBrush-Regular.ttf');
+}
+body{
+	background-color: rgb(129,129,129);
+	background-image: url(./images/bg1.png);
+	margin: 0 auto 0 auto;
+	width: 80%;
+	min-width: 925px;
+	height: 100%;
+}
+div.cabecera{
+	padding-left: 10px;
+	background-color: black;
+	color: lightblue;
+    /*margin-top: -21px;
+    max-height: 40px;*/
+}
+div.menu{
+	float: left;
+	width: 25%;
+	margin-right: 1%;
+    background-color: rgb(249,249,249);
+    background-image: url(./images/bg2.png);
+    background-repeat: repeat-x;
+    height: auto;
+    min-height: 100%;
+    border: 2px solid black;
+    border-radius: 15px;
+}
+div.lateral{
+	padding: 1%;
+	margin-left: 1%;
+    background-color: rgb(249,249,249);
+    background-image: url(./images/bg2.png);
+    background-repeat: repeat-x;
+    float: left;
+    width: 25%;
+    min-width: 145px;
+    height: 100%;
+    border: 2px solid black;
+    border-radius: 15px;
+}
+div.contenedor{
+    margin: auto;
+	padding-left: 10px;
+	border-radius: 15px;
+	height: auto;
+}
+div.contenido{
+	padding: 1%;
+    float: left;
+    width: 43%;
+    min-height: 600px;
+    height: auto;
+    min-height: 100%;
+    background-color: rgb(8,101,151);
+    border: 2px solid black;
+    border-radius: 15px;
+}
+div.pie{
+	text-align: center;
+	color:white;
+	background-color: black;
+    width: 100%;
+    float: left;
+    line-height: 100%;
+    margin-top: 5px;
+}
+tr.titulo{
+	font-family: My-fuente;
+	background-image: url(./images/gradient.png);
+	font-size: 0.8em;
+	text-align: center;
+	background-color: black;
+	color:white;
+}
+table{
+	width: 100%;
+}
+tr.titulo td{
+	color: white;
+}
+tr{
+	color: white;
+	background-color: rgb(8,101,165);
+	background-image: url(./images/gradient.png);
+	background-repeat: repeat-x;
+	background-position: bottom;
+}
+p{
+	text-align: center;
+	font-size: 0.9em;
+	color:orange;
+}
+h2{
+	text-align: center;
+	color: white;
+}
+label{
+	font-family: fuente-personalizada;
+	font-size: 1em;
+	color: rgb(8,101,151);
+	margin:1%;
+	padding: 0;
+	text-align: left;
+}
+table{
+	max-width: 800px;
+    border: 1px solid rgb(249,249,249);
+    border-radius: 15px;
+    padding: 3px;
+}
+.boton{
+	position: relative;
+	float: right;
+	background-color: red;
+	color: white;
+	border: 2px solid rgb(249,249,249);
+	border-radius: 6px;
+}
+.boton1{
+	position: relative;
+	float: right;
+	background-color: olive;
+	color: white;
+	border: 2px solid rgb(249,249,249);
+	border-radius: 6px;
+}
+img{
+	border: 3px solid grey;
+	border-radius: 20px;
+	box-shadow: 3px 5px 5px black;
+	margin-left: 20%;
+}
+div.entrar{
+	float: left;
+}
+div.entrar:hover{
+	height: 0;
+	overflow: hidden;
+}
+div.tituloSuperior{
+	float: left;
+	width: 70%;
+}
