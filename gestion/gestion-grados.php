@@ -4,7 +4,7 @@
 	<link rel="stylesheet" type="text/css" href="../style.css">
 </head>
 <body>
-	<?php 
+<?php 
 		include("sesion.php");
 	 ?>
 	<div class="contenedor">
@@ -19,16 +19,18 @@
 				<img src="../images/guia-menu.png">
 			</div>
 			<div class="entrar">
+				<!-- <a href="./entrar.php">Salir</a> -->
 				<?php echo $_SESSION["usuario"]; ?>
 				<a href="./salir.php">Salir</a>
 			</div>
 		</header>
-		<section class="login">
-			aqui va los formularios con ocultando con javascript
+		<section class="uso-gestion">
+			<?php include("gestion-grados-script.php"); ?>
 		</section>
 		<footer>
-			create by MAMISHO copy-left 2013
+			create by zadik copy-left 2013
 		</footer>
+		mamisho es un pringui
 	</div>
 </body>
 </html>
