@@ -30,7 +30,8 @@ function identificar(){
 	<link rel="stylesheet" type="text/css" href="../style.css">
 </head>
 <body>
-	<?php 
+	<?php
+	include("saneo.php");
 	if (isset($_POST['login'])) {
 		//echo "estas son las variables <br/>";
 		//echo "usuario =".$_POST['user']."<br />";
