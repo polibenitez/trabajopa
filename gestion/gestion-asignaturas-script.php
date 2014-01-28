@@ -35,7 +35,11 @@ function obtenerAsignaturas() {
     if (!$db_selected) {
         die(' No puedo seleccionar con prueba: ' . mysql_error());
     }
+<<<<<<< HEAD
     $result = mysql_query("select asi.asignatura_id, gra.nombre, asi.nombre_asi from asignatura asi, grado gra where gra.grado_id = asi.grado_id;", $con);
+=======
+    $result = mysql_query("select * from asignatura", $con);
+>>>>>>> e4af0b23da05caae23603d45f0b91c8d35459342
     if (!$result) {
         die('no se pudo ejecutar la consulta' . mysql_error());
     }
@@ -185,7 +189,11 @@ function obtenerAsignaturas() {
             <?php
             $asignaturas = obtenerAsignaturas();
             echo "<table border='1'>";
+<<<<<<< HEAD
             echo "<th>ID</th><th>Nombre Grado</th><th>Nombre Asignatura</th>";
+=======
+            echo "<th>ID</th><th>ID Grado</th><th>Nombre Asignatura</th>";
+>>>>>>> e4af0b23da05caae23603d45f0b91c8d35459342
             $i = 0;
             if (isset($asignaturas)) {
 

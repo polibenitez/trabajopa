@@ -1,10 +1,13 @@
 <?php 
-function creargrados(){
-	$grado_id=$_POST['grados_id'];
-	$nombre=$_POST['nombre_ed'];
+function crearaulas(){
+	$aula_id=$_POST['aulas_id'];
+	$numero_ed=$_POST['edificios'];
+	$id_asignatura=$_POST['asignaturas'];
+	$numero_planta=$_POST['numero_pla'];
+	$comentario=$_POST['comentario_au'];
 	
 
-	$sql="INSERT INTO grado (grado_id, nombre) VALUES (NULL, '$nombre')";
+	$sql="INSERT INTO aulas (aula_id, asignatura_id, numero_ed, planta_aul, comentario_aul) VALUES (NULL, '$id_asignatura','$numero_ed','$numero_planta','$comentario')";
 	
 	$con = mysql_connect("localhost","root","");
 	if (!$con) {
@@ -21,10 +24,10 @@ function creargrados(){
 	return true;
 
 }
-function eliminargrados(){
-	$grado_id=$_POST['grados_id-eliminar'];
+function eliminaraulas(){
+	$aula_id=$_POST['aulas_id-eliminar'];
 	
-	$sql="DELETE FROM grado WHERE grado_id=$grado_id";
+	$sql="DELETE FROM aulas WHERE aula_id=$aula_id";
 
 	$con = mysql_connect("localhost","root","");
 	if (!$con) {
@@ -40,11 +43,11 @@ function eliminargrados(){
 	}
 	return true;
 }
-function modificargrados(){
-	$grado_id=$_POST['grados_id_mod'];
+function modificaraulas(){
+	$aula_id=$_POST['aulas_id_mod'];
 	$nombre=$_POST['nombre_ed'];
 
-	$sql="UPDATE grado SET nombre='$nombre' WHERE grado_id='$grado_id'";
+	$sql="UPDATE aulas SET nombre='$nombre' WHERE aula_id='$aula_id'";
 	//$sql="INSERT INTO Edificio (numero_ed, nombre_ed, ubicaciones, plantas_ed, comentario_ed) VALUES ($numero_ed, '$nombre_ed', '$ubicaciones', $plantas_ed, '$comentario_ed')";
 	//echo "<br/>".$sql;
 	$con = mysql_connect("localhost","root","");
@@ -63,9 +66,9 @@ function modificargrados(){
 }
 
 if (isset($_POST['eliminar'])) {
-	if (eliminargrados()) {
+	if (eliminaraulas()) {
 		//echo "correcto";
-		header("Location: gestion-grados.php");
+		header("Location: gestion-aulas.php");
 		exit;
 	}else{
 		echo "ocurio un error";
@@ -73,9 +76,9 @@ if (isset($_POST['eliminar'])) {
 }
 if (isset($_POST['crear'])) {
 	
-	if (creargrados()) {
+	if (crearaulas()) {
 		//echo "correcto";
-		header("Location: gestion-grados.php");
+		header("Location: gestion-aulas.php");
 		exit;
 	}else{
 		echo "ocurio un error";
@@ -84,9 +87,9 @@ if (isset($_POST['crear'])) {
 if (isset($_POST['editar'])) {
 	
 
-	if (modificargrados()) {
+	if (modificaraulas()) {
 		//echo "correcto";
-		header("Location: gestion-grados.php");
+		header("Location: gestion-aulas.php");
 		exit;
 	}else{
 		echo "ocurio un error";
