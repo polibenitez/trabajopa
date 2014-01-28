@@ -222,7 +222,7 @@ echo "</td><td class='td-aulas'>";
 		<?php 
 		$aulas=obteneraulas();
 		echo "<table border='1'>";
-		echo "<th>ID</th><th>asignatura</th><th>nº edificio</th><th>planta</th><th>planta</th>";
+		echo "<th>ID</th><th>asignatura</th><th>n edificio</th><th>planta</th><th>comentario</th>";
 		$i=0;
 		if (isset($aulas)) {
 
@@ -232,6 +232,12 @@ echo "</td><td class='td-aulas'>";
 				echo $aulas[0];
 				echo "</td><td>";
 				echo $aulas[1];
+				echo "</td><td>";
+				echo $aulas[2];
+				echo "</td><td>";
+				echo $aulas[3];
+				echo "</td><td>";
+				echo $aulas[4];
 				
 				echo "</td></tr>";
 				//echo $aulas[4];
@@ -300,7 +306,7 @@ echo "</td><td class='td-aulas'>";
 							Comentario aula:
 						</td>
 						<td>
-							<input class="input-presonalizado" id="nombre-form" type="text" name="comentario_au" required  />
+							<input class="input-presonalizado" id="comentario-form" type="text" name="comentario_au" required  />
 						</td>
 					</tr>
 					

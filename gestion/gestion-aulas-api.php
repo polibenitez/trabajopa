@@ -7,7 +7,7 @@ function crearaulas(){
 	$comentario=$_POST['comentario_au'];
 	
 
-	$sql="INSERT INTO aulas (aula_id, asignatura_id, numero_ed, planta_aul, comentario_aul) VALUES (NULL, '$id_asignatura','numero_ed','numero_planta','comentario')";
+	$sql="INSERT INTO aulas (aula_id, asignatura_id, numero_ed, planta_aul, comentario_aul) VALUES (NULL, '$id_asignatura','$numero_ed','$numero_planta','$comentario')";
 	
 	$con = mysql_connect("localhost","root","");
 	if (!$con) {
