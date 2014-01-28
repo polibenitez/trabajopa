@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Mapa de la UPO</title>
+
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
+<script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.css' rel='stylesheet' />
+
+<style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:0; bottom:0; width:100%; }
+</style>
+</head>
+<body>
+    <script language="javascript">
+  if(location.search.substr(1)){
+    Variables = location.search.substr(1).split ('&');
+    for (i = 0; i < Variables.length; i++) {
+      Separ = Variables[i].split('=');
+      eval ('var '+Separ[0]+'="'+Separ[1]+'"');
+    }
+    //alert('Nombre: '+latitud+'\nTwitter: @'+longitud);
+  }
+</script>
+
+<div id='map'></div>
+<script>
+//alert('Latitud: '+latitud+'\nLongitud: '+longitud);
+    //var map = L.mapbox.map('map', 'mamisho.ghij2j20').setView([37.35785, -5.93653], 17);
+    var map = L.mapbox.map('map', 'mamisho.ghij2j20').setView([latitud, longitud], 17);
+
+    L.mapbox.markerLayer({
+    // creamos el mapa y luego podemos añadir chichetas con los parametros que le
+    //pasemos a esta función
+    type: 'Feature',
+    geometry: {
+        type: 'Point',
+        //Las cordenadas van al contrario que en la llamada al mapa
+        //Nos fijamos en la llamada que hacemos antes
+        //coordinates: [-5.93653,37.35785]
+        coordinates: [longitud,latitud]
+    },
+    properties: {
+        title: 'Selección de este mapa',
+        description: 'Solo es para mamisho',
+        //aqui añadimos propiedades del lugar al que le ponemos la chincheta
+        // http://mapbox.com/developers/simplestyle/
+        'marker-size': 'large',
+        'marker-color': '#f0a'
+    }
+
+}).addTo(map);
+
+    //L.mapbox.map('map', 'mamisho.ghij2j20').addControl(L.mapbox.geocoderControl('mamisho.ghij2j20'));
+    
+
+    map.markerLayer.on('click', function(e) {
+        map.panTo(e.layer.getLatLng());
+    });
+</script>
+</body>
+</html>

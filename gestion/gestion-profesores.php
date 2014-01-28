@@ -19,12 +19,12 @@
 				<img src="../images/guia-menu.png">
 			</div>
 			<div class="entrar">
-				<?php echo $_SESSION["usuario"];?>
+				<?php echo $_SESSION["usuario"]; ?>
 				<a href="./salir.php">Salir</a>
 			</div>
 		</header>
-		<section class="login">
-			aqui va los formularios con ocultando con javascript
+		<section class="uso-gestion">
+			<?php include("gestion-profesores-script.php"); ?>
 		</section>
 		<footer>
 			create by MAMISHO copy-left 2013
