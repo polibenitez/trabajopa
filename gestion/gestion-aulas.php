@@ -4,7 +4,7 @@
 	<link rel="stylesheet" type="text/css" href="../style.css">
 </head>
 <body>
-	<?php 
+<?php 
 		include("sesion.php");
 	 ?>
 	<div class="contenedor">
@@ -23,11 +23,11 @@
 				<a href="./salir.php">Salir</a>
 			</div>
 		</header>
-		<section class="login">
-			aqui va los formularios con ocultando con javascript
+		<section class="uso-gestion">
+			<?php include("gestion-aulas-script.php"); ?>
 		</section>
 		<footer>
-			create by MAMISHO copy-left 2013
+			create by zadik copy-left 2013
 		</footer>
 	</div>
 </body>
