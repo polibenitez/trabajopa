@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset=utf-8 />
-<title>Mapa de la UPO</title>
+<title>Leaflet Locate</title>
 
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
 <script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.js'></script>
@@ -14,28 +14,35 @@
 </style>
 </head>
 <body>
-    <!-- Finaliza GPS-->
-    <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.21.0/L.Control.Locate.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.21.0/L.Control.Locate.css' rel='stylesheet' />
-    <!-- Inicia GPS-->
 
-    <script language="javascript">
-  if(location.search.substr(1)){
-    Variables = location.search.substr(1).split ('&');
-    for (i = 0; i < Variables.length; i++) {
-      Separ = Variables[i].split('=');
-      eval ('var '+Separ[0]+'="'+Separ[1]+'"');
+
+<script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.21.0/L.Control.Locate.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.21.0/L.Control.Locate.css' rel='stylesheet' />
+<!--[if lt IE 9]>
+  <link href='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.21.0/L.Control.Locate.ie.css' rel='stylesheet' />
+<![endif]-->
+
+<style type="text/css">
+    .leaflet-control-locate {
+        border: 1px solid rgba(0,0,0,0.4);
     }
-    //alert('Nombre: '+latitud+'\nTwitter: @'+longitud);
-  }
-</script>
+
+    .leaflet-control-locate a {
+        background-color: #fff;
+        background-position: -3px, -2px;
+    }
+
+    .leaflet-control-locate.active a {
+        background-position: -33px -2px;
+    }
+</style>
 
 <div id='map'></div>
 <script>
-//alert('Latitud: '+latitud+'\nLongitud: '+longitud);
-    //var map = L.mapbox.map('map', 'mamisho.ghij2j20').setView([37.35785, -5.93653], 17);
-    var map = L.mapbox.map('map', 'mamisho.ghij2j20').setView([latitud, longitud], 17);
-
+    var mapi = L.mapbox.map('map', 'mamisho.ghij2j20');
+    L.control.locate().addTo(mapi);
+    //var map = L.mapbox.map('map', 'mamisho.ghij2j20').setView([latitud, longitud], 17);
+    //mapi.setView([37.35285, -5.93553],17);
     L.mapbox.markerLayer({
     // creamos el mapa y luego podemos añadir chichetas con los parametros que le
     //pasemos a esta función
@@ -45,7 +52,7 @@
         //Las cordenadas van al contrario que en la llamada al mapa
         //Nos fijamos en la llamada que hacemos antes
         //coordinates: [-5.93653,37.35785]
-        coordinates: [longitud,latitud]
+        coordinates: [ -5.93653,37.35785]
     },
     properties: {
         title: 'Selección de este mapa',
@@ -56,13 +63,11 @@
         'marker-color': '#f0a'
     }
 
-}).addTo(map);
+}).addTo(mapi);
 
-    //L.mapbox.map('map', 'mamisho.ghij2j20').addControl(L.mapbox.geocoderControl('mamisho.ghij2j20'));
-    L.control.locate().addTo(map);
-    map.markerLayer.on('click', function(e) {
-        map.panTo(e.layer.getLatLng());
-    });
+
 </script>
+
+
 </body>
 </html>
