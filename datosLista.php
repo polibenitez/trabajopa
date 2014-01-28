@@ -14,7 +14,7 @@ class Edificio {
 
 
 /*$articulo = new Edificio();
-$articulo->numero = 18;
+$articulo[$i]->numero = 18;
 $articulo->nombre = "Pablo Mutis";
 $articulo->ubicacion = "latitul;longitud";
 $articulo-plantas = "5";
