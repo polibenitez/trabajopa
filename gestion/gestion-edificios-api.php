@@ -72,16 +72,16 @@ include("saneo.php");
 	$ubicaciones="ubicacion del edificio ".$numero_ed;
 	$plantas_ed=$_POST['plantas'];
 	$comentario_ed=$_POST['comentario_ed'];
-	echo $numero_ed."<br>";
+	/*echo $numero_ed."<br>";
 	echo $nombre_ed."<br>";
 	echo $ubicaciones."<br>";
 	echo $plantas_ed."<br>";
 	echo $comentario_ed."<br>";
-
+*/
 //echo "me llegan los siguientes parametros<br />";
 //echo $_POST['eliminar']."<br />";
 
-/*if (isset($_POST['eliminar'])) {
+if (isset($_POST['eliminar'])) {
 	if (eliminarEdificio()) {
 		//echo "correcto";
 		header("Location: gestion-edificios.php");
@@ -89,8 +89,8 @@ include("saneo.php");
 	}else{
 		echo "ocurio un error";
 	}
-}*/
-/*if (isset($_POST['crear'])) {
+}
+if (isset($_POST['crear'])) {
 	//echo "quieres crear";
 	/*echo "crear <br/>";
 	$numero_ed=$_POST['numero_ed'];
@@ -104,15 +104,15 @@ include("saneo.php");
 	echo $plantas_ed."<br>";
 	echo $comentario_ed."<br>";*/
 
-	/*if (crearEdificio()) {
+	if (crearEdificio()) {
 		//echo "correcto";
 		header("Location: gestion-edificios.php");
 		exit;
 	}else{
 		echo "ocurio un error";
 	}
-}*/
-/*if (isset($_POST['editar'])) {
+}
+if (isset($_POST['editar'])) {
 	
 	/*echo "Editar <br/>";
 	$numero_ed=$_POST['numero_ed_mod'];
@@ -126,13 +126,13 @@ include("saneo.php");
 	echo $plantas_ed."<br>";
 	echo $comentario_ed."<br>";*/
 
-	/*if (modificarEdificio()) {
+	if (modificarEdificio()) {
 		//echo "correcto";
 		header("Location: gestion-edificios.php");
 		exit;
 	}else{
 		echo "ocurio un error";
 	}
-}*/
+}
 
  ?>
