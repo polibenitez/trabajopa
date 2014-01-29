@@ -37,7 +37,6 @@ function obtenerAsignaturas() {
     }
 
     $result = mysql_query("select asi.asignatura_id, gra.nombre, asi.nombre_asi from asignatura asi, grado gra where gra.grado_id = asi.grado_id;", $con);
-    $result = mysql_query("select * from asignatura", $con);
     if (!$result) {
         die('no se pudo ejecutar la consulta' . mysql_error());
     }
@@ -188,7 +187,6 @@ function obtenerAsignaturas() {
             $asignaturas = obtenerAsignaturas();
             echo "<table border='1'>";
             echo "<th>ID</th><th>Nombre Grado</th><th>Nombre Asignatura</th>";
-            echo "<th>ID</th><th>ID Grado</th><th>Nombre Asignatura</th>";
             $i = 0;
             if (isset($asignaturas)) {
 
