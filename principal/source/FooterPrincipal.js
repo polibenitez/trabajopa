@@ -10,9 +10,9 @@ enyo.kind({
                 {
                     tag:"h1",
                     fit:true,
-                    content:"Pie de pagina principal",
+                    content:"Pie de página principal",
                     classes:"headerTextTitle",
-                    style:"text-align:center"
+                    style:"text-align:center;"
                 }
              ]
         }

@@ -150,15 +150,61 @@ $tipoDato=$_GET['peticion'];
 	if($tipoDato=='comida'){
 		$tam=10;
 		for ($i=0; $i <$tam ; $i++) { 
-			$profesor[$i]["id"]="id-".$i;
-			$profesor[$i]["nombre"]="Nombre Profesor ".$i;
-			$profesor[$i]["apellido1"]="Apellido-1 Profesor ".$i;
-			$profesor[$i]["apellido2"]="Apellido-2 Profesor ".$i;
-			$profesor[$i]["asignatura"]="Asignatura Profesor ".$i;
-			$profesor[$i]["despacho"]="despacho Profesor ".$i;
+			$comida[$i]["id"]="id-Comida ".$i;
+			$comida[$i]["tipo"]="tipo COMIDA ".$i;
+			$comida[$i]["descripcion"]="Descripcion comida ".$i;
+			$comida[$i]["ubicacion"]="Ubicacion comida ".$i;
 		}
-		$articulo['profesores']=$profesor;
-		//http://localhost/proyectos/trabajopa/datosLista.php?peticion=profesores
+		$articulo['comida']=$comida;
+		//http://localhost/proyectos/trabajopa/datosLista.php?peticion=comida
+	}
+
+	if($tipoDato=='transporte'){
+		$tam=10;
+		for ($i=0; $i <$tam ; $i++) { 
+			$transporte[$i]["id"]="id-Transporte ".$i;
+			$transporte[$i]["tipo"]="tipo Transporte ".$i;
+			$transporte[$i]["descripcion"]="Descripcion Transporte ".$i;
+			$transporte[$i]["ubicacion"]="Ubicacion Transporte ".$i;
+		}
+		$articulo['transporte']=$transporte;
+		//http://localhost/proyectos/trabajopa/datosLista.php?peticion=transporte
+	}
+
+	if($tipoDato=='aparcamientos'){
+		$tam=500;
+		for ($i=0; $i <$tam ; $i++) { 
+			$aparcamiento[$i]["id"]="id-Aparcamiento ".$i;
+			$aparcamiento[$i]["tipo"]="tipo Aparcamiento ".$i;
+			$aparcamiento[$i]["descripcion"]="Descripcion Aparcamiento ".$i;
+			$aparcamiento[$i]["ubicacion"]="Ubicacion Aparcamiento ".$i;
+		}
+		$articulo['aparcamientos']=$aparcamiento;
+		//http://localhost/proyectos/trabajopa/datosLista.php?peticion=aparcamientos
+	}
+
+	if($tipoDato=='deportes'){
+		$tam=10;
+		for ($i=0; $i <$tam ; $i++) { 
+			$deporte[$i]["id"]="id-Ins. Deportiva ".$i;
+			$deporte[$i]["tipo"]="tipo Ins. Deportiva ".$i;
+			$deporte[$i]["descripcion"]="Descripcion Ins. Deportiva ".$i;
+			$deporte[$i]["ubicacion"]="Ubicacion Ins. Deportiva ".$i;
+		}
+		$articulo['deportes']=$deporte;
+		//http://localhost/proyectos/trabajopa/datosLista.php?peticion=deportes
+	}
+
+	if($tipoDato=='estudiantes'){
+		$tam=10;
+		for ($i=0; $i <$tam ; $i++) { 
+			$estudiante[$i]["id"]="id-Estudiantes ".$i;
+			$estudiante[$i]["tipo"]="tipo Estudiantes ".$i;
+			$estudiante[$i]["descripcion"]="Descripcion Estudiantes ".$i;
+			$estudiante[$i]["ubicacion"]="Ubicacion Estudiantes ".$i;
+		}
+		$articulo['estudiantes']=$estudiante;
+		//http://localhost/proyectos/trabajopa/datosLista.php?peticion=estudiantes
 	}
 
 	if($tipoDato=='entidades'){

@@ -38,18 +38,23 @@ enyo.kind({
                   break;
             case "Comida":
                   console.log("vamos a crear Comida");
+                  this.createComida();
                   break;
             case "Transporte":
                   console.log("vamos a crear Transporte");
+                  this.createTransporte();
                   break;
             case "Aparcamientos":
                   console.log("vamos a crear Aparcamientos");
+                  this.createAparcamientos();
                   break;
             case "Instalaciones Deportivas":
                   console.log("vamos a crear Instalaciones Deportivas");
+                  this.createDeportes();
                   break;
             case "Para Estudiantes":
                   console.log("vamos a crear Para Estudiantes");
+                  this.createEstudiantes();
                   break;
             default:
             console.log("no vamos a crear nada");
@@ -97,6 +102,61 @@ enyo.kind({
       this.createComponent({
         kind: Profesores,
         name: "listaProfesores",
+        container: this.$.lugares,
+      });
+      this.$.lugares.render();
+  },
+
+  createComida:function() {
+      this.$.lugares.destroyClientControls();
+      //Profesores
+      this.createComponent({
+        kind: Comida,
+        name: "listaComida",
+        container: this.$.lugares,
+      });
+      this.$.lugares.render();
+  },
+
+  createTransporte:function() {
+      this.$.lugares.destroyClientControls();
+      //Profesores
+      this.createComponent({
+        kind: Transporte,
+        name: "listaTransporte",
+        container: this.$.lugares,
+      });
+      this.$.lugares.render();
+  },
+
+  createAparcamientos:function() {
+      this.$.lugares.destroyClientControls();
+      //Profesores
+      this.createComponent({
+        kind: Aparcamientos,
+        name: "listaAparcamientos",
+        container: this.$.lugares,
+      });
+      this.$.lugares.render();
+  },
+
+  createDeportes:function() {
+      this.$.lugares.destroyClientControls();
+      //Profesores
+      this.createComponent({
+        kind: Deportes,
+        name: "listaDeportes",
+        container: this.$.lugares,
+      });
+      this.$.lugares.render();
+  },
+
+  createEstudiantes:function() {
+      this.$.lugares.destroyClientControls();
+      //Profesores
+      this.createComponent({
+        kind: Estudiantes,
+        name: "listaEstudiantes",
         container: this.$.lugares,
       });
       this.$.lugares.render();
