@@ -1,17 +1,38 @@
 <?php 
 function imprimirEdificios(){
 	$edificios=obtenerEdificios();
+	$plant=0;
 	if (isset($edificios)) {
 		$i=1;
-		echo "<select name='edificios' id='edificios-list'>";
+		
+		$cadena="";
+		echo "<select name='edificios' id='edificios-list' onChange='cambioEdificio(this)'>";
 		foreach ($edificios as $edificio) {
 			echo "<option value='".$i."'>".$edificio[0]."</option>";
+			//echo "<option value='".$i."'>".$edificio[1]."</option>";
+			if($i>1){
+				$cadena=$cadena.";".$edificio[0].",".$edificio[1];
+			}else{
+				$cadena=$edificio[0].",".$edificio[1];
+				$plant=$edificio[1];
+			}
 			$i++;
 		}
 		echo "</select>";
+		//echo $cadena;
+		echo "<input type='hidden' name='plantasTotales' value='".$cadena."' id='plantasTotales'/>";
+		
 	}else{
 		echo "No hay edificio, no es posible continuar";
 	}
+	return $plant;
+}
+function imprimirPlantas($valor){
+	echo "<select name='planta_des' id='planta-form'>";
+		for ($i=0; $i <=$valor ; $i++) { 
+			echo "<option value='".$i."'>Planta ".$i."</option>";
+		}
+	echo "</select>";
 }
 function obtenerEdificios(){
 	$con = mysql_connect("localhost","root","");
@@ -22,7 +43,7 @@ function obtenerEdificios(){
 	if (!$db_selected) {
 		die(' No puedo seleccionar con prueba: ' . mysql_error());
 	}
-	$result=  mysql_query("select numero_ed from Edificio",$con);
+	$result=  mysql_query("select numero_ed, plantas_ed from Edificio",$con);
 	if (!$result) {
 		die('no se pudo ejecutar la consulta' . mysql_error());
 	}
@@ -133,6 +154,39 @@ function obtenerDespachos(){
 	function procesaRespuesta(inResponse){
 		alert(inResponse);
 	}
+	function cambioEdificio(inEvent){
+		var p=document.getElementById('plantasTotales').value;
+		var pl=p.split(";");
+		var cad="";
+		var indice;
+		var pla=new Array();
+		for(var i=0;i<pl.length;i++){
+			pla[i]=pl[i].split(",");
+		}
+		for(var i=0;i<pla.length;i++){
+			if(inEvent.value==pla[i][0]){
+				//cad="el edificio "+inEvent.value+" tiene "+pla[i][1]+"plantas";
+				indice=i;
+				break;
+			}
+			//pla[i]=pl[i].split(",");
+		}
+		//alert(cad);
+		var opciones = document.getElementById("planta-form");
+			if ( opciones.hasChildNodes() )
+			{
+				while ( opciones.childNodes.length >= 1 )
+				{
+					opciones.removeChild( opciones.firstChild );
+				}
+			}
+			for (var i = 0; i <=pla[indice][1]; i++) {
+				var opcion=$('<option>');
+				opcion.attr('value',i);
+				opcion.text("Planta "+i);
+				$('#planta-form').append(opcion);
+			};
+	}
 	</script>
 	<script>
 	var vel=200;
@@ -154,8 +208,8 @@ function obtenerDespachos(){
   				$(".submit").show(vel);
 				//limpiamos el form
 				$("#despachoID-form").val("auto");
+				$("#edificios-list").val("1");
 				$("#planta-form").val("0");
-				$("#planta-form").val("");
 				$("#numero_des-form").val("");
 				$("#btn-editar-form").hide();
 				$("#btn-crear").show();
@@ -253,7 +307,7 @@ function obtenerDespachos(){
 							N&uacute;mero de edificio:
 						</td>
 						<td>
-							<?php imprimirEdificios(); ?>
+							<?php $plantaCero=imprimirEdificios(); ?>
 						</td>
 					</tr>
 					<tr>
@@ -261,7 +315,7 @@ function obtenerDespachos(){
 							Planta:
 						</td>
 						<td>
-							<input class="numerico" type="number" id="planta-form" type="text" name="planta_des" min="0" required  />
+							<?php imprimirPlantas($plantaCero) ?>
 						</td>
 					</tr>
 					<tr>
