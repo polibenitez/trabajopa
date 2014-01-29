@@ -1,10 +1,6 @@
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
-    </head>
-    <body>
-        <?php
+<?php
 
+header("Content-Type: text/html;charset=utf-8"); //por el tema de las tildes. tambien tenemos que tener encuenta que la bd este en utf8_general_ci todas las tablas tambien
 function obtenerEdificios() {
     $con = mysql_connect("localhost", "root", "");
     if (!$con) {
@@ -48,6 +44,7 @@ function obtenerProfesores() {
     $i = 0;
     while ($row = mysql_fetch_array($result)) {
         $objeto[$i] = array_map('utf8_encode', $row);
+        //$objeto[$i]=$row;
         $i++;
     }
     return $objeto;
@@ -182,11 +179,11 @@ if (isset($_GET['peticion'])) {
         if (isset($edificiosAux)) {
             $i = 0;
             foreach ($edificiosAux as $ed) {
-                $edificio[$i]["numero"] = $ed[0];
-                $edificio[$i]["nombre"] = $ed[1];
-                $edificio[$i]["ubicacion"] = $ed[2];
-                $edificio[$i]["plantas"] = $ed[3];
-                $edificio[$i]["comentario"] = $ed[4];
+                $edificio[$i]["numero"] = htmlentities($ed[0]); //htmlentities para ver las tildes en json
+                $edificio[$i]["nombre"] = htmlentities($ed[1]);
+                $edificio[$i]["ubicacion"] = htmlentities($ed[2]);
+                $edificio[$i]["plantas"] = htmlentities($ed[3]);
+                $edificio[$i]["comentario"] = htmlentities($ed[4]);
                 $i++;
             }
 
@@ -202,13 +199,13 @@ if (isset($_GET['peticion'])) {
         if (isset($profesoresAux)) {
             $i = 0;
             foreach ($profesoresAux as $pro) {
-                $profesor[$i]["id"] = $pro[0];
-                $profesor[$i]["nombre"] = $pro[1];
-                $profesor[$i]["apellido1"] = $pro[2];
-                $profesor[$i]["apellido2"] = $pro[3];
-                $profesor[$i]["asignatura"] = $pro[4];
-                $profesor[$i]["despacho"] = $pro[5] . "." . $pro[6] . "." . $pro[7];
-                $profesor[$i]["ubicacion"] = $pro[8];
+                $profesor[$i]["id"] = htmlentities($pro[0]);
+                $profesor[$i]["nombre"] = htmlentities($pro[1]);
+                $profesor[$i]["apellido1"] = htmlentities($pro[2]);
+                $profesor[$i]["apellido2"] = htmlentities($pro[3]);
+                $profesor[$i]["asignatura"] = htmlentities($pro[4]);
+                $profesor[$i]["despacho"] = htmlentities($pro[5] . "." . $pro[6] . "." . $pro[7]);
+                $profesor[$i]["ubicacion"] = htmlentities($pro[8]);
                 $i++;
             }
 
@@ -224,10 +221,10 @@ if (isset($_GET['peticion'])) {
         if (isset($comidasAux)) {
             $i = 0;
             foreach ($comidasAux as $com) {
-                $comida[$i]["id"] = $com[0];
-                $comida[$i]["tipo"] = $com[1];
-                $comida[$i]["descripcion"] = $com[2];
-                $comida[$i]["ubicacion"] = $com[3];
+                $comida[$i]["id"] = htmlentities($com[0]);
+                $comida[$i]["tipo"] = htmlentities($com[1]);
+                $comida[$i]["descripcion"] = htmlentities($com[2]);
+                $comida[$i]["ubicacion"] = htmlentities($com[3]);
                 $i++;
             }
 
@@ -243,10 +240,10 @@ if (isset($_GET['peticion'])) {
         if (isset($transportesAux)) {
             $i = 0;
             foreach ($transportesAux as $tra) {
-                $transporte[$i]["id"] = $tra[0];
-                $transporte[$i]["tipo"] = $tra[1];
-                $transporte[$i]["descripcion"] = $tra[2];
-                $transporte[$i]["ubicacion"] = $tra[3];
+                $transporte[$i]["id"] = htmlentities($tra[0]);
+                $transporte[$i]["tipo"] = htmlentities($tra[1]);
+                $transporte[$i]["descripcion"] = htmlentities($tra[2]);
+                $transporte[$i]["ubicacion"] = htmlentities($tra[3]);
                 $i++;
             }
 
@@ -262,10 +259,10 @@ if (isset($_GET['peticion'])) {
         if (isset($aparcamientosAux)) {
             $i = 0;
             foreach ($aparcamientosAux as $apa) {
-                $aparcamiento[$i]["id"] = $apa[0];
-                $aparcamiento[$i]["tipo"] = $apa[1];
-                $aparcamiento[$i]["descripcion"] = $apa[2];
-                $aparcamiento[$i]["ubicacion"] = $apa[3];
+                $aparcamiento[$i]["id"] = htmlentities($apa[0]);
+                $aparcamiento[$i]["tipo"] = htmlentities($apa[1]);
+                $aparcamiento[$i]["descripcion"] = htmlentities($apa[2]);
+                $aparcamiento[$i]["ubicacion"] = htmlentities($apa[3]);
                 $i++;
             }
 
@@ -281,10 +278,10 @@ if (isset($_GET['peticion'])) {
         if (isset($deportesAux)) {
             $i = 0;
             foreach ($deportesAux as $dep) {
-                $deporte[$i]["id"] = $dep[0];
-                $deporte[$i]["tipo"] = $dep[1];
-                $deporte[$i]["descripcion"] = $dep[2];
-                $deporte[$i]["ubicacion"] = $dep[3];
+                $deporte[$i]["id"] = htmlentities($dep[0]);
+                $deporte[$i]["tipo"] = htmlentities($dep[1]);
+                $deporte[$i]["descripcion"] = htmlentities($dep[2]);
+                $deporte[$i]["ubicacion"] = htmlentities($dep[3]);
                 $i++;
             }
 
@@ -300,10 +297,10 @@ if (isset($_GET['peticion'])) {
         if (isset($estudiantesAux)) {
             $i = 0;
             foreach ($estudiantesAux as $est) {
-                $estudiante[$i]["id"] = $est[0];
-                $estudiante[$i]["tipo"] = $est[1];
-                $estudiante[$i]["descripcion"] = $est[2];
-                $estudiante[$i]["ubicacion"] = $est[3];
+                $estudiante[$i]["id"] = htmlentities($est[0]);
+                $estudiante[$i]["tipo"] = htmlentities($est[1]);
+                $estudiante[$i]["descripcion"] = htmlentities($est[2]);
+                $estudiante[$i]["ubicacion"] = htmlentities($est[3]);
                 $i++;
             }
 
@@ -324,7 +321,7 @@ if (isset($_GET['peticion'])) {
         $articulo[6] = "Para Estudiantes";
     }
 }
-    echo json_encode($articulo);
+    print(json_encode($articulo));
 ?>
     </body>
 </html>
