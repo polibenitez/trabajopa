@@ -8,12 +8,15 @@ enyo.depends(
 	"Cabecera.js",
 	"servicioWeb.js",
 	"Footer.js",
+	"FooterPrincipal.js",
 	"Header.js",
 	"Entidades.js",
 	"Lista.js",
 	"Lugares.js",
 	"Edificios.js",
 	"ListaEdificios.js",
+	"Profesores.js",
+	"ListaProfesores.js",
 	"Mapa.js",
 	"Mupos.js"
 );

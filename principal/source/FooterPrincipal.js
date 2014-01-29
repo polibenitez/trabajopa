@@ -1,5 +1,5 @@
 enyo.kind({
-    name: "Footer",
+    name: "Footer-Principal",
     kind: "Control",
     components: [
         {
@@ -10,7 +10,7 @@ enyo.kind({
                 {
                     tag:"h1",
                     fit:true,
-                    content:"Selecciona",
+                    content:"Pie de pagina principal",
                     classes:"headerTextTitle",
                     style:"text-align:center"
                 }

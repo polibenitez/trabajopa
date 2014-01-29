@@ -129,18 +129,48 @@ $tipoDato=$_GET['peticion'];
 				$edificio[15]["plantas"]=115;
 				$edificio[15]["comentario"]="comentario e15";
 
-				//añadimos el tag principal
 				$articulo['edificios']=$edificio;
+				//http://localhost/proyectos/trabajopa/datosLista.php?peticion=edificios
+	}
+	if($tipoDato=='profesores'){
+		$tam=10;
+		for ($i=0; $i <$tam ; $i++) { 
+			$profesor[$i]["id"]="id-".$i;
+			$profesor[$i]["nombre"]="Nombre Profesor ".$i;
+			$profesor[$i]["apellido1"]="Apellido-1 Profesor ".$i;
+			$profesor[$i]["apellido2"]="Apellido-2 Profesor ".$i;
+			$profesor[$i]["asignatura"]="Asignatura Profesor ".$i;
+			$profesor[$i]["despacho"]="despacho Profesor ".$i;
+			$profesor[$i]["ubicacion"]="ubicacion".$i;//sacar de los despachos
+		}
+		$articulo['profesores']=$profesor;
+		//http://localhost/proyectos/trabajopa/datosLista.php?peticion=profesores
+	}
+
+	if($tipoDato=='comida'){
+		$tam=10;
+		for ($i=0; $i <$tam ; $i++) { 
+			$profesor[$i]["id"]="id-".$i;
+			$profesor[$i]["nombre"]="Nombre Profesor ".$i;
+			$profesor[$i]["apellido1"]="Apellido-1 Profesor ".$i;
+			$profesor[$i]["apellido2"]="Apellido-2 Profesor ".$i;
+			$profesor[$i]["asignatura"]="Asignatura Profesor ".$i;
+			$profesor[$i]["despacho"]="despacho Profesor ".$i;
+		}
+		$articulo['profesores']=$profesor;
+		//http://localhost/proyectos/trabajopa/datosLista.php?peticion=profesores
 	}
 
 	if($tipoDato=='entidades'){
 		//prueba con Entidades
 		$articulo[0]="Edificios";
-		$articulo[1]="Despachos";
-		$articulo[2]="Servicios";
-		$articulo[3]="Comedores";
-		$articulo[4]="Paradas de bus";
-		$articulo[5]="Parkings";
+		$articulo[1]="Profesores";
+		$articulo[2]="Comida";
+		$articulo[3]="Transporte";
+		$articulo[4]="Aparcamientos";
+		$articulo[5]="Instalaciones Deportivas";
+		$articulo[6]="Para Estudiantes";
+		// http://localhost/proyectos/trabajopa/datosLista.php?peticion=entidades
 	}
 
 	//asi vamos añadiendo mas peticiones aunque 

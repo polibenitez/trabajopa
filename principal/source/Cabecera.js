@@ -5,15 +5,17 @@ enyo.kind({
         {
              kind: "onyx.Toolbar",
              layoutKind: "FittableColumnsLayout",
+             fit:true,
              components:[
+             {tag: "img",classes:"cabecera-menu", attributes: {src: "assets/img/icono_de_mapa.png",style:"height: 40px;"}},
              	{
              		tag:"h1",
-             		fit:true,
+             		
              		content:"Mupos",
              		//classes:"headerTextTitle",
-             		style:"text-align:left;color:lightblue;"
+             		style:"text-align:left;color:rgb(0,182,233);"
              	},
-                {kind:"onyx.Button",name:"login",content:"Entrar", classes:"onyx-blue",ontap:"handleBtnNextPage"}
+                {kind:"onyx.Button",name:"login",content:"Entrar", classes:"onyx-blue",style:"float:right",ontap:"handleBtnNextPage"}
              ]
         },
         {kind: "PopupWindow", name: "popup", onWindowClosed: "closed"}
