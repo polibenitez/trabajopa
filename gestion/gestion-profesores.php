@@ -23,12 +23,12 @@
 				<a href="./salir.php">Salir</a>
 			</div>
 		</header>
-		<section class="uso-gestion">
-			<?php include("gestion-profesores-script.php"); ?>
-		</section>
-		<footer>
-			create by MAMISHO copy-left 2013
-		</footer>
+            <section class="uso-gestion">
+                    <?php include("gestion-profesores-script.php"); ?>
+            </section>
+            <footer>
+                    create by MAMISHO copy-left 2013
+            </footer>
 	</div>
 </body>
 </html>

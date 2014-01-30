@@ -113,6 +113,16 @@ div.cajas{
 	overflow: scroll;
 	height: 50%;
 }
+
+ .content{
+	border: 2px solid black;
+	box-shadow: 0px 6px 12px black;
+
+	margin: 0 auto 2% auto;
+	width: 70%;
+	overflow: scroll;
+	height: 50%;
+}
 div.caja{
 	display: inline-block;
 	overflow: hidden;
@@ -315,6 +325,13 @@ footer{
 	background-image: url("./images/iconos/editar.png");
 }
 .boton-nuevo{
+	margin: 0;
+	width: 48px;
+	height: 48px;
+	background-color: transparent;
+	background-image: url("./images/iconos/nuevo.png");
+}
+.enviar{
 	margin: 0;
 	width: 48px;
 	height: 48px;
