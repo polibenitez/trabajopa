@@ -39,6 +39,7 @@ enyo.kind({
             case "Comida":
                   console.log("vamos a crear Comida");
                   this.createComida();
+                  this.$.mapa.$.iframe.setSrc("./source/mapa/comidas.html");
                   break;
             case "Transporte":
                   console.log("vamos a crear Transporte");
@@ -72,6 +73,7 @@ enyo.kind({
     //console.log(ubicacion);
     var latitud=ubicacion[0];
     var longitud=ubicacion[1];
+    //enviar tambien el id
     this.$.mapa.$.iframe.setSrc("./source/mapa/mapas.html?latitud="+latitud+"&longitud="+longitud);
   },
   /*setupItem: function(inSender, inEvent) {

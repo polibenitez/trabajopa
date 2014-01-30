@@ -172,7 +172,7 @@ $tipoDato=$_GET['peticion'];
 	}
 
 	if($tipoDato=='aparcamientos'){
-		$tam=500;
+		$tam=1000;
 		for ($i=0; $i <$tam ; $i++) { 
 			$aparcamiento[$i]["id"]="id-Aparcamiento ".$i;
 			$aparcamiento[$i]["tipo"]="tipo Aparcamiento ".$i;
@@ -205,6 +205,17 @@ $tipoDato=$_GET['peticion'];
 		}
 		$articulo['estudiantes']=$estudiante;
 		//http://localhost/proyectos/trabajopa/datosLista.php?peticion=estudiantes
+	}
+
+/*nueva peticion a la API*/
+	if($tipoDato=="edificio"){
+		$identificador=$_GET['numero'];
+			//con el numero hace la consulta
+
+			$edificio["nombre"]="Nombre Edificio prueba ajax";
+			$edificio["descripcion"]="Descripcion Edificio prueba ajax";
+			
+			$articulo['edificio']=$edificio;
 	}
 
 	if($tipoDato=='entidades'){
