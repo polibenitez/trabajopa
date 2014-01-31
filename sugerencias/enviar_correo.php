@@ -2,7 +2,7 @@
 
 //Recuperar los datos que serviran para enviar el correo
 $seEnvio;      //Para determinar si se envio o no el correo
-$destinatario = 'pacolopezbaena@gmail.com';        //A quien se envia
+$destinatario = 'mamisho.mamisho@gmail.com';        //A quien se envia
 $elmensaje = str_replace("\n.", "\n..", $_POST['elmsg']);     //por si el mensaje empieza con un punto ponerle 2
 $elmensaje = wordwrap($elmensaje, 70);                       //dividir el mensaje en trozos de 70 cols
 //Recupear el asunto

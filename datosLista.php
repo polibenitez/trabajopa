@@ -165,7 +165,7 @@ $tipoDato=$_GET['peticion'];
 			$comida[1]["id"]=1;
 			$comida[1]["tag"]="Pizzería";
 			$comida[1]["tipo"]="comida";
-			$comida[1]["descripcion"]="Pizería Santa Clara";
+			$comida[1]["descripcion"]="Pizzería Santa Clara";
 			$comida[1]["ubicacion"]="37.3575880155198;-5.939065217971802";
 
 			$comida[2]["id"]=2;

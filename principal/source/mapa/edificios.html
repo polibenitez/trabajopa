@@ -35,18 +35,18 @@
 //por get me llega el id,latitud y longitud
 //alert('Latitud: '+latitud+'\nLongitud: '+longitud);
 if(typeof(latitud) != "undefined" && typeof(longitud)!="undefined" && typeof(numero)!="undefined"){
-    console.log("existen variables");
+    //console.log("existen variables");
         var map = L.mapbox.map('map', 'mamisho.h2p9dhpa').setView([latitud, longitud], 17);
 
         var descripcion="";
         var nombre="";
         var pUrl="../../../datosLista.php?peticion=edificio&numero="+numero;
         $.getJSON(pUrl, {format: "json"}, function(data) { 
-            console.log(data);
-            console.log("probando cositas "+data.edificio.descripcion);
+            //console.log(data);
+            //console.log("probando cositas "+data.edificio.descripcion);
             descripcion=data.edificio.descripcion;
             nombre=data.edificio.nombre;
-            console.log("nombre: "+nombre+" descripcion: "+descripcion);
+            //console.log("nombre: "+nombre+" descripcion: "+descripcion);
 
             //añadir aqui el código para meter la chicheta porque esto es lo ultimo que se ejecuta
 
@@ -67,7 +67,7 @@ if(typeof(latitud) != "undefined" && typeof(longitud)!="undefined" && typeof(num
         });
 
 }else{ 
-    console.log("no hay variables");
+    //console.log("no hay variables");
     var map = L.mapbox.map('map', 'mamisho.h2p9dhpa').setView([37.35585, -5.93653], 17);
 }
 

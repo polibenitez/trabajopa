@@ -14,7 +14,7 @@ enyo.kind({
         {kind:"Edificios",name:"listaEdificios"}
       ]},
       {name: "mapaPanel", components: [
-        {kind:"Mapa",name:"mapa",url:null}
+        {kind:"Mapa",touch:true,name:"mapa",url:null}
       ]}
     ]}
   ],
@@ -25,7 +25,7 @@ enyo.kind({
     //console.log("**********Me presionaron********");
     
       if(inEvent.name!=control){
-        console.log(inEvent.name+" NO igual a "+ control);
+        //console.log(inEvent.name+" NO igual a "+ control);
         control=inEvent.name;
           switch(control){
             case "Edificios":
@@ -86,7 +86,7 @@ enyo.kind({
     //control=inEvent.name;
           switch(control){
             case "Edificios":
-                  console.log("Mapa de edificios");
+                  //console.log("Mapa de edificios");
                   //this.createEdificios();
                   //this.$.mapa.$.iframe.setSrc("./source/mapa/edificios.html");
                   this.$.mapa.$.iframe.setSrc("./source/mapa/edificios.html?latitud="+latitud+"&longitud="+longitud+"&numero="+inEvent.numero);
@@ -97,7 +97,7 @@ enyo.kind({
                   this.$.mapa.$.iframe.setSrc("./source/mapa/profesores.html?latitud="+latitud+"&longitud="+longitud+"&id="+inEvent.id);
                   break;
             case "Comida":
-                  console.log("Mapa de comidas");
+                  //console.log("Mapa de comidas");
                   //this.createComida();
                   //this.$.mapa.$.iframe.setSrc("./source/mapa/comidas.html");
                   this.$.mapa.$.iframe.setSrc("./source/mapa/comidas.html?latitud="+latitud+"&longitud="+longitud);

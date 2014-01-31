@@ -32,7 +32,7 @@ enyo.kind({
                     }
                 ]},*/
                 
-                {tag: "img",classes:"cabecera-menu",content:"Información",ontap:"tapInformacion", attributes: {src: "assets/img/icon_informacion.png"}},
+                {tag: "img",classes:"cabecera-menu",content:"Informaci\u00F3n",ontap:"tapInformacion", attributes: {src: "assets/img/icon_informacion.png"}},
                 {tag: "img",classes:"cabecera-menu",content:"Sugerencias",ontap:"tapSugerencia", attributes: {src: "assets/img/icon_email.png"}},
                 //
              ]

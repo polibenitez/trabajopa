@@ -5,7 +5,7 @@ enyo.kind({
   touch:true,
 	components: [
       //{fit: true, name: "iframe",src:"./source/mapa/mapas.html?latitud=37.35785&longitud=-5.93400",classes:"frame", tag: "iframe", onload: "frameload", attributes: {onload: enyo.bubbler}},
-      {fit: true, name: "iframe",src:"./source/mapa/edificios.html",classes:"frame", tag: "iframe", onload: "frameload", attributes: {onload: enyo.bubbler}},
+      {fit: true,touch:true, name: "iframe",src:"./source/mapa/edificios.html",classes:"frame", tag: "iframe", onload: "frameload", attributes: {onload: enyo.bubbler}},
       { kind:"Footer-Principal" }//crear un footer perznalizadon con opciones de un pie de página normal, como contact, sugerencias, etc..
 	],
   
