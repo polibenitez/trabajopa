@@ -35,8 +35,9 @@ enyo.kind({
                   
                   break;
             case "Profesores":
-                  console.log("vamos a crear Profesores");
+                  //console.log("vamos a crear Profesores");
                   this.createProfesores();
+                  this.$.mapa.$.iframe.setSrc("./source/mapa/profesores.html");
                   break;
             case "Comida":
                   //console.log("vamos a crear Comida");
@@ -91,8 +92,9 @@ enyo.kind({
                   this.$.mapa.$.iframe.setSrc("./source/mapa/edificios.html?latitud="+latitud+"&longitud="+longitud+"&numero="+inEvent.numero);
                   break;
             case "Profesores":
-                  console.log("Mapa de Profesores");
+                  console.log("latitud: "+latitud+" longitud: "+longitud+" id: "+inEvent.id);
                   //this.createProfesores();
+                  this.$.mapa.$.iframe.setSrc("./source/mapa/profesores.html?latitud="+latitud+"&longitud="+longitud+"&id="+inEvent.id);
                   break;
             case "Comida":
                   console.log("Mapa de comidas");

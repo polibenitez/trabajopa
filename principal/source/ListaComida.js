@@ -25,8 +25,8 @@ enyo.kind({
 	setupItem: function(inSender, inEvent) {
 			var i = inEvent.index;
 			if (!this.names[i]) {
-				this.names[i] = this.data.comida[i].tipo;
-				this.numbers[i] = this.data.comida[i].id;
+				this.names[i] = this.data.comida[i].tag;
+				this.numbers[i] = this.data.comida[i].descripcion;
 			}
 
 		var ni = this.names[i];

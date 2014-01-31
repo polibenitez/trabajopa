@@ -136,12 +136,12 @@ $tipoDato=$_GET['peticion'];
 		$tam=10;
 		for ($i=0; $i <$tam ; $i++) { 
 			$profesor[$i]["id"]="id-".$i;
-			$profesor[$i]["nombre"]="Nombre Profesor ".$i;
-			$profesor[$i]["apellido1"]="Apellido-1 Profesor ".$i;
-			$profesor[$i]["apellido2"]="Apellido-2 Profesor ".$i;
+			$profesor[$i]["nombre"]="Nombre".$i;
+			$profesor[$i]["apellido1"]="Apellido-1".$i;
+			$profesor[$i]["apellido2"]="Apellido-2".$i;
 			$profesor[$i]["asignatura"]="Asignatura Profesor ".$i;
-			$profesor[$i]["despacho"]="despacho Profesor ".$i;
-			$profesor[$i]["ubicacion"]="ubicacion".$i;//sacar de los despachos
+			$profesor[$i]["despacho"]="1.2.4-".$i;
+			$profesor[$i]["ubicacion"]="37.35400;-5.94330";//sacar de los despachos
 		}
 		$articulo['profesores']=$profesor;
 		//http://localhost/proyectos/trabajopa/datosLista.php?peticion=profesores
@@ -156,24 +156,28 @@ $tipoDato=$_GET['peticion'];
 			$comida[$i]["ubicacion"]="37.354449658588806;-5.937541723251343";
 		}*/
 
-			$comida[0]["id"]="Cafetería celestino Mutis";
-			$comida[0]["tipo"]="cafeteria";
-			$comida[0]["descripcion"]="Restaurante cafetería edificio Celestino Mutis";
+			$comida[0]["id"]=0;
+			$comida[0]["tag"]="Cafetería";
+			$comida[0]["tipo"]="comida";
+			$comida[0]["descripcion"]="Cafetería celestino Mutis";
 			$comida[0]["ubicacion"]="37.35741745601511;-5.939558744430542";
 
-			$comida[1]["id"]="Pizería Santa Clara";
-			$comida[1]["tipo"]="Pizzeria";
-			$comida[1]["descripcion"]="Cafetería, pizería, bocatería Santa clara";
+			$comida[1]["id"]=1;
+			$comida[1]["tag"]="Pizzería";
+			$comida[1]["tipo"]="comida";
+			$comida[1]["descripcion"]="Pizería Santa Clara";
 			$comida[1]["ubicacion"]="37.3575880155198;-5.939065217971802";
 
-			$comida[2]["id"]="Cafetería Plaza America";
-			$comida[2]["tipo"]="Restaurante";
-			$comida[2]["descripcion"]="Cafetería Plaza America";
+			$comida[2]["id"]=2;
+			$comida[2]["tag"]="Restaurante";
+			$comida[2]["tipo"]="comida";
+			$comida[2]["descripcion"]="Cafetería Plaza América";
 			$comida[2]["ubicacion"]="37.354449658588806;-5.937541723251343";
 
-			$comida[3]["id"]="Kiosko";
-			$comida[3]["tipo"]="Kiosko";
-			$comida[3]["descripcion"]="Golosinas, dulces, bebidas...";
+			$comida[3]["id"]=3;
+			$comida[3]["tag"]="Kiosko";
+			$comida[3]["tipo"]="comida";
+			$comida[3]["descripcion"]="Kiosko";
 			$comida[3]["ubicacion"]="37.357306592129234;-5.939440727233887";
 
 			$articulo['comida']=$comida;
@@ -236,6 +240,18 @@ $tipoDato=$_GET['peticion'];
 			$edificio["nombre"]="Biblioteca";
 			$edificio["descripcion"]="Biblioteca de la UPO, Se prestan servicios como prestamos de libros y reservas de salas de estudio";
 			$articulo['edificio']=$edificio;
+	}
+
+	if($tipoDato=="profesor"){
+		$identificador=$_GET['id'];
+			//con el numero hace la consulta
+
+			$profesor["nombre"]="Nombre";
+			$profesor["apellido1"]="Apellido-1";
+			$profesor["apellido2"]="Apellido-2";
+			$profesor["asignatura"]="Asignatura: Programación. ";
+			$profesor["despacho"]="Edificio: 1 <br/>Planta: 2 <br/> Despacho: 4";//en esta peticion concatenar "Edificio_NUM.Planta_NUM.Despacho_NUM"
+			$articulo['profesor']=$profesor;
 	}
 
 	if($tipoDato=='entidades'){
