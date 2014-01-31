@@ -3,7 +3,7 @@
 <head>
 <meta charset=utf-8 />
 <title>Mapa de la UPO</title>
-
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
 <script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.js'></script>
 <link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.css' rel='stylesheet' />
@@ -12,6 +12,11 @@
   body { margin:0; padding:0; }
   #map { position:absolute; top:0; bottom:0; width:100%; }
 </style>
+<script type="text/javascript">
+function alerta(){
+    alert("me llaman desde enyo");
+}
+</script>
 </head>
 <body>
     <!-- Finaliza GPS-->
@@ -32,37 +37,77 @@
 
 <div id='map'></div>
 <script>
-//alert('Latitud: '+latitud+'\nLongitud: '+longitud);
-    var map = L.mapbox.map('map', 'zadik.h4n5k2n8').setView([37.35785, -5.93653], 16);
-    //var map = L.mapbox.map('map', 'zadik.h4n5k2n8').setView([latitud, longitud], 17);
+//.setView([37.35585, -5.93653], 16);
+if(latitud !=0 && longitud!=0){
+    //console.log("existen variables");
+        //var map = L.mapbox.map('map', 'zadik.h4n5k2n8').setView([latitud, longitud], 17);
+        //var map = L.mapbox.map('map', 'zadik.h4n5k2n8').setView([37.35585, -5.93653], 17);
+        var map = L.mapbox.map('map', 'zadik.h4n5k2n8').setView([37.35585, -5.93653], 17);;
+
+        map.markerLayer.on('ready', function() {
+
+            var features = map.markerLayer.getGeoJSON().features;
+            var feature;
+            //console.log(features);
+              for (var i = 0; i < features.length; i++) {
+                var lat=features[i].geometry.coordinates[1];
+                var lon=features[i].geometry.coordinates[0];
+                if(lat==latitud && lon==longitud){
+                    //console.log("coincide con "+features[i].properties.title);
+                    features[i].properties['marker-color'] = '#000';
+                    feature=features[i];
+                    break; 
+                }
+                //console.log(features[i].properties.title);
+                
+                //console.log("elemento: "+i +" latitud " + features[i].geometry.coordinates[0]);
+                //console.log("latitud: "+latitud+"\nlongitud: "+longitud);
+                //typesObj[features[i].properties['marker-symbol']] = true;
+              }
+              map.panTo([latitud, longitud]);
+              map.markerLayer.setGeoJSON(features);
+              //map.markerLayer.feature.openPopup();
+              /*var popup = L.popup()
+                    .setLatLng([latitud, longitud])
+                    //.setContent('<p>Hello world!<br />This is a nice popup.</p>')
+                    .openOn(map);*/
+        });
+        
+
+        /*  La siguiente parte comentada es para hacerlo usando ajax, no lo uso porque 
+            tarda mas al redirigir a un script php del servidor.
+
+                    var pUrl="https://a.tiles.mapbox.com/v3/zadik.h4n5k2n8/markers.geojson";
+                    $.getJSON(pUrl, {format: "json"}, function(data) { 
+                        console.log(data);
+                        //map.markerLayer.setGeoJSON(data);
+                        //map.setView([37.35585, -5.93653], 17);
+                        //var geocoder = L.mapbox.geocoder('zadik.h4n5k2n8');
+                        //geocoder.reverseQuery([longitud,latitud], showMap);
+                    });
+                    
+                    //var features = map.markerLayer.getGeoJSON().features;
+                    //console.log(features);
+        */
+
+}else{ 
+    console.log("no hay variables");
+    var map = L.mapbox.map('map', 'zadik.h4n5k2n8').setView([37.35585, -5.93653], 17);
+}
+
     L.control.locate().addTo(map);
-    L.mapbox.markerLayer({
-    // creamos el mapa y luego podemos añadir chichetas con los parametros que le
-    //pasemos a esta función
-    type: 'Feature',
-    geometry: {
-        type: 'Point',
-        //Las cordenadas van al contrario que en la llamada al mapa
-        //Nos fijamos en la llamada que hacemos antes
-        //coordinates: [-5.93653,37.35785]
-        coordinates: [longitud,latitud]
-    },
-    properties: {
-        title: 'Selección de este mapa',
-        description: 'Solo es para mamisho',
-        //aqui añadimos propiedades del lugar al que le ponemos la chincheta
-        // http://mapbox.com/developers/simplestyle/
-        'marker-size': 'large',
-        'marker-color': '#f0a'
-    }
-
-}).addTo(map);
-
-    //L.mapbox.map('map', 'mamisho.ghij2j20').addControl(L.mapbox.geocoderControl('mamisho.ghij2j20'));
-    //L.control.locate().addTo(map);
+    
     map.markerLayer.on('click', function(e) {
         map.panTo(e.layer.getLatLng());
     });
+
+function showMap(err, data) {
+     map.fitBounds(data.lbounds);
+}
+//por problemas de los acentos y no puedo pasar por parametros los datos, con lo cual
+//tengo que recurrir a la API implementada en php con el que le voy a pasar el id y la tabla de la que necesito
+//los datosen este caso el id  del
+//edificio y el nombre "edificio" .Esta petición me devolvera los campos nombre_ed, descripcion_ed
 </script>
 </body>
 </html>

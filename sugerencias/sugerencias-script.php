@@ -27,7 +27,7 @@
         <td>Su nombre:</td><td><input type="text" id="nombr" name="nombr" value="" maxlength="90" size="30"><br></td>
         </tr>
         <tr>
-        <td>Su correo electronico:</td><td><input type="text" id="elcorreo" name="elcorreo" value="" maxlength="50"  size="30"><br></td>
+        <td>Su correo electr&oacute;nico:</td><td><input type="text" id="elcorreo" name="elcorreo" value="" maxlength="50"  size="30"><br></td>
         </tr>
         <tr>
         <td>Asunto:</td><td><input type="text" id="asunt" name="asunt" maxlength="50"  size="30"><br></td>

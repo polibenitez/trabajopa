@@ -50,7 +50,7 @@ enyo.kind({
     },
 
     tapSugerencia:function(inSender,inEvent){
-        this.openUrl("../gestion/entrar.php?tipo=sugerencia");
+        this.openUrl("../sugerencias/sugerencias.php");
     },
 
     openUrl : function(inSender) {

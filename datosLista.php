@@ -148,14 +148,35 @@ $tipoDato=$_GET['peticion'];
 	}
 
 	if($tipoDato=='comida'){
-		$tam=10;
+		/*$tam=10;
 		for ($i=0; $i <$tam ; $i++) { 
 			$comida[$i]["id"]="id-Comida ".$i;
 			$comida[$i]["tipo"]="tipo COMIDA ".$i;
 			$comida[$i]["descripcion"]="Descripcion comida ".$i;
-			$comida[$i]["ubicacion"]="Ubicacion comida ".$i;
-		}
-		$articulo['comida']=$comida;
+			$comida[$i]["ubicacion"]="37.354449658588806;-5.937541723251343";
+		}*/
+
+			$comida[0]["id"]="Cafetería celestino Mutis";
+			$comida[0]["tipo"]="cafeteria";
+			$comida[0]["descripcion"]="Restaurante cafetería edificio Celestino Mutis";
+			$comida[0]["ubicacion"]="37.35741745601511;-5.939558744430542";
+
+			$comida[1]["id"]="Pizería Santa Clara";
+			$comida[1]["tipo"]="Pizzeria";
+			$comida[1]["descripcion"]="Cafetería, pizería, bocatería Santa clara";
+			$comida[1]["ubicacion"]="37.3575880155198;-5.939065217971802";
+
+			$comida[2]["id"]="Cafetería Plaza America";
+			$comida[2]["tipo"]="Restaurante";
+			$comida[2]["descripcion"]="Cafetería Plaza America";
+			$comida[2]["ubicacion"]="37.354449658588806;-5.937541723251343";
+
+			$comida[3]["id"]="Kiosko";
+			$comida[3]["tipo"]="Kiosko";
+			$comida[3]["descripcion"]="Golosinas, dulces, bebidas...";
+			$comida[3]["ubicacion"]="37.357306592129234;-5.939440727233887";
+
+			$articulo['comida']=$comida;
 		//http://localhost/proyectos/trabajopa/datosLista.php?peticion=comida
 	}
 
@@ -212,9 +233,8 @@ $tipoDato=$_GET['peticion'];
 		$identificador=$_GET['numero'];
 			//con el numero hace la consulta
 
-			$edificio["nombre"]="Nombre Edificio prueba ajax";
-			$edificio["descripcion"]="Descripcion Edificio prueba ajax";
-			
+			$edificio["nombre"]="Biblioteca";
+			$edificio["descripcion"]="Biblioteca de la UPO, Se prestan servicios como prestamos de libros y reservas de salas de estudio";
 			$articulo['edificio']=$edificio;
 	}
 

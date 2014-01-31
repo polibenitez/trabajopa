@@ -199,6 +199,14 @@ textarea {
 .onyx-highlight.list-sample-selected {
 	background-color: #dedfdf;
 }
+.item-sample-selected {
+	/*background-color: rgb(232,232,232);
+	border: 2px solid black;
+	border-radius: 50px 0px 0px 50px;*/
+	background-image: url(../img/burbuja3.png);
+	background-position: right center;
+    background-repeat: no-repeat
+}
 /* termina los css de la lista de lugares*/
 /*Estilos del mapa*/
 .frame{
