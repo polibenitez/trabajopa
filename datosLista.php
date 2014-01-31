@@ -253,7 +253,7 @@ $tipoDato=$_GET['peticion'];
 			$profesor["despacho"]="Edificio: 1 <br/>Planta: 2 <br/> Despacho: 4";//en esta peticion concatenar "Edificio_NUM.Planta_NUM.Despacho_NUM"
 			$articulo['profesor']=$profesor;
 	}
-
+	/*fin nueva peticion*/
 	if($tipoDato=='entidades'){
 		//prueba con Entidades
 		$articulo[0]="Edificios";
