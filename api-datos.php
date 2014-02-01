@@ -1,6 +1,7 @@
 <?php
 
 header("Content-Type: text/html;charset=utf-8"); //por el tema de las tildes. tambien tenemos que tener encuenta que la bd este en utf8_general_ci todas las tablas tambien
+
 function obtenerEdificios() {
     $con = mysql_connect("localhost", "root", "");
     if (!$con) {
@@ -10,8 +11,13 @@ function obtenerEdificios() {
     if (!$db_selected) {
         die(' No puedo seleccionar con prueba: ' . mysql_error());
     }
-
-    $result = mysql_query("SELECT numero_ed, nombre_ed, ubicaciones, plantas_ed, comentario_ed FROM Edificio", $con);
+    
+    if(isset($_GET['numero'])){
+        $num = $_GET['numero'];
+        $result = mysql_query("SELECT numero_ed, nombre_ed, ubicaciones, plantas_ed, comentario_ed FROM Edificio WHERE numero_ed = $num", $con);
+    } else {
+        $result = mysql_query("SELECT numero_ed, nombre_ed, ubicaciones, plantas_ed, comentario_ed FROM Edificio", $con);
+    }
     if (!$result) {
         die('no se pudo ejecutar la consulta' . mysql_error());
     }
@@ -34,8 +40,13 @@ function obtenerProfesores() {
     if (!$db_selected) {
         die(' No puedo seleccionar con prueba: ' . mysql_error());
     }
-
-    $result = mysql_query("SELECT pro.profesor_id, pro.nombre_prof, pro.apellido1_prof, pro.apellido2_prof, asi.nombre_asi, des.numero_ed, des.planta_des, des.numero_des, edi.ubicaciones FROM Profesor pro, Asignatura asi, Despacho des, Edificio edi WHERE pro.despacho_id = des.despacho_id AND des.numero_ed=edi.numero_ed AND pro.asignatura_id=asi.asignatura_id", $con);
+    
+    if(isset($_GET['id'])){
+        $ide = $_GET['id'];
+        $result = mysql_query("SELECT pro.profesor_id, pro.nombre_prof, pro.apellido1_prof, pro.apellido2_prof, asi.nombre_asi, des.numero_ed, des.planta_des, des.numero_des, edi.ubicaciones FROM Profesor pro, Asignatura asi, Despacho des, Edificio edi WHERE pro.profesor_id = $ide AND pro.despacho_id = des.despacho_id AND des.numero_ed=edi.numero_ed AND pro.asignatura_id=asi.asignatura_id", $con);
+    } else {
+        $result = mysql_query("SELECT pro.profesor_id, pro.nombre_prof, pro.apellido1_prof, pro.apellido2_prof, asi.nombre_asi, des.numero_ed, des.planta_des, des.numero_des, edi.ubicaciones FROM Profesor pro, Asignatura asi, Despacho des, Edificio edi WHERE pro.despacho_id = des.despacho_id AND des.numero_ed=edi.numero_ed AND pro.asignatura_id=asi.asignatura_id", $con);
+    }
     if (!$result) {
         die('no se pudo ejecutar la consulta' . mysql_error());
     }
@@ -60,7 +71,7 @@ function obtenerComidas() {
         die(' No puedo seleccionar con prueba: ' . mysql_error());
     }
 
-    $result = mysql_query("SELECT lugar_id, tipo, descripcion, ubicacion FROM lugares WHERE tipo like upper('comida')", $con);
+    $result = mysql_query("SELECT lugar_id, tipo, descripcion, ubicacion, tag FROM lugares WHERE tipo like upper('comida')", $con);
     if (!$result) {
         die('no se pudo ejecutar la consulta' . mysql_error());
     }
@@ -84,7 +95,7 @@ function obtenerTransportes() {
         die(' No puedo seleccionar con prueba: ' . mysql_error());
     }
 
-    $result = mysql_query("SELECT lugar_id, tipo, descripcion, ubicacion FROM lugares WHERE tipo like upper('transporte')", $con);
+    $result = mysql_query("SELECT lugar_id, tipo, descripcion, ubicacion,tag FROM lugares WHERE tipo like upper('transporte')", $con);
     if (!$result) {
         die('no se pudo ejecutar la consulta' . mysql_error());
     }
@@ -108,7 +119,7 @@ function obtenerAparcamientos() {
         die(' No puedo seleccionar con prueba: ' . mysql_error());
     }
 
-    $result = mysql_query("SELECT lugar_id, tipo, descripcion, ubicacion FROM lugares WHERE tipo like upper('aparcamientos')", $con);
+    $result = mysql_query("SELECT lugar_id, tipo, descripcion, ubicacion,tag FROM lugares WHERE tipo like upper('aparcamientos')", $con);
     if (!$result) {
         die('no se pudo ejecutar la consulta' . mysql_error());
     }
@@ -132,7 +143,7 @@ function obtenerDeportes() {
         die(' No puedo seleccionar con prueba: ' . mysql_error());
     }
 
-    $result = mysql_query("SELECT lugar_id, tipo, descripcion, ubicacion FROM lugares WHERE tipo like upper('deportes')", $con);
+    $result = mysql_query("SELECT lugar_id, tipo, descripcion, ubicacion,tag FROM lugares WHERE tipo like upper('deportes')", $con);
     if (!$result) {
         die('no se pudo ejecutar la consulta' . mysql_error());
     }
@@ -156,7 +167,7 @@ function obtenerEstudiantes() {
         die(' No puedo seleccionar con prueba: ' . mysql_error());
     }
 
-    $result = mysql_query("SELECT lugar_id, tipo, descripcion, ubicacion FROM lugares WHERE tipo like upper('estudiantes')", $con);
+    $result = mysql_query("SELECT lugar_id, tipo, descripcion, ubicacion,tag FROM lugares WHERE tipo like upper('estudiantes')", $con);
     if (!$result) {
         die('no se pudo ejecutar la consulta' . mysql_error());
     }
@@ -174,26 +185,28 @@ if (isset($_GET['peticion'])) {
     $tipoDato = $_GET['peticion'];
 
     if ($tipoDato == 'edificios') {
-        $edificiosAux = obtenerEdificios();
+        
+            $edificiosAux = obtenerEdificios();
 
-        if (isset($edificiosAux)) {
-            $i = 0;
-            foreach ($edificiosAux as $ed) {
-                $edificio[$i]["numero"] = htmlentities($ed[0]); //htmlentities para ver las tildes en json
-                $edificio[$i]["nombre"] = htmlentities($ed[1]);
-                $edificio[$i]["ubicacion"] = htmlentities($ed[2]);
-                $edificio[$i]["plantas"] = htmlentities($ed[3]);
-                $edificio[$i]["comentario"] = htmlentities($ed[4]);
-                $i++;
+            if (isset($edificiosAux)) {
+                $i = 0;
+                foreach ($edificiosAux as $ed) {
+                    $edificio[$i]["numero"] = htmlentities($ed[0]); //htmlentities para ver las tildes en json
+                    $edificio[$i]["nombre"] = htmlentities($ed[1]);
+                    $edificio[$i]["ubicacion"] = htmlentities($ed[2]);
+                    $edificio[$i]["plantas"] = htmlentities($ed[3]);
+                    $edificio[$i]["comentario"] = htmlentities($ed[4]);
+                    $i++;
+                }
+
+                $articulo['edificios'] = $edificio;
+            } else {
+                echo "no se puede mostrar los datos";
             }
-
-            $articulo['edificios'] = $edificio;
-        } else {
-            echo "no se puede mostrar los datos";
         }
-    }
 
     if ($tipoDato == 'profesores') {
+        
         $profesoresAux = obtenerProfesores();
 
         if (isset($profesoresAux)) {
@@ -225,6 +238,7 @@ if (isset($_GET['peticion'])) {
                 $comida[$i]["tipo"] = htmlentities($com[1]);
                 $comida[$i]["descripcion"] = htmlentities($com[2]);
                 $comida[$i]["ubicacion"] = htmlentities($com[3]);
+                $comida[$i]["tag"] = htmlentities($com[4]);
                 $i++;
             }
 
@@ -244,6 +258,7 @@ if (isset($_GET['peticion'])) {
                 $transporte[$i]["tipo"] = htmlentities($tra[1]);
                 $transporte[$i]["descripcion"] = htmlentities($tra[2]);
                 $transporte[$i]["ubicacion"] = htmlentities($tra[3]);
+                $transporte[$i]["tag"] = htmlentities($tra[4]);
                 $i++;
             }
 
@@ -263,6 +278,7 @@ if (isset($_GET['peticion'])) {
                 $aparcamiento[$i]["tipo"] = htmlentities($apa[1]);
                 $aparcamiento[$i]["descripcion"] = htmlentities($apa[2]);
                 $aparcamiento[$i]["ubicacion"] = htmlentities($apa[3]);
+                $aparcamiento[$i]["tag"] = htmlentities($apa[4]);
                 $i++;
             }
 
@@ -282,6 +298,7 @@ if (isset($_GET['peticion'])) {
                 $deporte[$i]["tipo"] = htmlentities($dep[1]);
                 $deporte[$i]["descripcion"] = htmlentities($dep[2]);
                 $deporte[$i]["ubicacion"] = htmlentities($dep[3]);
+                $deporte[$i]["tag"] = htmlentities($dep[4]);
                 $i++;
             }
 
@@ -301,6 +318,7 @@ if (isset($_GET['peticion'])) {
                 $estudiante[$i]["tipo"] = htmlentities($est[1]);
                 $estudiante[$i]["descripcion"] = htmlentities($est[2]);
                 $estudiante[$i]["ubicacion"] = htmlentities($est[3]);
+                $estudiante[$i]["tag"] = htmlentities($est[4]);
                 $i++;
             }
 
@@ -309,6 +327,7 @@ if (isset($_GET['peticion'])) {
             echo "no se puede mostrar los datos";
         }
     }
+
 
     if ($tipoDato == 'entidades') {
         //prueba con Entidades
