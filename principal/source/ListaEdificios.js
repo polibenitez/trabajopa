@@ -38,8 +38,8 @@ enyo.kind({
 	},
 
 	listTap: function(inSender,inEvent){
-		console.log("ubicacion: "+this.data.edificios[inEvent.index].ubicacion);
-		console.log("presionado "+this.names[inEvent.index]);
+		//console.log("ubicacion: "+this.data.edificios[inEvent.index].ubicacion);
+		//console.log("presionado "+this.names[inEvent.index]+this.numbers[inEvent.index]);
 		this.bubble("onItemTapEdificio",this.data.edificios[inEvent.index]);
 		inEvent.preventDefault();
 	},

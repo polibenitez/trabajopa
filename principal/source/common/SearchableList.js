@@ -85,7 +85,7 @@ enyo.kind({
     setupItem:function(inSender,inEvent) {
         //console.log(this.resultFilteredArray[inEvent.index]);
         this.$.item.setContent(this.resultFilteredArray[inEvent.index].name);
-        this.$.item.addRemoveClass("onyx-selected", inSender.isSelected(inEvent.index));
+        this.$.item.addRemoveClass("item-sample-selected", inSender.isSelected(inEvent.index));
         //this.$.item.addRemoveClass("list-sample-selected", inSender.isSelected(inEvent.index));
         //this.$.item.setContent("hola");
         //console.log(inEvent);

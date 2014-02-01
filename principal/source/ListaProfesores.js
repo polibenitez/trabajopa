@@ -25,8 +25,8 @@ enyo.kind({
 	setupItem: function(inSender, inEvent) {
 			var i = inEvent.index;
 			if (!this.names[i]) {
-				this.names[i] = this.data.profesores[i].nombre;
-				this.numbers[i] = this.data.profesores[i].id;
+				this.names[i] = "Ed_"+this.data.profesores[i].despacho;
+				this.numbers[i] = this.data.profesores[i].nombre +" "+ this.data.profesores[i].apellido1;
 			}
 
 		var ni = this.names[i];

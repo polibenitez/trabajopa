@@ -14,7 +14,7 @@ enyo.kind({
         {kind:"Edificios",name:"listaEdificios"}
       ]},
       {name: "mapaPanel", components: [
-        {kind:"Mapa",name:"mapa",url:null}
+        {kind:"Mapa",touch:true,name:"mapa",url:null}
       ]}
     ]}
   ],
@@ -25,20 +25,26 @@ enyo.kind({
     //console.log("**********Me presionaron********");
     
       if(inEvent.name!=control){
-        console.log(inEvent.name+" NO igual a "+ control);
+        //console.log(inEvent.name+" NO igual a "+ control);
         control=inEvent.name;
           switch(control){
             case "Edificios":
-                  console.log("vamos a crear edificios");
+                  //console.log("vamos a crear edificios");
                   this.createEdificios();
+                  this.$.mapa.$.iframe.setSrc("./source/mapa/edificios.html");
+                  
                   break;
             case "Profesores":
-                  console.log("vamos a crear Profesores");
+                  //console.log("vamos a crear Profesores");
                   this.createProfesores();
+                  this.$.mapa.$.iframe.setSrc("./source/mapa/profesores.html");
                   break;
             case "Comida":
-                  console.log("vamos a crear Comida");
+                  //console.log("vamos a crear Comida");
+                  //this.$.mapa.$.iframe.setSrc("./source/mapa/comidas.html");
                   this.createComida();
+                  this.$.mapa.$.iframe.setSrc("./source/mapa/comidas.html?latitud="+0+"&longitud="+0);
+                  
                   break;
             case "Transporte":
                   console.log("vamos a crear Transporte");
@@ -71,8 +77,51 @@ enyo.kind({
     var ubicacion=inEvent.ubicacion.split(";");
     //console.log(ubicacion);
     var latitud=ubicacion[0];
+    //var longitud=ubicacion[1];
     var longitud=ubicacion[1];
-    this.$.mapa.$.iframe.setSrc("./source/mapa/mapas.html?latitud="+latitud+"&longitud="+longitud);
+    //enviar tambien el id
+    //console.log("me llega el numero: "+);
+    //this.$.mapa.$.iframe.setSrc("./source/mapa/edificios.html?latitud="+latitud+"&longitud="+longitud+"&numero="+inEvent.numero);
+
+    //control=inEvent.name;
+          switch(control){
+            case "Edificios":
+                  //console.log("Mapa de edificios");
+                  //this.createEdificios();
+                  //this.$.mapa.$.iframe.setSrc("./source/mapa/edificios.html");
+                  this.$.mapa.$.iframe.setSrc("./source/mapa/edificios.html?latitud="+latitud+"&longitud="+longitud+"&numero="+inEvent.numero);
+                  break;
+            case "Profesores":
+                  console.log("latitud: "+latitud+" longitud: "+longitud+" id: "+inEvent.id);
+                  //this.createProfesores();
+                  this.$.mapa.$.iframe.setSrc("./source/mapa/profesores.html?latitud="+latitud+"&longitud="+longitud+"&id="+inEvent.id);
+                  break;
+            case "Comida":
+                  //console.log("Mapa de comidas");
+                  //this.createComida();
+                  //this.$.mapa.$.iframe.setSrc("./source/mapa/comidas.html");
+                  this.$.mapa.$.iframe.setSrc("./source/mapa/comidas.html?latitud="+latitud+"&longitud="+longitud);
+                  break;
+            case "Transporte":
+                  console.log("vamos a crear Transporte");
+                  this.createTransporte();
+                  break;
+            case "Aparcamientos":
+                  console.log("vamos a crear Aparcamientos");
+                  this.createAparcamientos();
+                  break;
+            case "Instalaciones Deportivas":
+                  console.log("vamos a crear Instalaciones Deportivas");
+                  this.createDeportes();
+                  break;
+            case "Para Estudiantes":
+                  console.log("vamos a crear Para Estudiantes");
+                  this.createEstudiantes();
+                  break;
+            default:
+            console.log("no vamos a crear nada");
+            break;
+          }
   },
   /*setupItem: function(inSender, inEvent) {
     this.$[inSender.item].setContent("This is row number: " + inEvent.index);

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Mapa de la UPO</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
+<script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.css' rel='stylesheet' />
+
+<style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:0; bottom:0; width:100%; }
+</style>
+</head>
+<body>
+    <!-- Finaliza GPS-->
+    <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.21.0/L.Control.Locate.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.21.0/L.Control.Locate.css' rel='stylesheet' />
+    <!-- Inicia GPS-->
+
+    <script language="javascript">
+  if(location.search.substr(1)){
+    Variables = location.search.substr(1).split ('&');
+    for (i = 0; i < Variables.length; i++) {
+      Separ = Variables[i].split('=');
+      eval ('var '+Separ[0]+'="'+Separ[1]+'"');
+    }
+    //alert('Nombre: '+latitud+'\nTwitter: @'+longitud);
+  }
+</script>
+
+<div id='map'></div>
+<script>
+//por get me llega el id,latitud y longitud
+//alert('Latitud: '+latitud+'\nLongitud: '+longitud);
+if(typeof(latitud) != "undefined" && typeof(longitud)!="undefined" && typeof(id)!="undefined"){
+    console.log("existen variables");
+        var map = L.mapbox.map('map', 'mamisho.h2p9dhpa').setView([latitud, longitud], 17);
+
+        var nombre="";
+        var apellido1="";
+        var apellido2="";
+        var asignatura="";
+        var despacho="";
+        var pUrl="../../../datosLista.php?peticion=profesor&id="+id;
+        //alert("entra");
+        $.getJSON(pUrl, {format: "json"}, function(data) { 
+            console.log(data);
+            //console.log("probando cositas "+data.profesor.descripcion);
+            
+            nombre=data.profesor.nombre;
+            apellido1=data.profesor.apellido1;
+            apellido2=data.profesor.apellido2;
+            asignatura=data.profesor.asignatura;
+            despacho=data.profesor.despacho;
+
+            //console.log("nombre: "+nombre+" descripcion: "+descripcion);
+
+            //añadir aqui el código para meter la chicheta porque esto es lo ultimo que se ejecuta
+
+                L.mapbox.markerLayer({
+                        type: 'Feature',
+                        geometry: {
+                            type: 'Point',
+                            coordinates: [longitud,latitud]
+                        },
+                        properties: {
+                            title: 'Profesor: '+nombre+ " "+apellido1+" "+apellido2+'<br/>',
+                            description: asignatura+'\n<br/>'+despacho,
+                            'marker-size': 'large',
+                            'marker-color': '#0000FF'
+                        }
+
+                }).addTo(map);
+        });
+
+}else{ 
+    console.log("no hay variables");
+    var map = L.mapbox.map('map', 'mamisho.h2p9dhpa').setView([37.35585, -5.93653], 17);
+}
+
+    L.control.locate().addTo(map);
+    
+    map.markerLayer.on('click', function(e) {
+        map.panTo(e.layer.getLatLng());
+    });
+
+//por problemas de los acentos y no puedo pasar por parametros los datos, con lo cual
+//tengo que recurrir a la API implementada en php con el que le voy a pasar el id y la tabla de la que necesito
+//los datosen este caso el id  del
+//edificio y el nombre "edificio" .Esta petición me devolvera los campos nombre_ed, descripcion_ed
+</script>
+</body>
+</html>
