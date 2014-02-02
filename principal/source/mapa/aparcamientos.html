@@ -42,7 +42,7 @@ if(latitud !=0 && longitud!=0){
     //console.log("existen variables");
         //var map = L.mapbox.map('map', 'zadik.h4n5k2n8').setView([latitud, longitud], 17);
         //var map = L.mapbox.map('map', 'zadik.h4n5k2n8').setView([37.35585, -5.93653], 17);
-        var map = L.mapbox.map('map', 'zadik.h4n5k2n8').setView([37.35585, -5.93653], 17);;
+        var map = L.mapbox.map('map', 'zadik.h4nan6do').setView([37.35685, -5.93653], 16);;
 
         map.markerLayer.on('ready', function() {
 
@@ -56,7 +56,8 @@ if(latitud !=0 && longitud!=0){
                     //console.log("coincide con "+features[i].properties.title);
                     features[i].properties['marker-color'] = '#000';
                     features[i].properties['marker-size'] = 'large';
-                    feature=features[i];
+                    //console.log(features[i]);
+                    feature=i;
                     break; 
                 }
                 //console.log(features[i].properties.title);
@@ -67,7 +68,7 @@ if(latitud !=0 && longitud!=0){
               }
               map.panTo([latitud, longitud]);
               map.markerLayer.setGeoJSON(features);
-              //map.markerLayer.feature.openPopup();
+              //map.markerLayer.features[feature].openPopup();
               /*var popup = L.popup()
                     .setLatLng([latitud, longitud])
                     //.setContent('<p>Hello world!<br />This is a nice popup.</p>')
@@ -93,7 +94,7 @@ if(latitud !=0 && longitud!=0){
 
 }else{ 
     //console.log("no hay variables");
-    var map = L.mapbox.map('map', 'zadik.h4n5k2n8').setView([37.35585, -5.93653], 17);
+    var map = L.mapbox.map('map', 'zadik.h4nan6do').setView([37.35685, -5.93653], 16);
 }
 
     L.control.locate().addTo(map);

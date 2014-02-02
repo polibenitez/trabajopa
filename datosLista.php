@@ -197,12 +197,13 @@ $tipoDato=$_GET['peticion'];
 	}
 
 	if($tipoDato=='aparcamientos'){
-		$tam=1000;
+		$tam=100;
 		for ($i=0; $i <$tam ; $i++) { 
 			$aparcamiento[$i]["id"]="id-Aparcamiento ".$i;
-			$aparcamiento[$i]["tipo"]="tipo Aparcamiento ".$i;
-			$aparcamiento[$i]["descripcion"]="Descripcion Aparcamiento ".$i;
-			$aparcamiento[$i]["ubicacion"]="Ubicacion Aparcamiento ".$i;
+			$aparcamiento[$i]["tipo"]="aparcamiento";
+			$aparcamiento[$i]["tag"]="numero de plazas";
+			$aparcamiento[$i]["descripcion"]="Aparcamiento numero";
+			$aparcamiento[$i]["ubicacion"]="37.359506783240086;-5.937713384628296";
 		}
 		$articulo['aparcamientos']=$aparcamiento;
 		//http://localhost/proyectos/trabajopa/datosLista.php?peticion=aparcamientos
@@ -212,9 +213,10 @@ $tipoDato=$_GET['peticion'];
 		$tam=10;
 		for ($i=0; $i <$tam ; $i++) { 
 			$deporte[$i]["id"]="id-Ins. Deportiva ".$i;
-			$deporte[$i]["tipo"]="tipo Ins. Deportiva ".$i;
-			$deporte[$i]["descripcion"]="Descripcion Ins. Deportiva ".$i;
-			$deporte[$i]["ubicacion"]="Ubicacion Ins. Deportiva ".$i;
+			$deporte[$i]["tag"]="Basket";
+			$deporte[$i]["tipo"]="deporte";
+			$deporte[$i]["descripcion"]="Nombre numero de pista";
+			$deporte[$i]["ubicacion"]="37.353059529211045;-5.9360504150390625";
 		}
 		$articulo['deportes']=$deporte;
 		//http://localhost/proyectos/trabajopa/datosLista.php?peticion=deportes

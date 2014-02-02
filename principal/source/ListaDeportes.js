@@ -25,8 +25,8 @@ enyo.kind({
 	setupItem: function(inSender, inEvent) {
 			var i = inEvent.index;
 			if (!this.names[i]) {
-				this.names[i] = this.data.deportes[i].tipo;
-				this.numbers[i] = this.data.deportes[i].id;
+				this.names[i] = this.data.deportes[i].tag;
+				this.numbers[i] = this.data.deportes[i].descripcion;
 			}
 
 		var ni = this.names[i];

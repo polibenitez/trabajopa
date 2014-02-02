@@ -25,8 +25,8 @@ enyo.kind({
 	setupItem: function(inSender, inEvent) {
 			var i = inEvent.index;
 			if (!this.names[i]) {
-				this.names[i] = this.data.aparcamientos[i].tipo;
-				this.numbers[i] = this.data.aparcamientos[i].id;
+				this.names[i] = this.data.aparcamientos[i].tag;
+				this.numbers[i] = this.data.aparcamientos[i].descripcion;
 			}
 
 		var ni = this.names[i];

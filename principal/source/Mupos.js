@@ -51,12 +51,14 @@ enyo.kind({
                   this.createTransporte();
                   break;
             case "Aparcamientos":
-                  console.log("vamos a crear Aparcamientos");
+                  //console.log("vamos a crear Aparcamientos");
                   this.createAparcamientos();
+                  this.$.mapa.$.iframe.setSrc("./source/mapa/aparcamientos.html?latitud="+0+"&longitud="+0);
                   break;
             case "Instalaciones Deportivas":
-                  console.log("vamos a crear Instalaciones Deportivas");
+                  //console.log("vamos a crear Instalaciones Deportivas");
                   this.createDeportes();
+                  this.$.mapa.$.iframe.setSrc("./source/mapa/deportes.html?latitud="+0+"&longitud="+0);
                   break;
             case "Para Estudiantes":
                   console.log("vamos a crear Para Estudiantes");
@@ -107,12 +109,14 @@ enyo.kind({
                   this.createTransporte();
                   break;
             case "Aparcamientos":
-                  console.log("vamos a crear Aparcamientos");
-                  this.createAparcamientos();
+                  //console.log("vamos a crear Aparcamientos");
+                  //this.createAparcamientos();
+                  this.$.mapa.$.iframe.setSrc("./source/mapa/aparcamientos.html?latitud="+latitud+"&longitud="+longitud);
                   break;
             case "Instalaciones Deportivas":
-                  console.log("vamos a crear Instalaciones Deportivas");
-                  this.createDeportes();
+                  //console.log("vamos a crear Instalaciones Deportivas");
+                  //this.createDeportes();
+                  this.$.mapa.$.iframe.setSrc("./source/mapa/deportes.html?latitud="+latitud+"&longitud="+longitud);
                   break;
             case "Para Estudiantes":
                   console.log("vamos a crear Para Estudiantes");
