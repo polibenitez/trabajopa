@@ -2,7 +2,7 @@
 
 //Recuperar los datos que serviran para enviar el correo
 $seEnvio;      //Para determinar si se envio o no el correo
-$destinatario = 'mamisho.mamisho@gmail.com';        //A quien se envia
+$destinatario = 'pacolopezbaena@gmail.com';        //A quien se envia
 $elmensaje = str_replace("\n.", "\n..", $_POST['elmsg']);     //por si el mensaje empieza con un punto ponerle 2
 $elmensaje = wordwrap($elmensaje, 70);                       //dividir el mensaje en trozos de 70 cols
 //Recupear el asunto
@@ -24,7 +24,7 @@ $cuerpomsg = '
       <td>' . $elmensaje . '</td>
     </tr>
     <tr>
-      <td><br><a href="http://gonzaslive.aegislinux.com.mx/ejemplos/enviar_correo/responder.php?correo=' . $_POST['elcorreo'] . '&asunto=FW: ' . $asunto . '&nombre=' . $_POST['nombr'] . '">Responder</a></td>
+      <td><br><a href=""' . $_POST['elcorreo'] . '&asunto=FW: ' . $asunto . '&nombre=' . $_POST['nombr'] . '">Responder</a></td>
     </tr>
   </table>
 </body>
