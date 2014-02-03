@@ -15,7 +15,7 @@
 				<img src="../images/guia-menu.png">
 				<a href="./gestion.php">Gesti&oacute;n</a>
 				<img src="../images/guia-menu.png">
-				Lugares
+				Aulas
 				<img src="../images/guia-menu.png">
 			</div>
 			<div class="entrar">
@@ -23,11 +23,11 @@
 				<a href="./salir.php">Salir</a>
 			</div>
 		</header>
-		<section class="login">
-			aqui va los formularios con ocultando con javascript
+		<section class="uso-gestion">
+			<?php include("gestion-lugares-script.php"); ?>
 		</section>
 		<footer>
-			create by MAMISHO copy-left 2013
+			create by zadik copy-left 2013
 		</footer>
 	</div>
 </body>
