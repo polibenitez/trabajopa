@@ -145,7 +145,7 @@ function obtenerlugares(){
 		<?php 
 		$lugares=obtenerlugares();
 		echo "<table border='1'>";
-		echo "<th>ID</th><th>tipo</th><th>Ubicaci&oacute;n</th><th>descripcion</th>";
+		echo "<th>ID</th><th>Ubicaci&oacute;n</th><th>tipo</th><th>descripcion</th>";
 		$i=0;
 		if (isset($lugares)) {
 
