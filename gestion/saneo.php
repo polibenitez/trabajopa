@@ -3,7 +3,7 @@
 
 function limpia($var){
 	$var = strip_tags($var);
-	$malo = array("\"",";","\'","'","\\","or","oR","Or","OR","and","AND","=","<",">","!","echo"); // Aqui poner caracteres no permitidos
+	$malo = array("\"",";","\'","'","\\","or","oR","Or","OR","and","AND","=","<",">","!","echo","php","PHP","pHp","<?","'"); // Aqui poner caracteres no permitidos
 	$i=0;
 	$o=count($malo);
 	while($i<$o){

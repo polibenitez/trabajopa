@@ -2,7 +2,9 @@
 function crearEdificio(){
 	$numero_ed=$_POST['numero_ed'];
 	$nombre_ed=$_POST['nombre_ed'];
-	$ubicaciones="ubicacion del edificio ".$numero_ed;
+	$latitud=$_POST['latitud'];
+	$longitud=$_POST['longitud'];
+	$ubicaciones=$latitud.";".$longitud;
 	$plantas_ed=$_POST['plantas'];
 	$comentario_ed=$_POST['comentario_ed'];
 
@@ -44,7 +46,9 @@ function eliminarEdificio(){
 function modificarEdificio(){
 	$numero_ed=$_POST['numero_ed_mod'];
 	$nombre_ed=$_POST['nombre_ed'];
-	$ubicaciones="ubicacion del edificio ".$numero_ed;
+	$latitud=$_POST['latitud'];
+	$longitud=$_POST['longitud'];
+	$ubicaciones=$latitud.";".$longitud;
 	$plantas_ed=$_POST['plantas'];
 	$comentario_ed=$_POST['comentario_ed'];
 

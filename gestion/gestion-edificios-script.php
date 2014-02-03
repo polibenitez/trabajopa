@@ -44,6 +44,9 @@ function obtenerEdificios(){
 				3- Coloreamos el seleccionado
 				4- cargamos sus datos en el formualrio oculto y esperamos otro evento
 				*/
+				var ubicacion=dato[2].innerHTML;
+				var ubicacion=ubicacion.split(";");
+
 				$(".tr-form").css("background-color","white");
 				$(".tr-form:odd").css("background-color","lightblue");
 				$("#"+objeto.id).css("background-color","orange");
@@ -54,6 +57,8 @@ function obtenerEdificios(){
   				$("#num_p-form").val(dato[3].innerHTML);
   				$("#nombre-form").val(dato[1].innerHTML);
   				$("#comentario-form").val(dato[4].innerHTML);
+  				$("#latitud").val(ubicacion[0]);
+  				$("#longitud").val(ubicacion[1]);
   				$("#btn-editar").show();
   				$("#btn-eliminar").show();
   				//el siguinete es para no editar la clave
@@ -230,6 +235,15 @@ function obtenerEdificios(){
 						</td>
 						<td>
 							<input class="input-presonalizado" id="comentario-form" type="text" name="comentario_ed" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							Ubicaci&oacute;n
+						</td>
+						<td>
+							<input class="input-presonalizado" id="latitud" type="text" name="latitud" placeholder="Latitud" />
+							<input class="input-presonalizado" id="longitud" type="text" name="longitud" placeholder="Longitud" />
 						</td>
 					</tr>
 					<tr>
