@@ -1,21 +1,40 @@
-﻿"1","uno","ubicacion del edificio 1","2","comentario del edificio 20"
-"2","dos","mapa del edificio dos","5","comentario del edificio 2"
-"3","tres","mapa de edificio tres","4","comentario edificio 3"
-"4","cuatro","mapar de edicio cuatro","1","Comentario del edificio 4"
-"5","cinco","mapa de edificio cinco","3","comentario del edificio 5"
-"6","seis","mapa de edificio seis","3","comentario del edificio 6"
-"7","siete","mapa de edificio siete","2","comentario del edificio 7"
-"8","ocho","mapa de edificio ocho","5","comentario del edificio 8"
-"9","nueve","mapa del edificio nueve","0","comentario del edificio 9"
-"10","diez","mapa de edificio diez","1","comentario del edificio 10"
-"11","once","mapa de edificio once","2","comentario del edificio 11"
-"12","doce","mapa de edificio doce","3","comentario del edificio 12"
-"13","trece","mapa del edificio trece","2","comenario del edificio 13"
-"14","catorce","mapa del edificio catorce","4","comentario del edificioi 14"
-"15","quice  ","mapa de edificio quince","8","comentario del edificio 15"
-"16","dieciseis","ubicacion del edificio 16","3","Comentario del edificio 16"
-"17","diecisiete","ubicacion del edificio 17","5","comentario del edificio 17"
-"18","dieciocho","ubicacion del edificio 18","0","Comentario del edificio 18"
-"19","diecinueve","ubicacion del edificio 19","1","Comentario del edificio 19"
-"20","veinte","ubicacion del edificio 20","4","comentario del edifico 20"
-"21","veinti uno","ubicación de edificio 21","4","comentario del edificio 21"
+﻿35,Torre,37.353213041695135;-5.9372976422309875,2,Torre
+33,Teatro,37.35334949697302;-5.936946272850037,2,Teatro
+41,Teatro,37.35314481396321;-5.936082601547241,2,Teatro
+31,Paraninfo,37.35400831662156;-5.938048660755157,2,Paraninfo
+44,Josefa Amar,37.35408720402354;-5.935535430908203,2,Josefa Amar Centro de Investigación Josefa Amar Área de Investigación
+2,Antonio de Ulloa,37.35431533739523;-5.936731696128845,2,Antonio de Ulloa Decanatos
+4,Marqués de la Ensenada,37.35464367766634;-5.937088429927826,2,Zenón de Somodevilla y Bengoechea Marqués de la Ensenada
+6,Manuel José de Ayala,37.35507435558477;-5.937294960021973,2,Manuel José de Ayala
+3,José Moñino,37.354854752796506;-5.937788486480713,2,José Moñino
+5,José María Blanco White,37.35514897774522;-5.93808889389038,2,José María Blanco White
+8,Félix de Azara,37.35539203226774;-5.937659740447997,2,Félix de Azara
+10,Francisco de Goya y Lucientes,37.35579498934739;-5.9379252791404715,2,Francisco de Goya y Lucientes
+7,Pedro Rodríguez Campomanes,37.355586048909444;-5.938383936882019,2,Pedro Rodríguez Campomanes
+12,Alejandro Malaspina,37.35612545517909;-5.938193500041961,2,Alejandro Malaspina
+9,Francisco de Miranda,37.35592291177742;-5.938673615455627,2,Francisco de Miranda
+14,Gaspar Melchor de Jovellanos,37.356517748213186;-5.938531458377838,2,Gaspar Melchor de Jovellanos
+11,Pedro Pablo Abarca de Bolea,37.356281093421664;-5.938998162746429,2,Pedro Pablo Abarca de Bolea; Conde de Aranda
+16,José Cadalso y Vázquez,37.356794910533836;-5.9388506412506095,2,José Cadalso y Vázquez
+13,Francisco José de Caldas,37.35660089701683;-5.939303934574126,2,Francisco José de Caldas
+15,José Celestino Mutis,37.35690577517552;-5.939556062221527,2,Residencia Universitaria José Celestino Mutis
+17,nombre,37.357319384124416;-5.939531922340393,3,José Celestino Mutis
+18,José Celestino Mutis,37.35717440805126;-5.939065217971802,3,José Celestino Mutis
+45,Alexander von Humboldt,37.35657318075919;-5.943171679973602,2,Alexander von Humboldt
+26,Gimnasio,37.35628322545016;-5.93585729598999,pl,Gimnasio
+25,Juan Bautista Muñoz,37.35766476717047;-5.935996770858765,2,Biblioteca Universitaria Edificio Juan Bautista Muñoz
+24,Aularios,37.35853461372591;-5.936254262924194,2,Aularios
+29,Aularios,37.35860283655879;-5.935664176940917,2,Aularios
+22,Laboratorios de Investigación,37.35867105932969;-5.936779975891113,2,Laboratorios de Investigación Despachos de profesores
+23,Laboratorios de Investigación,37.359105978036226;-5.9359002113342285,2,Laboratorios de Docencia de Ciencias Experimentales
+20,El CABD,37.35913156141107;-5.9384214878082275,2,Centro Andaluz de Biología del Desarrollo El CABD se fundó en el año 2003 como el primer instituto español especializado en el estudio de la Biología del Desarrollo. El CABD es un centro mixto del CSIC  la Junta de Andalucía y la UPO. 
+46,Instituto de la Grasa,37.359847892365835;-5.938657522201538,2,Instituto de la Grasa. Consejo Superior de Investigaciones Científicas
+21,SCI,37.359609116140625;-5.936661958694458,3,Servicios Centralizados de Investigación
+47,Ampliación de SCI,37.36015915309024;-5.936594903469086,3,Ampliación Servicios Centralizados de Investigación
+27,Edificio 27,37.35525131658747;-5.934961438179016,2,Edifio 27
+1,Cafetería Plaza de América,37.35444539442762;-5.937520265579224,2,Cafetería Plaza de América
+32,Rectorado,37.35382282429562;-5.937504172325134,2,Rectorado
+36,Edificio 36,37.35270986071424;-5.9387218952178955,2, Este es el Edificio 36
+37,Pabellón Deportivo 1,37.35431320531083;-5.939515829086304,2,Pabellón Deportivo 1
+38,Sala Deportiva,37.355029582252904;-5.940041542053222,2,Sala Deportiva
+39,Pabellón Deportivo 2,37.35576300870579;-5.940663814544678,2,Pabellón Deportivo 2
