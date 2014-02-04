@@ -276,7 +276,7 @@ function obtenerDespachos(){
 						<td>
 							<br/>
 							<br/>
-							<input class="boton-formulario" type="submit" id="btn-crear" name="crear" value="Crear Despacho"/>
+							<input  type="submit" id="btn-crear" name="crear" value="Crear Despacho"/>
 							<input class="boton-formulario" type="submit" id="btn-editar-form" name="editar" value="Guardar"/>
 						</td>
 						<td>

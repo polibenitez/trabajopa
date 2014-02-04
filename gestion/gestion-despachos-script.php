@@ -292,9 +292,9 @@ function obtenerDespachos(){
 	<div class="submit">
 		<form action="gestion-despachos-api.php" method="POST">
 			<fieldset><legend>Datos</legend>
-				<table class="tabla-form">
+				<table class="tabla-form" style="width:600px;">
 					<tr>
-						<td style="max-width: 80px;">
+						<td>
 							ID. del Despacho:
 						</td>
 						<td>
@@ -327,7 +327,7 @@ function obtenerDespachos(){
 						</td>
 					</tr>
 					<tr>
-						<td>
+						<td style="width:10px;">
 							<br/>
 							<br/>
 							<input class="boton-formulario" type="submit" id="btn-crear" name="crear" value="Crear Despacho"/>

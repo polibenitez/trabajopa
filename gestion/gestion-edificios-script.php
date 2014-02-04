@@ -25,11 +25,11 @@ function obtenerEdificios(){
 <html>
 <head>
 	<title></title>
+	</script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
 	</script>
 	<link rel="stylesheet" type="text/css" href="../style.css">  
 	<script type="text/javascript">
-
 	function seleccion(objeto){
 		var dato=objeto.getElementsByTagName('td');
 		//alert(objeto.id);
@@ -95,6 +95,136 @@ function obtenerEdificios(){
 			return false;
 		}	
 	}
+	function validarFormulario(opcion){
+						$("#numero_error").text("");
+						$("#numero_error").text("");
+						$("#numero_error").text("");
+						$("#planta_error").text("");
+						$("#planta_error").text("");
+						$("#latitud_error").text("");
+						$("#longitud_error").text("");
+					
+		/*
+		errores
+		1--> ya existe edificio
+		2--> edificio vacio
+		3--> edificio debe ser un numero >0
+		4--> planta vacia
+		5--> planta numerica >0
+		6--> latitud incorrecta
+		7--> longitud incorrecta
+		*/
+		var errores=new Array();
+		//alert(errores.length);
+		var cont=0;
+		var numero=$("#num_e-form").val();
+		var numero1=$("#num_edit-form").val();
+		var plantas=$("#num_p-form").val();
+		var nombre=$("#nombre-form").val();
+		var comentario=$("#comentario-form").val();
+		var latitud=$("#latitud").val();
+		var longitud=$("#longitud").val();
+		var edificiosAc=$("#listaEdificios").val().split(";");
+		//console.log("numero alta:"+numero+"\nnumero edita:"+numero1+"\nplantas"+plantas+"\nnombre:"+nombre+"\ncomentario:"+comentario+"\nlatitud:"+latitud+"\nlongitud"+longitud);
+		
+		//console.log(edificiosAc);
+		if(opcion=='crea'){
+			var existe=0;
+
+			if(!campoVacio(numero)){
+
+				if(!isNaN(numero)&&numero>0){
+					//alert(edificiosAc.length);
+					for (var i = 0; i<edificiosAc.length; i++) {
+
+						if(numero==edificiosAc[i]){
+							errores[cont]=1;
+							cont++;
+							//alert(opcion);
+							break;
+						}
+					}
+				}else{
+					errores[cont]=3;
+					cont++;
+				}
+			}else{
+				errores[cont]=2;
+				cont++;
+			}
+		}
+
+		if(campoVacio(plantas)){
+			errores[cont]=4;
+			cont++;
+		}
+		if(isNaN(parseInt(plantas))){//||plantas<0){
+			errores[cont]=5;
+			cont++;
+		}
+
+		if(isNaN(parseFloat(latitud))){
+			errores[cont]=6;
+			cont++;
+		}
+
+		if(isNaN(parseFloat(longitud))){
+			errores[cont]=7;
+			cont++;
+		}
+		if(errores.length>0){
+			//alert(errores.length);
+			for (var i = 0; i<cont; i++) {
+				console.log(errores);
+				error=errores[i];
+				switch(error){
+					/*
+		errores
+		1--> ya existe edificio
+		2--> edificio vacio
+		3--> edificio debe ser un numero >0
+		4--> planta vacia
+		5--> planta numerica >0
+		6--> latitud incorrecta
+		7--> longitud incorrecta
+		*/
+					case 1:
+						$("#numero_error").text("* El n\xfAmero ya existe");
+					break;
+					case 2:
+						$("#numero_error").text("* Complete el campo");
+					break;
+					case 3:
+						$("#numero_error").text("* El campo debe ser un n\xfAmero");
+					break;
+					case 4:
+						$("#planta_error").text("* Inserte un n\xfAmero de planta");
+					break;
+					case 5:
+						$("#planta_error").text("* El campo debe ser un n\xfAmero");
+					break;
+					case 6:
+						$("#latitud_error").text("* Latitud incorrecta");
+					break;
+					case 7:
+						$("#longitud_error").text("* Longitud incorrecta");
+					break;
+				}
+			}
+			return false;
+		}else{
+			return true;	
+		}
+		
+	}
+	function campoVacio(valor){
+		if(valor.length<1){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
 	function procesaRespuesta(inResponse){
 		alert(inResponse);
 	}
@@ -164,7 +294,7 @@ function obtenerEdificios(){
 		echo "<th>N&deg;</th><th>Nombre</th><th>Ubicaci&oacute;n</th><th>P.</th><th>Comentario</th>";
 		$i=0;
 		if (isset($edificios)) {
-
+			$num_ed="";
 			foreach ($edificios as $edificio) {
 				//for ($i=0; $i <10 ; $i++) { 
 				echo "<tr id='fila".$i."'class='tr-form' onclick='seleccion(this)'><td>";
@@ -179,10 +309,19 @@ function obtenerEdificios(){
 				echo $edificio[4];
 				echo "</td></tr>";
 				//}
+				if($i>0){
+					$num_ed.=";".$edificio[0];
+				}else{
+					$num_ed.=$edificio[0];
+				}
+				
 				$i++;
 
 			}
 			echo "</table>";
+			echo '<input type="hidden" id="listaEdificios" name="listaEdificios" value="'.$num_ed.'" />';
+			//en un sistema real esto se haría con ajax, pero aun no aprendemos, aunque ya lo hayamos implantado
+			//en otras partes del programa, aqui lo vamos hacer con un hidden.
 		}else{
 			echo "</table>";
 			echo "no hay datos";
@@ -203,7 +342,7 @@ function obtenerEdificios(){
 	<div class="submit">
 		<form action="gestion-edificios-api.php" method="POST">
 			<fieldset><legend>Datos</legend>
-				<table class="tabla-form">
+				<table class="tabla-form" style="width:700px;">
 					<tr>
 						<td>
 							N&uacute;mero de edificio:
@@ -211,6 +350,7 @@ function obtenerEdificios(){
 						<td>
 							<input class="numerico" type="number" id="num_e-form" name="numero_ed" value="1" min="1" required  />
 							<input class="numerico" type="text" id="num_edit-form" name="numero_ed_mod" value="" min="1" OnFocus="this.blur()"  />
+							<label style="color:red;" id="numero_error"></label>
 						</td>
 					</tr>
 					<tr>
@@ -219,6 +359,7 @@ function obtenerEdificios(){
 						</td>
 						<td>
 							<input class="numerico" type="number" id="num_p-form" name="plantas" value="0" min="0" required  />
+							<label style="color:red;" id="planta_error"></label>
 						</td>
 					</tr>
 					<tr>
@@ -248,10 +389,19 @@ function obtenerEdificios(){
 					</tr>
 					<tr>
 						<td>
+							
+						</td>
+						<td>
+							<label style="color:red;" id="latitud_error"></label>
+							<label style="color:red;" id="longitud_error"></label>
+						</td>
+					</tr>
+					<tr>
+						<td>
 							<br/>
 							<br/>
-							<input class="boton-formulario" type="submit" id="btn-crear" name="crear" value="Crear Edificio"/>
-							<input class="boton-formulario" type="submit" id="btn-editar-form" name="editar" value="Guardar"/>
+							<input class="boton-formulario" type="submit" id="btn-crear" onclick="return validarFormulario('crea');" name="crear" value="Crear Edificio"/>
+							<input class="boton-formulario" type="submit" id="btn-editar-form" onclick="return validarFormulario('edita');" name="editar" value="Guardar"/>
 						</td>
 						<td>
 							<br/>
