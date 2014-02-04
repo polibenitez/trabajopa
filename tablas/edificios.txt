@@ -1,0 +1,40 @@
+35,Torre,37.353213041695135;-5.9372976422309875,pl,Torre
+33,Teatro,37.35334949697302;-5.936946272850037,pl,Teatro
+41,Teatro,37.35314481396321;-5.936082601547241,pl,Teatro
+31,Paraninfo,37.35400831662156;-5.938048660755157,pl,Paraninfo
+44,Josefa Amar,37.35408720402354;-5.935535430908203,pl,Josefa Amar Centro de Investigación Josefa Amar Área de Investigación
+2,Antonio de Ulloa,37.35431533739523;-5.936731696128845,pl,Antonio de Ulloa Decanatos
+4,Marqués de la Ensenada,37.35464367766634;-5.937088429927826,pl,Zenón de Somodevilla y Bengoechea Marqués de la Ensenada
+6,Manuel José de Ayala,37.35507435558477;-5.937294960021973,pl,Manuel José de Ayala
+3,José Moñino,37.354854752796506;-5.937788486480713,pl,José Moñino
+5,José María Blanco White,37.35514897774522;-5.93808889389038,pl,José María Blanco White
+8,Félix de Azara,37.35539203226774;-5.937659740447997,pl,Félix de Azara
+10,Francisco de Goya y Lucientes,37.35579498934739;-5.9379252791404715,pl,Francisco de Goya y Lucientes
+7,Pedro Rodríguez Campomanes,37.355586048909444;-5.938383936882019,pl,Pedro Rodríguez Campomanes
+12,Alejandro Malaspina,37.35612545517909;-5.938193500041961,pl,Alejandro Malaspina
+9,Francisco de Miranda,37.35592291177742;-5.938673615455627,pl,Francisco de Miranda
+14,Gaspar Melchor de Jovellanos,37.356517748213186;-5.938531458377838,pl,Gaspar Melchor de Jovellanos
+11,Pedro Pablo Abarca de Bolea,37.356281093421664;-5.938998162746429,pl,Pedro Pablo Abarca de Bolea; Conde de Aranda
+16,José Cadalso y Vázquez,37.356794910533836;-5.9388506412506095,pl,José Cadalso y Vázquez
+13,Francisco José de Caldas,37.35660089701683;-5.939303934574126,pl,Francisco José de Caldas
+15,José Celestino Mutis,37.35690577517552;-5.939556062221527,pl,Residencia Universitaria José Celestino Mutis
+17,nombre,37.357319384124416;-5.939531922340393,pl,José Celestino Mutis
+18,José Celestino Mutis,37.35717440805126;-5.939065217971802,pl,José Celestino Mutis
+45,Alexander von Humboldt,37.35657318075919;-5.943171679973602,pl,Alexander von Humboldt
+26,Gimnasio,37.35628322545016;-5.93585729598999,pl,Gimnasio
+25,Juan Bautista Muñoz,37.35766476717047;-5.935996770858765,pl,Biblioteca Universitaria Edificio Juan Bautista Muñoz
+24,Aularios,37.35853461372591;-5.936254262924194,pl,Aularios
+29,Aularios,37.35860283655879;-5.935664176940917,pl,Aularios
+22,Laboratorios de Investigación,37.35867105932969;-5.936779975891113,pl,Laboratorios de Investigación Despachos de profesores
+23,Laboratorios de Investigación,37.359105978036226;-5.9359002113342285,pl,Laboratorios de Docencia de Ciencias Experimentales
+20,El CABD,37.35913156141107;-5.9384214878082275,pl,Centro Andaluz de Biología del Desarrollo El CABD se fundó en el año 2003 como el primer instituto español especializado en el estudio de la Biología del Desarrollo. El CABD es un centro mixto del CSIC  la Junta de Andalucía y la UPO. 
+46,Instituto de la Grasa,37.359847892365835;-5.938657522201538,pl,Instituto de la Grasa. Consejo Superior de Investigaciones Científicas
+21,SCI,37.359609116140625;-5.936661958694458,pl,Servicios Centralizados de Investigación
+47,Ampliación de SCI,37.36015915309024;-5.936594903469086,pl,Ampliación Servicios Centralizados de Investigación
+27,Edificio 27,37.35525131658747;-5.934961438179016,pl,
+1,Cafetería Plaza de América,37.35444539442762;-5.937520265579224,pl,Cafetería Plaza de América
+32,Rectorado,37.35382282429562;-5.937504172325134,pl,Rectorado
+36,Edificio 36,37.35270986071424;-5.9387218952178955,pl, Este es el Edificio 36
+37,Pabellón Deportivo 1,37.35431320531083;-5.939515829086304,pl,Pabellón Deportivo 1
+38,Sala Deportiva,37.355029582252904;-5.940041542053222,pl,Sala Deportiva
+39,Pabellón Deportivo 2,37.35576300870579;-5.940663814544678,pl,Pabellón Deportivo 2
