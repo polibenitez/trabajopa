@@ -1,4 +1,5 @@
 <?php
+
 function imprimirAsignaturas() {
     $con = mysql_connect("localhost", "root");
     if (!$con) {
@@ -20,7 +21,7 @@ function imprimirAsignaturas() {
             echo "<option value ='$tipo[asignatura_id]'>$tipo[nombre_asi]</option>";
         }
         echo "</select>";
-    }else{
+    } else {
         echo "No hay asignaturas, no es posible continuar";
     }
 }
@@ -45,10 +46,11 @@ function imprimirDespachos() {
             echo "<option value ='$tipo[despacho_id]'>$tipo[numero_ed].$tipo[planta_des].$tipo[numero_des]</option>";
         }
         echo "</select>";
-    }else{
+    } else {
         echo "No hay despachos, no es posible continuar";
     }
 }
+
 function obtenerProfesores() {
     $con = mysql_connect("localhost", "root", "");
     if (!$con) {
@@ -145,6 +147,175 @@ function obtenerProfesores() {
                     return false;
                 }	
             }
+            
+            function validarFormulario(opcion){
+                
+                $("#nombre_error").text("");
+                $("#nombre_error").text("");
+                $("#nombre_error").text("");
+                $("#apellido1_error").text("");
+                $("#apellido1_error").text("");
+                $("#apellido1_error").text("");
+                $("#apellido2_error").text("");
+                $("#apellido2_error").text("");
+                $("#apellido2_error").text("");
+                
+                var errores=new Array();
+                //alert(errores.length);
+                var cont=0;
+                var nombre=$("#nombre-form").val();
+                var apellido1=$("#apellido1-form").val();
+                var apellido2=$("#apellido2-form").val();
+                
+                if(opcion=='crea'){
+
+                    if(!campoVacio(nombre)){
+
+                        if(!campoMenor(nombre)){
+                            
+                        }else{
+                            errores[cont]=2;
+                            cont++;
+                        }
+                    }else{
+                        errores[cont]=1;
+                        cont++;
+                    }
+                }
+                
+                if(nombre.charAt(0)=='1' || nombre.charAt(0)=='2' || nombre.charAt(0)=='3' || nombre.charAt(0)=='4' || nombre.charAt(0)=='5' || nombre.charAt(0)=='6' || nombre.charAt(0)=='7' || nombre.charAt(0)=='8' || nombre.charAt(0)=='9' || nombre.charAt(0)=='0'){
+                    errores[cont]=3;
+                    cont++;
+                }
+                
+                if(opcion=='crea'){
+
+                    if(!campoVacio(apellido1)){
+
+                        if(!campoMenor(apellido1)){
+                            
+                        }else{
+                            errores[cont]=5;
+                            cont++;
+                        }
+                    }else{
+                        errores[cont]=4;
+                        cont++;
+                    }
+                }
+                
+                if(apellido1.charAt(0)=='1' || apellido1.charAt(0)=='2' || apellido1.charAt(0)=='3' || apellido1.charAt(0)=='4' || apellido1.charAt(0)=='5' || apellido1.charAt(0)=='6' || apellido1.charAt(0)=='7' || apellido1.charAt(0)=='8' || apellido1.charAt(0)=='9' || apellido1.charAt(0)=='0'){
+                    errores[cont]=6;
+                    cont++;
+                }
+                
+                if(opcion=='crea'){
+
+                    if(!campoVacio(apellido2)){
+
+                        if(!campoMenor(apellido2)){
+                            
+                        }else{
+                            errores[cont]=8;
+                            cont++;
+                        }
+                    }else{
+                        errores[cont]=7;
+                        cont++;
+                    }
+                }
+                
+                if(apellido2.charAt(0)=='1' || apellido2.charAt(0)=='2' || apellido2.charAt(0)=='3' || apellido2.charAt(0)=='4' || apellido2.charAt(0)=='5' || apellido2.charAt(0)=='6' || apellido2.charAt(0)=='7' || apellido2.charAt(0)=='8' || apellido2.charAt(0)=='9' || apellido2.charAt(0)=='0'){
+                    errores[cont]=9;
+                    cont++;
+                }
+                
+                if(errores.length>0){
+                    //alert(errores.length);
+                    for (var i = 0; i<cont; i++) {
+                        console.log(errores);
+                        error=errores[i];
+                        switch(error){
+                            /*
+            errores
+            1--> Nombre vacio
+            2--> Nombre Menor que 4
+            3--> Nombre empieza por numero
+                             */
+                            case 1:
+                                $("#nombre_error").text("* Complete el campo.");
+                                break;
+                            case 2:
+                                $("#nombre_error").text("* El nombre tiene que tener al menos 3 letras.");
+                                break;
+                            case 3:
+                                $("#nombre_error").text("* El nombre no puede empezar por un n\xfAmero.");
+                                break;
+                            case 4:
+                                $("#apellido1_error").text("* Complete el campo.");
+                                break;
+                            case 5:
+                                $("#apellido1_error").text("* El primer apellido tiene que tener al menos 3 letras.");
+                                break;
+                            case 6:
+                                $("#apellido1_error").text("* El primer apellido no puede empezar por un n\xfAmero.");
+                                break;
+                            case 7:
+                                $("#apellido2_error").text("* Complete el campo.");
+                                break;
+                            case 8:
+                                $("#apellido2_error").text("* El segundo apellido tiene que tener al menos 3 letras.");
+                                break;
+                            case 9:
+                                $("#apellido2_error").text("* El segundo apellido no puede empezar por un n\xfAmero.");
+                                break;
+                                
+                        }
+                    }
+                    return false;
+                }else{
+                    return true;	
+                }
+		
+            }
+            
+            function soloLetras(e) {
+                var key = e.keyCode || e.which;
+                var tecla = String.fromCharCode(key).toLowerCase();
+                var letras = "abcdefghijklmn±opqrstuvwxyz0123456789";
+                var especiales = [8, 37, 39, 46];
+
+                var tecla_especial = false
+                for(var i in especiales) {
+                    if(key == especiales[i]) {
+                        tecla_especial = true;
+                        break;
+                    }
+                }
+
+
+
+                if(letras.indexOf(tecla) == -1 && !tecla_especial){
+                    return false;
+                }
+            }
+            
+            function campoVacio(valor){
+                if(valor.length<1){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+            
+            function campoMenor(valor){
+                if(valor.length<3){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+            
             function procesaRespuesta(inResponse){
                 alert(inResponse);
             }
@@ -169,8 +340,9 @@ function obtenerProfesores() {
                     $(".submit").show(vel);
                     //limpiamos el form
                     $("#profesorID-form").val("auto");//auto incremento del id de la asignatura
-                    //$("#planta-list").val("0");// valor del grado
-                    //$("#planta-list").val("");//valor del grado
+                    $("#nombre-form").val("");
+                    $("#apellido1-form").val("");// valor del grado
+                    $("#apellido2-form").val("");//valor del grado
                     $("#btn-editar-form").hide();
                     $("#btn-crear").show();
                     $("#profesorID-form").show();
@@ -181,6 +353,9 @@ function obtenerProfesores() {
                     $(".tr-form").attr('onclick','').unbind('click');
                     $(".caja-botones").hide(vel);
                     $(".submit").show(vel);
+                    $("#nombre-form").val("");
+                    $("#apellido1-form").val("");// valor del grado
+                    $("#apellido2-form").val("");//valor del grado
                     $("#btn-editar-form").show();
                     $("#btn-crear").hide();
                     $("#profesorID-form").hide();
@@ -229,7 +404,7 @@ function obtenerProfesores() {
                     echo "</td><td class='td-despacho'>";
                     echo $profesor[5];
                     echo "</td><td class='td-despacho'>";
-                    echo $profesor[6].".".$profesor[7];
+                    echo $profesor[6] . "." . $profesor[7];
                     echo "</td></tr>";
                     $i++;
                 }
@@ -268,7 +443,8 @@ function obtenerProfesores() {
                                 Nombre Profesor:
                             </td>
                             <td>
-                                <input class="numerico" type="text" id="nombre-form" type="text" name="nombre_prof" required  />
+                                <input class="input-presonalizado" type="text" id="nombre-form" type="text" name="nombre_prof" onkeypress="return soloLetras(event)" required  />
+                                <label style="color:red;" id="nombre_error"></label>
                             </td>
                         </tr>
                         <tr>
@@ -276,7 +452,8 @@ function obtenerProfesores() {
                                 Primer Apellido:
                             </td>
                             <td>
-                                <input class="numerico" type="text" id="apellido1-form" type="text" name="apellido1" required  />
+                                <input class="input-presonalizado" type="text" id="apellido1-form" type="text" name="apellido1" onkeypress="return soloLetras(event)" required  />
+                                <label style="color:red;" id="apellido1_error"></label>
                             </td>
                         </tr>
                         <tr>
@@ -284,7 +461,8 @@ function obtenerProfesores() {
                                 Segundo Apellido:
                             </td>
                             <td>
-                                <input class="numerico" type="text" id="apellido2-form" type="text" name="apellido2" required  />
+                                <input class="input-presonalizado" type="text" id="apellido2-form" type="text" name="apellido2" onkeypress="return soloLetras(event)" required  />
+                                <label style="color:red;" id="apellido2_error"></label>
                             </td>
                         </tr>
                         <tr>
@@ -307,8 +485,8 @@ function obtenerProfesores() {
                             <td>
                                 <br/>
                                 <br/>
-                                <input class="boton-formulario" type="submit" id="btn-crear" name="crear" value="Crear Profesor"/>
-                                <input class="boton-formulario" type="submit" id="btn-editar-form" name="editar" value="Guardar"/>
+                                <input class="boton-formulario" type="submit" id="btn-crear" name="crear" value="Crear Profesor" onclick="return validarFormulario('crea');"/>
+                                <input class="boton-formulario" type="submit" id="btn-editar-form" name="editar" value="Guardar" onclick="return validarFormulario('edita');"/>
                             </td>
                             <td>
                                 <br/>

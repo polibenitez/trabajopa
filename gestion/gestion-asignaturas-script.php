@@ -16,12 +16,12 @@ function imprimirGrados() {
     }
 
     if ((mysql_num_rows($result) > 0)) {
-        echo "<select name='grados' id='grados-list'>";
+        echo "<select name='grados' id='grados-list' onChange='cambioEdificio(this)'>";
         while ($tipo = mysql_fetch_array($result)) {
             echo "<option value ='$tipo[grado_id]'>$tipo[nombre]</option>";
         }
         echo "</select>";
-    }else{
+    } else {
         echo "No hay grados, no es posible continuar";
     }
 }
@@ -121,6 +121,106 @@ function obtenerAsignaturas() {
                     return false;
                 }	
             }
+            
+            function validarFormulario(opcion){
+                
+                $("#nombre_error").text("");
+                $("#nombre_error").text("");
+                $("#nombre_error").text("");
+                
+                var errores=new Array();
+                //alert(errores.length);
+                var cont=0;
+                var nombre=$("#nombre-form").val();
+                
+                if(opcion=='crea'){
+
+                    if(!campoVacio(nombre)){
+
+                        if(!campoMenor(nombre)){
+                            
+                        }else{
+                            errores[cont]=2;
+                            cont++;
+                        }
+                    }else{
+                        errores[cont]=1;
+                        cont++;
+                    }
+                }
+                
+                if(nombre.charAt(0)=='1' || nombre.charAt(0)=='2' || nombre.charAt(0)=='3' || nombre.charAt(0)=='4' || nombre.charAt(0)=='5' || nombre.charAt(0)=='6' || nombre.charAt(0)=='7' || nombre.charAt(0)=='8' || nombre.charAt(0)=='9' || nombre.charAt(0)=='0'){
+                    errores[cont]=3;
+                    cont++;
+                }
+                
+                if(errores.length>0){
+                    //alert(errores.length);
+                    for (var i = 0; i<cont; i++) {
+                        console.log(errores);
+                        error=errores[i];
+                        switch(error){
+                            /*
+            errores
+            1--> Nombre vacio
+            2--> Nombre Menor que 4
+            3--> Nombre empieza por numero
+                             */
+                            case 1:
+                                $("#nombre_error").text("* Complete el campo.");
+                                break;
+                            case 2:
+                                $("#nombre_error").text("* El nombre tiene que tener al menos 4 letras.");
+                                break;
+                            case 3:
+                                $("#nombre_error").text("* El nombre no puede empezar por un n\xfAmero.");
+                                break;
+                        }
+                    }
+                    return false;
+                }else{
+                    return true;	
+                }
+		
+            }
+            
+            function soloLetras(e) {
+                var key = e.keyCode || e.which;
+                var tecla = String.fromCharCode(key).toLowerCase();
+                var letras = "abcdefghijklmn±opqrstuvwxyz0123456789";
+                var especiales = [8, 32, 37, 39, 46];
+
+                var tecla_especial = false
+                for(var i in especiales) {
+                    if(key == especiales[i]) {
+                        tecla_especial = true;
+                        break;
+                    }
+                }
+
+
+
+                if(letras.indexOf(tecla) == -1 && !tecla_especial){
+                    return false;
+                }
+            }
+            
+            function campoVacio(valor){
+                if(valor.length<1){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+            
+            function campoMenor(valor){
+                if(valor.length<4){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+            
             function procesaRespuesta(inResponse){
                 alert(inResponse);
             }
@@ -145,7 +245,7 @@ function obtenerAsignaturas() {
                     $(".submit").show(vel);
                     //limpiamos el form
                     $("#asignaturaID-form").val("auto");//auto incremento del id de la asignatura
-                    //$("#planta-list").val("0");// valor del grado
+                    $("#nombre-form").val("");// valor del grado
                     //$("#planta-list").val("");//valor del grado
                     $("#btn-editar-form").hide();
                     $("#btn-crear").show();
@@ -161,6 +261,7 @@ function obtenerAsignaturas() {
                     $("#btn-crear").hide();
                     $("#asignaturaID-form").hide();
                     $("#asignaturaID-edit-form").show();
+                    $("#nombre-form").val("");
                 });
                 //cancelar
                 $("#btn-cancelar").click(function(){
@@ -245,15 +346,16 @@ function obtenerAsignaturas() {
                                 Nombre Asignatura
                             </td>
                             <td>
-                                <input class="numerico" type="text" id="nombre-form" type="text" name="nombre_asi" required  />
+                                <input class="input-presonalizado" type="text" id="nombre-form" type="text" name="nombre_asi" onkeypress="return soloLetras(event)" required />
+                                <label style="color:red;" id="nombre_error"></label>
                             </td>
                         </tr>                      
                         <tr>
                             <td>
                                 <br/>
                                 <br/>
-                                <input class="boton-formulario" type="submit" id="btn-crear" name="crear" value="Crear Asignatura"/>
-                                <input class="boton-formulario" type="submit" id="btn-editar-form" name="editar" value="Guardar"/>
+                                <input class="boton-formulario" type="submit" id="btn-crear" name="crear" onclick="return validarFormulario('crea');" value="Crear Asignatura"/>
+                                <input class="boton-formulario" type="submit" id="btn-editar-form" name="editar" onclick="return validarFormulario('edita');" value="Guardar"/>
                             </td>
                             <td>
                                 <br/>
