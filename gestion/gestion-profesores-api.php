@@ -70,6 +70,7 @@ function modificarProfesor() {
     return true;
 }
 
+include("saneo.php");
 
 if (isset($_POST['eliminar'])) {
 	if (eliminarProfesor()) {

@@ -46,7 +46,7 @@ enyo.kind({
     },
 
     tapInformacion:function(inSender,inEvent){
-        this.openUrl("../gestion/entrar.php?tipo=informacion");
+        this.openUrl("../informacion.html");
     },
 
     tapSugerencia:function(inSender,inEvent){

@@ -461,4 +461,16 @@ footer{
 	background-color: grey;
 	margin:0 auto 0 auto;
 }
+
+
+/*----------------informacion-------------------------*/
+.informacion1 {
+    background-image: url("./images/fondo_inf.png");
+    background-repeat: repeat;
+    width: 1152px;
+    height: 500px;
+}
+
+
+
 /**/

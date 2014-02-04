@@ -9,20 +9,33 @@
                 
                 var ok = true;
                 var msg = "Error:\n";
-                if(f.elements["nombr"].value == "") {
-                    msg += "- nombre vacio\n";
-                    
+                
+                if(f.elements["elmsg"].value == "") {
+                    //msg += "- nombre vacio\n";
+                    f.elements["elmsg"].focus();
+                    ok = false;                    
+                }
+                
+                if(f.elements["asunt"].value == "") {
+                    //msg += "- nombre vacio\n";
+                    f.elements["asunt"].focus();
                     ok = false;                    
                 }
                 
                 if(!regexp.test(f.elements["elcorreo"].value)){
-                    msg += "- Formato de correo mal";
-                    
+                    //msg += "- Formato de correo mal";
+                    f.elements["elcorreo"].focus();
                     ok = false;
                 }
                 
+                if(f.elements["nombr"].value == "") {
+                    //msg += "- nombre vacio\n";
+                    f.elements["nombr"].focus();
+                    ok = false;                    
+                }
+                
                 if(ok == false){
-                    alert(msg);
+                   //alert(msg);
                     return ok;      
                 }
                 

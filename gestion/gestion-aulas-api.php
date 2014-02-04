@@ -65,6 +65,8 @@ function modificaraulas(){
 	return true;
 }
 
+include("saneo.php");
+
 if (isset($_POST['eliminar'])) {
 	if (eliminaraulas()) {
 		//echo "correcto";

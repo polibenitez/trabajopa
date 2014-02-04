@@ -62,6 +62,8 @@ function modificargrados(){
 	return true;
 }
 
+include("saneo.php");
+
 if (isset($_POST['eliminar'])) {
 	if (eliminargrados()) {
 		//echo "correcto";

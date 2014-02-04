@@ -1,0 +1,148 @@
+body {
+
+    /*background-image: url("./images/fondo_inf.png");
+    background-repeat: repeat;*/
+    margin: 0 auto 0 auto;
+    width: 100%;
+    min-width: 925px;
+    height: auto;
+    min-height: 100%;
+    color: #525252;
+}
+
+h1{
+    text-align: center;
+    font-size: 3em;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+.objetivo{
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.imagenUpo{
+    width: 100%;
+    height: 350px;
+    box-shadow: 2px 2px 2px gray;
+}
+
+.enlaces{
+    text-decoration: none;
+    font-size: 20px;
+    color: #525252;
+}
+
+.enlaces1{
+    text-decoration: none;
+}
+
+#logo{
+    width: 60px;
+    height: 60px;
+}
+
+#maia-header {
+    background: #f5f5f5;
+    background: -moz-linear-gradient(top, #fafafa, #f5f5f5);
+    background: -webkit-linear-gradient(top, #fafafa, #f5f5f5);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fafafa), color-stop(1, #f5f5f5));
+    background: linear-gradient(top, #fafafa, #f5f5f5);
+    background: -moz-linear-gradient(top, #fafafa, #f5f5f5);
+    background: -webkit-linear-gradient(top, #fafafa, #f5f5f5);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fafafa), color-stop(1, #f5f5f5));
+    background: linear-gradient(top, #fafafa, #f5f5f5);
+    background: -moz-linear-gradient(#fafafa, #f5f5f5);
+    background: -webkit-linear-gradient(#fafafa, #f5f5f5);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fafafa), color-stop(1, #f5f5f5));
+    background: linear-gradient(#fafafa, #f5f5f5);
+    background: -moz-linear-gradient(top, #fafafa, #f5f5f5);
+    background: -webkit-linear-gradient(top, #fafafa, #f5f5f5);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fafafa), color-stop(1, #f5f5f5));
+    background: linear-gradient(top, #fafafa, #f5f5f5);
+    border-bottom: 1px solid #eee;
+    color: #444;
+    min-height: 44px;
+    padding: 14px 15px 13px
+}
+
+.maia-aux{
+    margin-left: 210px;
+}
+
+#corp-crumb {
+    background: #fcfcfc;
+    border-bottom: 1px solid #f2f2f2;
+    font-size: 13px;
+    min-height: 28px;
+    overflow: hidden;
+    padding: 0 12px
+}
+
+
+div#corp-crumb ol {
+    margin: auto;
+    max-width: 978px
+}
+
+div#corp-crumb p, div#corp-crumb ol {
+    color: #444;
+    padding: 0 0px
+}
+
+div#corp-crumb ol, div#corp-crumb ul {
+    list-style: none;
+    padding: 0
+}
+
+div#corp-crumb li {
+    float: left;
+    height: 28px;
+    line-height: 2.4
+}
+
+#maia-main {
+    clear: both;
+    display: block;
+    height: 0;
+    margin: auto;
+    max-width: 978px;
+    margin-top: 30px;
+}
+
+#about-mission {
+    padding-bottom: 10px;
+    margin: 13px auto;
+    text-align: center;
+    border-bottom: 1.5px solid #ebebeb;
+    margin-bottom: 28px;
+}
+
+#about-mission ul {
+    margin: 13px auto;
+    text-align: center;
+}
+
+#about-mission ul li {
+    display: inline;
+    list-style: none;
+}
+
+#about-mission blockquote {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#about-main {
+    float: none;
+    margin-right: 0;
+    width: 100%;
+}
+
+.perfil{
+    width: 221px;
+    height: 264px;
+}

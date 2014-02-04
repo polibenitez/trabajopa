@@ -64,6 +64,8 @@ function modificarAsignatura() {
     return true;
 }
 
+include("saneo.php");
+
 if (isset($_POST['eliminar'])) {
 	if (eliminarAsignatura()) {
 		//echo "correcto";
