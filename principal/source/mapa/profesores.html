@@ -43,7 +43,7 @@ if(typeof(latitud) != "undefined" && typeof(longitud)!="undefined" && typeof(id)
         var apellido2="";
         var asignatura="";
         var despacho="";
-        var pUrl="../../../datosLista.php?peticion=profesor&id="+id;
+        var pUrl="../../../api-datos.php?peticion=profesor&id="+id;
         //alert("entra");
         $.getJSON(pUrl, {format: "json"}, function(data) { 
             console.log(data);

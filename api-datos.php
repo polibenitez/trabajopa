@@ -328,6 +328,17 @@ if (isset($_GET['peticion'])) {
         }
     }
 
+    if($tipoDato=="profesor"){
+        $identificador=$_GET['id'];
+            //con el numero hace la consulta
+
+            $profesor["nombre"]="Nombre";
+            $profesor["apellido1"]="Apellido-1";
+            $profesor["apellido2"]="Apellido-2";
+            $profesor["asignatura"]="Asignatura: Programación. ";
+            $profesor["despacho"]="Edificio: 1 <br/>Planta: 2 <br/> Despacho: 4";//en esta peticion concatenar "Edificio_NUM.Planta_NUM.Despacho_NUM"
+            $articulo['profesor']=$profesor;
+    }
 
     if ($tipoDato == 'entidades') {
         //prueba con Entidades

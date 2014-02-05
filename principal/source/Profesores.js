@@ -16,7 +16,7 @@ enyo.kind({
   conectorDatos:function() {
       var ajax = new enyo.Ajax({
           //url: "http://localhost/proyectos/trabajopa/datosLista.php",
-          url:"../datosLista.php",
+          url:"../api-datos.php",
       });
 
       ajax.go({

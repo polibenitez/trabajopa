@@ -68,9 +68,9 @@ enyo.kind({
             console.log("no vamos a crear nada");
             break;
           }
-      }else{
-        console.log(inEvent.name+" es igual a "+ control);
-      }
+      }//else{
+        //console.log(inEvent.name+" es igual a "+ control);
+      //}
   },
   handleItemBubble2 :function(inSender,inEvent){
     //this.$.listaLugares.actualizarLista(inEvent.name);
