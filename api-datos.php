@@ -1,6 +1,6 @@
 <?php
 
-//header("Content-Type: text/html;charset=utf-8"); //por el tema de las tildes. tambien tenemos que tener encuenta que la bd este en utf8_general_ci todas las tablas tambien
+header("Content-Type: text/html;charset=utf-8"); //por el tema de las tildes. tambien tenemos que tener encuenta que la bd este en utf8_general_ci todas las tablas tambien
 
 function obtenerEdificios() {
     $con = mysql_connect("localhost", "root", "");
@@ -71,7 +71,7 @@ function obtenerComidas() {
         die(' No puedo seleccionar con prueba: ' . mysql_error());
     }
 
-    $result = mysql_query("SELECT lugar_id, tipo, descripcion, ubicacion, tag FROM lugares WHERE tipo like upper('comida')", $con);
+    $result = mysql_query("SELECT lugar_id, tipo, descripcion, ubicacion, tag FROM lugares WHERE tipo like upper('comidas')", $con);
     if (!$result) {
         die('no se pudo ejecutar la consulta' . mysql_error());
     }
@@ -95,7 +95,7 @@ function obtenerTransportes() {
         die(' No puedo seleccionar con prueba: ' . mysql_error());
     }
 
-    $result = mysql_query("SELECT lugar_id, tipo, descripcion, ubicacion,tag FROM lugares WHERE tipo like upper('transporte')", $con);
+    $result = mysql_query("SELECT lugar_id, tipo, descripcion, ubicacion,tag FROM lugares WHERE tipo like upper('transportes')", $con);
     if (!$result) {
         die('no se pudo ejecutar la consulta' . mysql_error());
     }
@@ -326,18 +326,6 @@ if (isset($_GET['peticion'])) {
         } else {
             echo "no se puede mostrar los datos";
         }
-    }
-
-    if($tipoDato=="profesor"){
-        $identificador=$_GET['id'];
-            //con el numero hace la consulta
-
-            $profesor["nombre"]="Nombre";
-            $profesor["apellido1"]="Apellido-1";
-            $profesor["apellido2"]="Apellido-2";
-            $profesor["asignatura"]="Asignatura: Programación. ";
-            $profesor["despacho"]="Edificio: 1 <br/>Planta: 2 <br/> Despacho: 4";//en esta peticion concatenar "Edificio_NUM.Planta_NUM.Despacho_NUM"
-            $articulo['profesor']=$profesor;
     }
 
     if ($tipoDato == 'entidades') {

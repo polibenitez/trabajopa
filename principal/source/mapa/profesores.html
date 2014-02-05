@@ -43,17 +43,17 @@ if(typeof(latitud) != "undefined" && typeof(longitud)!="undefined" && typeof(id)
         var apellido2="";
         var asignatura="";
         var despacho="";
-        var pUrl="../../../api-datos.php?peticion=profesor&id="+id;
+        var pUrl="../../../api-datos.php?peticion=profesores&id="+id;
         //alert("entra");
         $.getJSON(pUrl, {format: "json"}, function(data) { 
             console.log(data);
             //console.log("probando cositas "+data.profesor.descripcion);
             
-            nombre=data.profesor.nombre;
-            apellido1=data.profesor.apellido1;
-            apellido2=data.profesor.apellido2;
-            asignatura=data.profesor.asignatura;
-            despacho=data.profesor.despacho;
+            nombre=data.profesores[0].nombre;
+            apellido1=data.profesores[0].apellido1;
+            apellido2=data.profesores[0].apellido2;
+            asignatura=data.profesores[0].asignatura;
+            despacho=data.profesores[0].despacho;
 
             //console.log("nombre: "+nombre+" descripcion: "+descripcion);
 
