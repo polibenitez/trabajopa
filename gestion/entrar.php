@@ -82,7 +82,7 @@ function identificar(){
 			</div>
 		</section>
 		<footer>
-			create by MAMISHO copy-left 2013
+			create by Equipo 2 copy-left 2013
 		</footer>
 	</div>
 	<?php 

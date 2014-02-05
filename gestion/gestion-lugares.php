@@ -15,7 +15,7 @@
 				<img src="../images/guia-menu.png">
 				<a href="./gestion.php">Gesti&oacute;n</a>
 				<img src="../images/guia-menu.png">
-				Aulas
+				Lugares
 				<img src="../images/guia-menu.png">
 			</div>
 			<div class="entrar">

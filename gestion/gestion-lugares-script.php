@@ -60,12 +60,22 @@ function obtenerlugares(){
   				//el siguinete es para no editar la clave
   				$("#lugarID-edit-form").val(dato[0].innerHTML);
   				//el siguiente es para eliminar por el id
-  				$("#lugar_id-form-eliminar").val(dato[0].innerHTML);
+  				$("#lugar_id-from-eliminar").val(dato[0].innerHTML);
   			});
   			
 		
 
     	}
+
+
+
+    	function campoVacio(valor){
+			if(valor.length<1){
+				return true;
+			}else{
+				return false;
+		}
+		}
     	function confirmar(){
     		if(confirm('\xBFEstas seguro de eliminar el lugar?'))
     		{
@@ -211,6 +221,11 @@ function obtenerlugares(){
 						</td>
 						<td>
 							<input class="input-presonalizado" id="tipo-form" type="text" name="tipo" required  />
+							<!-- <select id="tipo-form" 	name="tipo" required >		
+								<option value='transportesasdasdasd'>transportes</option>
+								<option value='comidas'>comidas</option>
+								<option value='deportes'>deportes</option>
+								<option value='estudiantes'>estudiantes</option></select> -->
 						</td>
 					</tr>
 					<tr>
@@ -218,7 +233,7 @@ function obtenerlugares(){
 							Descripci&oacute;n:
 						</td>
 						<td>
-							<input class="input-presonalizado" id="descripcion-form" type="text" name="descripcion" />
+							<input class="input-presonalizado" id="descripcion-form" type="text" name="descripcion" required />
 						</td>
 					</tr>
 					<tr>

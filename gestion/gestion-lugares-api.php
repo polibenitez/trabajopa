@@ -23,7 +23,7 @@ function crearlugar(){
 
 }
 function eliminarlugar(){
-	$lugar_id=$_POST['lugar_num'];
+	$lugar_id=$_POST['lugar_id-eliminar'];
 	$sql="DELETE FROM lugares WHERE lugar_id=$lugar_id";
 
 	$con = mysql_connect("localhost","root","");
@@ -47,7 +47,7 @@ function modificarlugar(){
 	$descripcion=$_POST['descripcion'];
 	$lugar_id=$_POST['lugar_id_mod'];
 
-	$sql="UPDATE lugar SET ubicacion='$ubicacion', tipo='$tipo', descripcion='$descripcion' WHERE lugar_id=$lugar_id";
+	$sql="UPDATE lugares SET ubicacion='$ubicacion', tipo='$tipo', descripcion='$descripcion' WHERE lugar_id=$lugar_id";
 	//$sql="INSERT INTO lugar (numero_ed, ubicacion_ed, ubicaciones, plantas_ed, descripcion) VALUES ($numero_ed, '$ubicacion_ed', '$ubicaciones', $plantas_ed, '$descripcion')";
 	//echo "<br/>".$sql;
 	$con = mysql_connect("localhost","root","");
@@ -66,11 +66,7 @@ function modificarlugar(){
 }
 include("saneo.php");	
 
-	$tipo=$_POST['tipo'];
-	$ubicacion=$_POST['ubicacion'];
 	
-	$descripcion=$_POST['descripcion'];
-	$lugar_id=$_POST['lugar_num'];
 	/*echo $numero_ed."<br>";
 	echo $ubicacion_ed."<br>";
 	echo $ubicaciones."<br>";
