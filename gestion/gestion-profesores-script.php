@@ -10,7 +10,7 @@ function imprimirAsignaturas() {
         die(' No puedo seleccionar con prueba: ' . mysql_error());
     }
 
-    $result = mysql_query("SELECT asignatura_id, nombre_asi FROM asignatura", $con);
+    $result = mysql_query("SELECT asignatura_id, nombre_asi FROM asignatura order by nombre_asi", $con);
     if (!$result) {
         die('no se pudo ejecutar la consulta' . mysql_error());
     }
@@ -35,7 +35,7 @@ function imprimirDespachos() {
     if (!$db_selected) {
         die(' No puedo seleccionar con prueba: ' . mysql_error());
     }
-    $result = mysql_query("SELECT despacho_id, numero_ed, planta_des, numero_des  FROM despacho", $con);
+    $result = mysql_query("SELECT despacho_id, numero_ed, planta_des, numero_des  FROM despacho order by numero_ed, planta_des, numero_des", $con);
     if (!$result) {
         die('no se pudo ejecutar la consulta' . mysql_error());
     }

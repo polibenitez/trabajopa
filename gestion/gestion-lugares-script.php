@@ -307,11 +307,11 @@ function validarFormulario(opcion){
 						<td>
 							<!-- <input class="input-presonalizado" id="tipo-form" type="text" name="tipo" required  /> -->
 							<select id="tipo-form" 	name="tipo" required >
-							
-					<option value='transportes'>transportes</option>
-					<option value='comidas'>comidas</option>
-					<option value='deportes'>deportes</option>
-					<option value='estudiantes'>estudiantes</option></select>
+						
+                                        <option value='comidas'>comidas</option>
+                                        <option value='deportes'>deportes</option>
+					<option value='estudiantes'>estudiantes</option>
+                                        <option value='transportes'>transportes</option></select>
 					<label style="color:red;" id="tipo_error"></label>
 						</td>
 					</tr>

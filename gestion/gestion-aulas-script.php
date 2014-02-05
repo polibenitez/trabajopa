@@ -40,7 +40,7 @@ function imprimirAsignatura() {
         die(' No puedo seleccionar con prueba: ' . mysql_error());
     }
 
-    $result = mysql_query("SELECT asignatura_id, nombre_asi FROM Asignatura", $con);
+    $result = mysql_query("SELECT asignatura_id, nombre_asi FROM Asignatura order by nombre_asi", $con);
     if (!$result) {
         die('no se pudo ejecutar la consulta' . mysql_error());
     }
