@@ -31,7 +31,7 @@ enyo.kind({
             case "Edificios":
                   //console.log("vamos a crear edificios");
                   this.createEdificios();
-                  this.$.mapa.$.iframe.setSrc("./source/mapa/edificios.html");
+                  this.$.mapa.$.iframe.setSrc("./source/mapa/edificios.html?latitud="+0+"&longitud="+0);
                   
                   break;
             case "Profesores":
@@ -91,7 +91,7 @@ enyo.kind({
                   //console.log("Mapa de edificios");
                   //this.createEdificios();
                   //this.$.mapa.$.iframe.setSrc("./source/mapa/edificios.html");
-                  this.$.mapa.$.iframe.setSrc("./source/mapa/edificios.html?latitud="+latitud+"&longitud="+longitud+"&numero="+inEvent.numero);
+                  this.$.mapa.$.iframe.setSrc("./source/mapa/edificios.html?latitud="+latitud+"&longitud="+longitud);
                   break;
             case "Profesores":
                   console.log("latitud: "+latitud+" longitud: "+longitud+" id: "+inEvent.id);

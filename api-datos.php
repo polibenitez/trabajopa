@@ -1,6 +1,6 @@
 <?php
 
-header("Content-Type: text/html;charset=utf-8"); //por el tema de las tildes. tambien tenemos que tener encuenta que la bd este en utf8_general_ci todas las tablas tambien
+//header("Content-Type: text/html;charset=utf-8"); //por el tema de las tildes. tambien tenemos que tener encuenta que la bd este en utf8_general_ci todas las tablas tambien
 
 function obtenerEdificios() {
     $con = mysql_connect("localhost", "root", "");
@@ -342,7 +342,6 @@ if (isset($_GET['peticion'])) {
 }
     print(json_encode($articulo));
 ?>
-    </body>
-</html>
+
 
 
