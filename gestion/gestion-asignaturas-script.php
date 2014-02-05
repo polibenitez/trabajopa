@@ -9,7 +9,7 @@ function imprimirGrados() {
         die(' No puedo seleccionar con prueba: ' . mysql_error());
     }
 
-    $result = mysql_query("SELECT grado_id, nombre FROM Grado", $con);
+    $result = mysql_query("SELECT grado_id, nombre FROM Grado order by nombre", $con);
     if (!$result) {
         die('no se pudo ejecutar la consulta' . mysql_error());
     }
