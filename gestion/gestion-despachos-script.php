@@ -153,6 +153,67 @@ function obtenerDespachos() {
                     return false;
                 }	
             }
+
+            function validarFormulario(opcion){
+            	$("#despacho_error").text("");
+            	var desp=$("#numero_des-form").val();
+            	var cont=0;
+            	var errores=new Array();
+            	if(campoVacio(desp)){
+            		errores[cont]=2;
+            		cont++;
+            	}
+            	if(desp<1){
+            		errores[cont]=1;
+            		cont++;
+            	}
+            	if(errores.length>0){
+                //alert(errores.length);
+                for (var i = 0; i<cont; i++) {
+                    //console.log(errores);
+                    error=errores[i];
+                    switch(error){
+                        case 1:
+                            $("#despacho_error").text("* Inserte un despacho");
+                            break;
+                        case 2:
+                            $("#despacho_error").text("* el despacho debe ser mayor a 0");
+                            break;
+                        }
+                    }
+                    return false;
+                }else{
+                	return true;
+                }
+            }
+
+            function campoVacio(valor){
+
+	            if( valor == null || valor.length == 0 || /^\s+$/.test(valor) ) {
+	                return true;
+
+	            }else{
+	                return false;
+	            }
+	        }
+
+	        function controlDespachos(e) {
+	            key = e.keyCode || e.which;
+	            tecla = String.fromCharCode(key).toLowerCase();
+	            letras = "0123456789";
+	            especiales = [8, 37, 39, 46];
+
+	            tecla_especial = false
+	            for(var i in especiales) {
+	                if(key == especiales[i]) {
+	                    tecla_especial = true;
+	                    break;
+	                }
+	            }
+	            if(letras.indexOf(tecla) == -1 && !tecla_especial)
+                return false;
+	        }
+
             function procesaRespuesta(inResponse){
                 alert(inResponse);
             }
@@ -323,15 +384,16 @@ function obtenerDespachos() {
                                 N&uacute;mero de despacho:
                             </td>
                             <td>
-                                <input class="numerico" type="number" id="numero_des-form" type="text" name="numero_des" min="1" required />
+                                <input class="numerico" type="number" id="numero_des-form" type="text" name="numero_des" onkeypress="return controlDespachos(event)" min="1" required />
+                                <label style="color:red;" id="despacho_error"></label>
                             </td>
                         </tr>
                         <tr>
                             <td style="width:10px;">
                                 <br/>
                                 <br/>
-                                <input class="boton-formulario" type="submit" id="btn-crear" name="crear" value="Crear Despacho"/>
-                                <input class="boton-formulario" type="submit" id="btn-editar-form" name="editar" value="Guardar"/>
+                                <input class="boton-formulario" type="submit" id="btn-crear" onclick="return validarFormulario('crea');" name="crear" value="Crear Despacho"/>
+                                <input class="boton-formulario" type="submit" id="btn-editar-form" onclick="return validarFormulario('edita');" name="editar" value="Guardar"/>
                             </td>
                             <td>
                                 <br/>

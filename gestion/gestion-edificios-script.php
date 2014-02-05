@@ -219,13 +219,30 @@ function obtenerEdificios() {
 		
         }
         function campoVacio(valor){
-            if(valor.length<1){
+            if( valor == null || valor.length == 0 || /^\s+$/.test(valor) ) {
                 return true;
             }else{
                 return false;
             }
         }
 
+        function controlUbicacion(e) {
+            key = e.keyCode || e.which;
+            tecla = String.fromCharCode(key).toLowerCase();
+            letras = "0123456789-.";
+            especiales = [8, 37, 39, 46];
+
+            tecla_especial = false
+            for(var i in especiales) {
+                if(key == especiales[i]) {
+                    tecla_especial = true;
+                    break;
+                }
+            }
+
+            if(letras.indexOf(tecla) == -1 && !tecla_especial)
+                return false;
+        }
         function procesaRespuesta(inResponse){
             alert(inResponse);
         }
@@ -382,8 +399,8 @@ function obtenerEdificios() {
                             Ubicaci&oacute;n
                         </td>
                         <td>
-                            <input class="input-presonalizado" id="latitud" type="text" name="latitud" placeholder="Latitud" required />
-                            <input class="input-presonalizado" id="longitud" type="text" name="longitud" placeholder="Longitud" required />
+                            <input class="input-presonalizado" id="latitud" type="text" name="latitud" placeholder="Latitud" onkeypress="return controlUbicacion(event)" required />
+                            <input class="input-presonalizado" id="longitud" type="text" name="longitud" placeholder="Longitud" onkeypress="return controlUbicacion(event)" required />
                         </td>
                     </tr>
                     <tr>
