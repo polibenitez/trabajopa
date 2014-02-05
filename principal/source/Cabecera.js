@@ -15,7 +15,7 @@ enyo.kind({
              		//classes:"headerTextTitle",
              		style:"text-align:left;color:rgb(0,182,233);"
              	},
-                {kind:"onyx.Button",name:"login",content:"Entrar", classes:"onyx-blue",style:"float:right",ontap:"handleBtnNextPage"}
+                {kind:"onyx.Button",name:"login",content:"Entrar", classes:"onyx-blue",ontap:"handleBtnNextPage"}
              ]
         },
         {kind: "PopupWindow", name: "popup", onWindowClosed: "closed"}
