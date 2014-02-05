@@ -47,8 +47,9 @@ enyo.kind({
                   
                   break;
             case "Transporte":
-                  console.log("vamos a crear Transporte");
+                  //console.log("vamos a crear Transporte");
                   this.createTransporte();
+                  this.$.mapa.$.iframe.setSrc("./source/mapa/transportes.html?latitud="+0+"&longitud="+0);
                   break;
             case "Aparcamientos":
                   //console.log("vamos a crear Aparcamientos");
@@ -61,8 +62,9 @@ enyo.kind({
                   this.$.mapa.$.iframe.setSrc("./source/mapa/deportes.html?latitud="+0+"&longitud="+0);
                   break;
             case "Para Estudiantes":
-                  console.log("vamos a crear Para Estudiantes");
+                  //console.log("vamos a crear Para Estudiantes");
                   this.createEstudiantes();
+                  this.$.mapa.$.iframe.setSrc("./source/mapa/estudiantes.html?latitud="+0+"&longitud="+0);
                   break;
             default:
             console.log("no vamos a crear nada");
@@ -105,8 +107,9 @@ enyo.kind({
                   this.$.mapa.$.iframe.setSrc("./source/mapa/comidas.html?latitud="+latitud+"&longitud="+longitud);
                   break;
             case "Transporte":
-                  console.log("vamos a crear Transporte");
-                  this.createTransporte();
+                  //console.log("vamos a crear Transporte");
+                  //this.createTransporte();
+                  this.$.mapa.$.iframe.setSrc("./source/mapa/transportes.html?latitud="+latitud+"&longitud="+longitud);
                   break;
             case "Aparcamientos":
                   //console.log("vamos a crear Aparcamientos");
@@ -119,8 +122,9 @@ enyo.kind({
                   this.$.mapa.$.iframe.setSrc("./source/mapa/deportes.html?latitud="+latitud+"&longitud="+longitud);
                   break;
             case "Para Estudiantes":
-                  console.log("vamos a crear Para Estudiantes");
-                  this.createEstudiantes();
+                  //console.log("vamos a crear Para Estudiantes");
+                  //this.createEstudiantes();
+                  this.$.mapa.$.iframe.setSrc("./source/mapa/estudiantes.html?latitud="+latitud+"&longitud="+longitud);
                   break;
             default:
             console.log("no vamos a crear nada");
