@@ -45,9 +45,13 @@ function eliminaraulas(){
 }
 function modificaraulas(){
 	$aula_id=$_POST['aulas_id_mod'];
-	$nombre=$_POST['nombre_ed'];
+	
+	$numero_ed=$_POST['edificios'];
+	$id_asignatura=$_POST['asignaturas'];
+	$numero_planta=$_POST['numero_pla'];
+	$comentario=$_POST['comentario_au'];
 
-	$sql="UPDATE aulas SET nombre='$nombre' WHERE aula_id='$aula_id'";
+	$sql="UPDATE aulas SET asignatura_id='$id_asignatura', numero_ed='$numero_ed', planta_aul='$numero_planta', comentario_aul='$comentario' WHERE aula_id='$aula_id'";
 	//$sql="INSERT INTO Edificio (numero_ed, nombre_ed, ubicaciones, plantas_ed, comentario_ed) VALUES ($numero_ed, '$nombre_ed', '$ubicaciones', $plantas_ed, '$comentario_ed')";
 	//echo "<br/>".$sql;
 	$con = mysql_connect("localhost","root","");
