@@ -15,7 +15,6 @@ enyo.kind({
   
   conectorDatos:function() {
       var ajax = new enyo.Ajax({
-          //url: "http://localhost/proyectos/trabajopa/datosLista.php",
           url:"../api-datos.php",
       });
 
@@ -24,14 +23,10 @@ enyo.kind({
               peticion:"estudiantes"
             });
       ajax.response(this, "processResponse");
-      // handle error
-      //ajax.error(this, "processError");
   },
 
   processResponse:function(inRequest, inResponse){
     if (!inResponse) return;
-    //console.log(inResponse);
-
     this.$.listaDatos.data=inResponse;
     this.$.listaDatos.refreshList();
   },

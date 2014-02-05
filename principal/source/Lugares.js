@@ -10,7 +10,6 @@ enyo.kind({
  
 	create: function(){
     this.inherited(arguments);
-      //this.conectorDatos();
 	},
   
   conectorDatos:function() {
@@ -23,39 +22,19 @@ enyo.kind({
               peticion:"edificios"
             });
       ajax.response(this, "processResponse");
-      // handle error
-      //ajax.error(this, "processError");
   },
 
   processResponse:function(inRequest, inResponse){
     if (!inResponse) return;
-    //this.$.Contenedor.destroyClientControls();
-    //enyo.forEach(inResponse.match, this.addJornada, this);
-
-    //this.addLista(inResponse);
-    
-    //this.num_jornada=inResponse.match[0].round;
-    //console.log(this.num_jornada);
-    //this.cabChanged();
-    //console.log(inResponse);
     var datos=new Array();
     for (var i = 0; i < inResponse.length; i++) {
       datos[i]={nombre:inResponse[i]};
     }
-
     this.$.listaDatos.data=datos;
-    //this.$.listaDatos.setupItem();
     this.$.listaDatos.refreshList();
-
-    //this.$.Contenedor.render();
-    
-    //this.$.listaDatos.setAttribute("data",this.data);
-    //this.$.listaDatos.dataChanged();
-    //this.$.listaDatos.render;
   },
   
   addLista: function(inResult) {
-    //console.log(inResult);
     var datos=new Array();
     for (var i = 0; i < inResult.length; i++) {
       datos[i]={name:inResult[i]};
@@ -69,7 +48,6 @@ enyo.kind({
     });
   },
   actualizarLista: function(elemento){
-    //console.log("soy Lugares y Me llego "+ elemento);
     switch(elemento){
       case "Edificios":
             console.log("vamos a crear edificios");

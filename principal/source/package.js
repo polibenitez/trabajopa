@@ -1,4 +1,3 @@
-//aqui añadimos todas las dependencias de la aplicacion
 enyo.depends(
 	"$lib/layout",
 	"$lib/onyx",

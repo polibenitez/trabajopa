@@ -15,7 +15,6 @@ enyo.kind({
   
   conectorDatos:function() {
       var ajax = new enyo.Ajax({
-          //url: "http://localhost/proyectos/trabajopa/datosLista.php",
           url:"../api-datos.php",
       });
 
@@ -24,20 +23,15 @@ enyo.kind({
               peticion:"aparcamientos"
             });
       ajax.response(this, "processResponse");
-      // handle error
-      //ajax.error(this, "processError");
   },
 
   processResponse:function(inRequest, inResponse){
     if (!inResponse) return;
-    //console.log(inResponse);
-
     this.$.listaDatos.data=inResponse;
     this.$.listaDatos.refreshList();
   },
   
   addLista: function(inResult) {
-    //console.log(inResult);
     var datos=new Array();
     for (var i = 0; i < inResult.length; i++) {
       datos[i]={name:inResult[i]};
@@ -51,10 +45,8 @@ enyo.kind({
     });
   },
   actualizarLista: function(elemento){
-    //console.log("soy Lugares y Me llego "+ elemento);
     switch(elemento){
       case "Edificios":
-            console.log("vamos a crear edificios");
             this.conectorDatos();
             break;
       case "Despachos":
@@ -73,7 +65,6 @@ enyo.kind({
             console.log("vamos a crear Parkings");
             break;
       default:
-      console.log("no vamos a crear nada");
       break;
     }
   }

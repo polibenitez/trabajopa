@@ -19,10 +19,8 @@ function alerta(){
 </script>
 </head>
 <body>
-    <!-- Finaliza GPS-->
     <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.21.0/L.Control.Locate.js'></script>
     <link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-locatecontrol/v0.21.0/L.Control.Locate.css' rel='stylesheet' />
-    <!-- Inicia GPS-->
 
     <script language="javascript">
   if(location.search.substr(1)){
@@ -31,68 +29,32 @@ function alerta(){
       Separ = Variables[i].split('=');
       eval ('var '+Separ[0]+'="'+Separ[1]+'"');
     }
-    //alert('Nombre: '+latitud+'\nTwitter: @'+longitud);
   }
 </script>
 
 <div id='map'></div>
 <script>
-//.setView([37.35585, -5.93653], 16);
 if(latitud !=0 && longitud!=0){
-    //console.log("existen variables");
-        //var map = L.mapbox.map('map', 'zadik.h4n5k2n8').setView([latitud, longitud], 17);
-        //var map = L.mapbox.map('map', 'zadik.h4n5k2n8').setView([37.35585, -5.93653], 17);
         var map = L.mapbox.map('map', 'zadik.h4n5k2n8').setView([37.35585, -5.93653], 17);;
 
         map.markerLayer.on('ready', function() {
 
             var features = map.markerLayer.getGeoJSON().features;
             var feature;
-            //console.log(features);
               for (var i = 0; i < features.length; i++) {
                 var lat=features[i].geometry.coordinates[1];
                 var lon=features[i].geometry.coordinates[0];
                 if(lat==latitud && lon==longitud){
-                    //console.log("coincide con "+features[i].properties.title);
                     features[i].properties['marker-color'] = '#000';
                     features[i].properties['marker-size'] = 'large';
                     feature=features[i];
                     break; 
                 }
-                //console.log(features[i].properties.title);
-                
-                //console.log("elemento: "+i +" latitud " + features[i].geometry.coordinates[0]);
-                //console.log("latitud: "+latitud+"\nlongitud: "+longitud);
-                //typesObj[features[i].properties['marker-symbol']] = true;
               }
               map.panTo([latitud, longitud]);
               map.markerLayer.setGeoJSON(features);
-              //map.markerLayer.feature.openPopup();
-              /*var popup = L.popup()
-                    .setLatLng([latitud, longitud])
-                    //.setContent('<p>Hello world!<br />This is a nice popup.</p>')
-                    .openOn(map);*/
         });
-        
-
-        /*  La siguiente parte comentada es para hacerlo usando ajax, no lo uso porque 
-            tarda mas al redirigir a un script php del servidor.
-
-                    var pUrl="https://a.tiles.mapbox.com/v3/zadik.h4n5k2n8/markers.geojson";
-                    $.getJSON(pUrl, {format: "json"}, function(data) { 
-                        console.log(data);
-                        //map.markerLayer.setGeoJSON(data);
-                        //map.setView([37.35585, -5.93653], 17);
-                        //var geocoder = L.mapbox.geocoder('zadik.h4n5k2n8');
-                        //geocoder.reverseQuery([longitud,latitud], showMap);
-                    });
-                    
-                    //var features = map.markerLayer.getGeoJSON().features;
-                    //console.log(features);
-        */
-
 }else{ 
-    //console.log("no hay variables");
     var map = L.mapbox.map('map', 'zadik.h4n5k2n8').setView([37.35585, -5.93653], 17);
 }
 
@@ -105,10 +67,6 @@ if(latitud !=0 && longitud!=0){
 function showMap(err, data) {
      map.fitBounds(data.lbounds);
 }
-//por problemas de los acentos y no puedo pasar por parametros los datos, con lo cual
-//tengo que recurrir a la API implementada en php con el que le voy a pasar el id y la tabla de la que necesito
-//los datosen este caso el id  del
-//edificio y el nombre "edificio" .Esta petición me devolvera los campos nombre_ed, descripcion_ed
 </script>
 </body>
 </html>

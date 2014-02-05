@@ -52,35 +52,16 @@ enyo.kind({
         }
 	},
 	setupItem: function(inSender, inEvent) {
-
-		// Esto se configura por cada item de la lista
-		
-		/*if(this.data!=null){
-			//console.log(this.data);
-			var i = this.$.list.index;
-			this.names[i] = this.data[0];
-			this.numbers[i] = "numero";//this.data[i].numero;
-		}else{*/
 			var i = inEvent.index;
-			//var i = this.$.list.index;
-			//var i=edificios.edificios.length-1;
-			//console.log("longitud "+edificios.edificios.length);
 			if (!this.names[i]) {
 				console.log("entra");
 				this.names[i] = edificios.edificios[i].nombre;
 				this.numbers[i] = edificios.edificios[i].numero;
 			}
-		//}
-		//añadimos a los objetos los elementos del json
 		console.log(this.names);
 		var ni = this.names[i];
 		var n="Edificio "+this.numbers[i];
-		
-		//añadimos un estylo para la seleccion
-		//this.$.list.setAttribute("count",4);
-		//if(this.data==null){
 			this.$.item.addRemoveClass("list-sample-selected", inSender.isSelected(i));
-		//}
 		this.$.nombre.setContent(n);
 		this.$.numero.setContent(ni);
 	},
@@ -90,10 +71,6 @@ enyo.kind({
 		console.log("presionado "+this.names[inEvent.index]);
 	},
 	refreshList: function() {
-		/*if (this.filter) {
-			this.filtered = this.generateFilteredData(this.filter);
-			this.$.list.setCount(this.filtered.length);
-		} else {*/
 			this.$.list.setCount(0);
 			this.$.list.refresh();
 			this.$.list.setCount(this.data.length);
@@ -101,9 +78,5 @@ enyo.kind({
 			this.names=[];
 			this.$.list.reset();
 			this.$.list.refresh();
-			
-		//}
-		//this.$.list.refresh();
-		console.log(this.edificios);
 	},
 });

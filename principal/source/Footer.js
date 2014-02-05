@@ -17,9 +17,7 @@ enyo.kind({
              ]
         }
     ],
-
     handleBtnBackPage : function(inSender,inEvent){
-      //this.openUrl("../gestion/entrar.php");
       this.bubble("onBack",inEvent);
     }
 });

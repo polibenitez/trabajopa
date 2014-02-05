@@ -15,7 +15,6 @@ enyo.kind({
   
   conectorDatos:function() {
       var ajax = new enyo.Ajax({
-          //url: "http://localhost/proyectos/trabajopa/datosLista.php",
           url:"../api-datos.php",
       });
 
@@ -24,18 +23,12 @@ enyo.kind({
               peticion:"profesores"
             });
       ajax.response(this, "processResponse");
-      // handle error
-      //ajax.error(this, "processError");
   },
 
   processResponse:function(inRequest, inResponse){
     if (!inResponse) return;
-    //console.log(inResponse);
-    //console.log("voy a llamar a profesores");
-
     this.$.listaDatos.data=inResponse;
     this.$.listaDatos.refreshList();
-    //console.log("Ya llame a profesores");
   },
   
   addLista: function(inResult) {
