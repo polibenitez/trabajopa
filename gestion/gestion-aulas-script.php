@@ -13,20 +13,59 @@ function imprimirEdificios(){
 		echo "No hay edificio, no es posible continuar";
 	}
 }
-function imprimirAsignatura(){
-	$asignaturas=obtenerAsignaturas();
-	if (isset($asignaturas)) {
-		$i=1;
-		echo "<select name='asignaturas' id='asignaturas-list'>";
-		foreach ($asignaturas as $asignaturas) {
-			echo "<option value='".$i."'>".$asignaturas[0]."</option>";
-			$i++;
-		}
-		echo "</select>";
-	}else{
-		echo "No hay asignaturas, no es posible continuar";
-	}
+//function imprimirAsignatura(){
+//	$asignaturas=obtenerAsignaturas();
+//	if (isset($asignaturas)) {
+//		$i=1;
+//		echo "<select name='asignaturas' id='asignaturas-list'>";
+//		foreach ($asignaturas as $asignaturas) {
+//			echo "<option value='".$i."'>".$asignaturas[0]."</option>";
+//			$i++;
+//		}
+//		echo "</select>";
+//	}else{
+//		echo "No hay asignaturas, no es posible continuar";
+//	}
+//}
+
+
+
+function imprimirAsignatura() {
+    $con = mysql_connect("localhost", "root");
+    if (!$con) {
+        die(' No puedo conectar: ' . mysql_error());
+    }
+    $db_selected = mysql_select_db("upo", $con);
+    if (!$db_selected) {
+        die(' No puedo seleccionar con prueba: ' . mysql_error());
+    }
+
+    $result = mysql_query("SELECT asignatura_id, nombre_asi FROM Asignatura", $con);
+    if (!$result) {
+        die('no se pudo ejecutar la consulta' . mysql_error());
+    }
+
+    if ((mysql_num_rows($result) > 0)) {
+        echo "<select name='asignaturas' id='asignaturas-list'>";
+        while ($tipo = mysql_fetch_array($result)) {
+            echo "<option value ='$tipo[asignatura_id]'>$tipo[nombre_asi]</option>";
+        }
+        echo "</select>";
+    } else {
+        echo "No hay grados, no es posible continuar";
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
 function obtenerEdificios(){
 	$con = mysql_connect("localhost","root","");
 	if (!$con) {
@@ -49,28 +88,28 @@ function obtenerEdificios(){
 	}
 	return $objeto;
 }
-function obtenerAsignaturas(){
-	$con = mysql_connect("localhost","root","");
-	if (!$con) {
-		die(' No puedo conectar: ' . mysql_error());
-	}
-	$db_selected = mysql_select_db("upo",$con);
-	if (!$db_selected) {
-		die(' No puedo seleccionar con prueba: ' . mysql_error());
-	}
-	$result=  mysql_query("select nombre_asi from asignatura",$con);
-	if (!$result) {
-		die('no se pudo ejecutar la consulta' . mysql_error());
-	}
-
-	$objeto=null;
-	$i=0;
-	while($row = mysql_fetch_array($result)) {
-		$objeto[$i]=$row;
-		$i++;
-	}
-	return $objeto;
-}
+//function obtenerAsignaturas(){
+//	$con = mysql_connect("localhost","root","");
+//	if (!$con) {
+//		die(' No puedo conectar: ' . mysql_error());
+//	}
+//	$db_selected = mysql_select_db("upo",$con);
+//	if (!$db_selected) {
+//		die(' No puedo seleccionar con prueba: ' . mysql_error());
+//	}
+//	$result=  mysql_query("select nombre_asi from asignatura",$con);
+//	if (!$result) {
+//		die('no se pudo ejecutar la consulta' . mysql_error());
+//	}
+//
+//	$objeto=null;
+//	$i=0;
+//	while($row = mysql_fetch_array($result)) {
+//		$objeto[$i]=$row;
+//		$i++;
+//	}
+//	return $objeto;
+//}
 function obteneraulas(){
 	$con = mysql_connect("localhost","root","");
 	if (!$con) {

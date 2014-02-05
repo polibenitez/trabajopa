@@ -1,5 +1,4 @@
 <?php
-
 function imprimirGrados() {
     $con = mysql_connect("localhost", "root");
     if (!$con) {
@@ -16,7 +15,7 @@ function imprimirGrados() {
     }
 
     if ((mysql_num_rows($result) > 0)) {
-        echo "<select name='grados' id='grados-list' onChange='cambioEdificio(this)'>";
+        echo "<select name='grados' id='grados-list'>";
         while ($tipo = mysql_fetch_array($result)) {
             echo "<option value ='$tipo[grado_id]'>$tipo[nombre]</option>";
         }
@@ -92,8 +91,8 @@ function obtenerAsignaturas() {
                     //el siguiente es para eliminar por el id
                     $("#asignaturaID-form-eliminar").val(dato[0].innerHTML);
                 });
-		
-
+  				
+  			
                 //cargamos datos en el formulario
                 //$("#btn3").click(function(){
                 //$("#test3").val("Dolly Duck");
@@ -261,7 +260,7 @@ function obtenerAsignaturas() {
                     $("#btn-crear").hide();
                     $("#asignaturaID-form").hide();
                     $("#asignaturaID-edit-form").show();
-                    $("#nombre-form").val("");
+                    //$("#nombre-form").val("");
                 });
                 //cancelar
                 $("#btn-cancelar").click(function(){
