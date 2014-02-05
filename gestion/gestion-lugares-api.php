@@ -64,7 +64,7 @@ function modificarlugar(){
 	}
 	return true;
 }
-include("saneo.php");	
+// include("saneo.php");	
 
 	
 	/*echo $numero_ed."<br>";

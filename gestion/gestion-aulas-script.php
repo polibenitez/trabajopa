@@ -156,6 +156,87 @@ function obteneraulas(){
 			return false;
 		}	
 	}
+
+
+
+            function validarFormulario(opcion){
+            	$("#numeropla_error").text("");
+            	$("#comentario_error").text("");
+            	var npla=$("#numero_pla-form").val();
+            	var comen=$("#comentario-form").val();
+            	/*
+            errores
+            1--> numero planta vacio
+            2--> numero de planta menor que 1
+            3--> comentario vacio
+             */
+            	var cont=0;
+            	var errores=new Array();
+            	if(campoVacio(pla)){
+            		errores[cont]=1;
+            		cont++;
+            	}
+            	if(npla<1){
+            		errores[cont]=2;
+            		cont++;
+            	}
+            	if(campoVacio(comen)){
+            		errores[cont]=3;
+            		cont++;
+            	}
+            	if(errores.length>0){
+                //alert(errores.length);
+                for (var i = 0; i<cont; i++) {
+                    //console.log(errores);
+                    error=errores[i];
+                    switch(error){
+                        case 1:
+                            $("#despacho_error").text("* Inserte una planta");
+                            break;
+                        case 2:
+                            $("#despacho_error").text("* la planta debe ser mayor a 0");
+                            break;
+                            case 3:
+                            $("#despacho_error").text("* inserte un comentario");
+                            break;
+                        }
+                    }
+                    return false;
+                }else{
+                	return true;
+                }
+            }
+
+            function campoVacio(valor){
+
+	            if( valor == null || valor.length == 0 || /^\s+$/.test(valor) ) {
+	                return true;
+
+	            }else{
+	                return false;
+	            }
+	        }
+
+	        function controlUbicacion(e) {
+            key = e.keyCode || e.which;
+            tecla = String.fromCharCode(key).toLowerCase();
+            letras = "0123456789-.";
+            especiales = [8, 37, 39, 46];
+
+            tecla_especial = false
+            for(var i in especiales) {
+                if(key == especiales[i]) {
+                    tecla_especial = true;
+                    break;
+                }
+            }
+
+            if(letras.indexOf(tecla) == -1 && !tecla_especial)
+                return false;
+        }
+
+
+
 	function procesaRespuesta(inResponse){
 		alert(inResponse);
 	}
@@ -298,7 +379,8 @@ echo "</td><td class='td-aulas'>";
 							N&uacute;mero de planta:
 						</td>
 						<td>
-							<input class="numerico" type="number" id="numero_pla-form" type="text" name="numero_pla" min="1" required />
+							<input class="numerico" type="number" id="numero_pla-form" type="text" name="numero_pla" min="1" onkeypress="return controlUbicacion(event)" required />
+							<label style="color:red;" id="numeropla_error"></label>
 						</td>
 					</tr>
 					<tr>
@@ -307,6 +389,7 @@ echo "</td><td class='td-aulas'>";
 						</td>
 						<td>
 							<input class="input-presonalizado" id="comentario-form" type="text" name="comentario_au" required  />
+							<label style="color:red;" id="comentario_error"></label>
 						</td>
 					</tr>
 					
@@ -314,8 +397,8 @@ echo "</td><td class='td-aulas'>";
 						<td>
 							<br/>
 							<br/>
-							<input class="boton-formulario" type="submit" id="btn-crear" name="crear" value="Crear aula"/>
-							<input class="boton-formulario" type="submit" id="btn-editar-form" name="editar" value="Guardar"/>
+							<input class="boton-formulario" type="submit" id="btn-crear" onclick="return validarFormulario('crea');" name="crear" value="Crear aula"/>
+							<input class="boton-formulario" type="submit" id="btn-editar-form" onclick="return validarFormulario('edita');" name="editar" value="Guardar"/>
 						</td>
 						<td>
 							<br/>

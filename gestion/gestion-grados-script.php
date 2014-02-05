@@ -96,6 +96,41 @@ function obtenergrados(){
 			return false;
 		}	
 	}
+
+	function validarFormulario(opcion){
+            	$("#nombre_error").text("");
+            	
+            	var nombre=$("#nombre-form").val();
+            	
+            	/*
+            errores
+            1--> nombrevacio
+            
+             */
+            	var cont=0;
+            	var errores=new Array();
+            	if(campoVacio(nombre)){
+            		errores[cont]=1;
+            		$("#nombre_error").text("* inserte un nombre");
+            		cont++;
+            		 return false;
+            	}else{
+                	return true;
+                }
+            }
+
+            function campoVacio(valor){
+
+	            if( valor == null || valor.length == 0 || /^\s+$/.test(valor) ) {
+	                return true;
+
+	            }else{
+	                return false;
+	            }
+	        }
+
+
+
 	function procesaRespuesta(inResponse){
 		alert(inResponse);
 	}
@@ -217,6 +252,7 @@ echo "</td><td class='td-grados'>";
 						</td>
 						<td>
 							<input class="input-presonalizado" id="nombre-form" type="text" name="nombre_ed" required  />
+							<label style="color:red;" id="nombre_error"></label>
 						</td>
 					</tr>
 					
@@ -224,8 +260,8 @@ echo "</td><td class='td-grados'>";
 						<td>
 							<br/>
 							<br/>
-							<input class="boton-formulario" type="submit" id="btn-crear" name="crear" value="Crear grado"/>
-							<input class="boton-formulario" type="submit" id="btn-editar-form" name="editar" value="Guardar"/>
+							<input class="boton-formulario" type="submit" id="btn-crear" onclick="return validarFormulario('crea');" name="crear" value="Crear grado"/>
+							<input class="boton-formulario" type="submit" id="btn-editar-form" onclick="return validarFormulario('edita');" name="editar" value="Guardar"/>
 						</td>
 						<td>
 							<br/>

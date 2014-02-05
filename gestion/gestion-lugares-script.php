@@ -69,6 +69,88 @@ function obtenerlugares(){
 
 
 
+function validarFormulario(opcion){
+						
+						$("#tipo_error").text("");
+						
+						$("#ubicacion_error").text("");
+						$("#ubicacion_error").text("");
+						$("#descripcion_error").text("");
+		//return true;			
+		/*
+		errores
+		1--> tipo vacio
+		2--> ubucacion vacio
+		3--> ubicacion debe ser un numero 
+		4--> descripcion vacia
+		
+		*/
+		var errores=new Array();
+		//alert(errores.length);
+		var cont=0;
+		
+		
+		var ubicacion=$("#ubicacion-form").val();
+		var tipo=$("#tipo-form").val();
+		var descripcion=$("#descripcion-form").val();
+
+
+		
+		if(campoVacio(tipo)){
+            		errores[cont]=1;
+            		cont++;
+            	}
+            	if(campoVacio(ubicacion)){
+            		errores[cont]=2;
+            		cont++;
+            	}
+            /*if(isNaN(parseFloat(ubicacion))){
+                errores[cont]=3;
+                cont++;
+            }*/
+            if(campoVacio(descripcion)){
+            		errores[cont]=4;
+            		cont++;
+            	}
+		
+		if(errores.length>0){
+			//alert(errores.length);
+			for (var i = 0; i<cont; i++) {
+				console.log(errores);
+				error=errores[i];
+				switch(error){
+					/*
+		
+		errores
+		1--> tipo vacio
+		2--> ubucacion vacio
+		3--> ubicacion debe ser un numero 
+		4--> descripcion vacia
+		*/
+		
+					case 1:
+						$("#numero_error").text("* Complete el campo");
+					break;
+					case 2:
+						$("#numero_error").text("* Complete el campo");
+					break;
+					case 3:
+						$("#numero_error").text("* El campo debe ser un n\xfAmero");
+					break;
+					case 4:
+						$("#planta_error").text("* Complete el campo");
+					break;
+					
+				}
+			}
+			return false;
+		}else{
+			return true;	
+		}
+		
+	}
+
+
     	function campoVacio(valor){
 			if(valor.length<1){
 				return true;
@@ -212,6 +294,9 @@ function obtenerlugares(){
 						</td>
 						<td>
 							<input class="input-presonalizado" id="ubicacion-form" type="text" name="ubicacion" required  />
+							<label style="color:red;" id="ubicacion_error"></label>
+							<label style="color:red;" id="ubicacion_error"></label>
+							
 						</td>
 					</tr>
 					
@@ -220,12 +305,14 @@ function obtenerlugares(){
 							Tipo:
 						</td>
 						<td>
-							<input class="input-presonalizado" id="tipo-form" type="text" name="tipo" required  />
-							<!-- <select id="tipo-form" 	name="tipo" required >		
-								<option value='transportesasdasdasd'>transportes</option>
-								<option value='comidas'>comidas</option>
-								<option value='deportes'>deportes</option>
-								<option value='estudiantes'>estudiantes</option></select> -->
+							<!-- <input class="input-presonalizado" id="tipo-form" type="text" name="tipo" required  /> -->
+							<select id="tipo-form" 	name="tipo" required >
+							
+					<option value='transportes'>transportes</option>
+					<option value='comidas'>comidas</option>
+					<option value='deportes'>deportes</option>
+					<option value='estudiantes'>estudiantes</option></select>
+					<label style="color:red;" id="tipo_error"></label>
 						</td>
 					</tr>
 					<tr>
@@ -234,14 +321,24 @@ function obtenerlugares(){
 						</td>
 						<td>
 							<input class="input-presonalizado" id="descripcion-form" type="text" name="descripcion" required />
+							<label style="color:red;" id="descripcion_error"></label>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							
+						</td>
+						<td>
+							<label style="color:red;" id="latitud_error"></label>
+							<label style="color:red;" id="longitud_error"></label>
 						</td>
 					</tr>
 					<tr>
 						<td>
 							<br/>
 							<br/>
-							<input class="boton-formulario" type="submit" id="btn-crear" name="crear" value="Crear lugares"/>
-							<input class="boton-formulario" type="submit" id="btn-editar-form" name="editar" value="Guardar"/>
+							<input class="boton-formulario" type="submit" id="btn-crear" onclick="return validarFormulario('crea');" name="crear" value="Crear lugares"/>
+							<input class="boton-formulario" type="submit" id="btn-editar-form" onclick="return validarFormulario('edita');" name="editar" value="Guardar"/>
 						</td>
 						<td>
 							<br/>
