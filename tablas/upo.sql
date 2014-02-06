@@ -2,10 +2,10 @@
 -- version 4.0.4.1
 -- http://www.phpmyadmin.net
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 04-02-2014 a las 13:58:46
--- Versión del servidor: 5.5.32
--- Versión de PHP: 5.4.19
+-- Servidor: localhost
+-- Tiempo de generación: 05-02-2014 a las 19:19:26
+-- Versión del servidor: 5.6.12
+-- Versión de PHP: 5.5.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -33,44 +33,50 @@ CREATE TABLE IF NOT EXISTS `asignatura` (
   `grado_id` int(11) NOT NULL,
   `nombre_asi` varchar(50) CHARACTER SET latin1 NOT NULL,
   PRIMARY KEY (`asignatura_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=33 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=39 ;
 
 --
 -- Volcado de datos para la tabla `asignatura`
 --
 
 INSERT INTO `asignatura` (`asignatura_id`, `grado_id`, `nombre_asi`) VALUES
-(1, 1, 'calculo'),
-(2, 1, 'Programacion avanzada'),
+(1, 1, 'cálculo'),
+(2, 1, 'Programación avanzada'),
 (3, 1, 'Computadores'),
-(4, 1, 'Algor?tmica'),
-(5, 1, 'Miner?a de datos'),
+(4, 1, 'Algorítmica 1'),
+(5, 1, 'Minería de datos'),
 (6, 1, 'Arquitectura bases de datos'),
-(8, 1, 'Integraci?n de tecnolog?as'),
+(8, 1, 'Integración de tecnologías'),
 (9, 1, 'Mantenimiento Bases de datos'),
-(10, 2, 'Microeconom'),
+(10, 2, 'Microeconomía'),
 (11, 2, 'Derecho mercantil'),
-(12, 2, 'Gesti?n de empresas'),
-(13, 2, 'Matem?ticas'),
-(14, 2, 'Econom'),
+(12, 2, 'Gestión de empresas'),
+(13, 2, 'Matemáticas'),
+(14, 2, 'Economía'),
 (15, 2, 'Contabilidad'),
-(16, 3, 'Biolog'),
-(17, 3, 'Inform?tica'),
-(18, 3, 'Qu?mica'),
+(16, 3, 'Biología'),
+(17, 3, 'Informática'),
+(18, 3, 'Química'),
 (19, 3, 'Metabolismo'),
-(20, 3, 'Bioqu?mica estructural'),
-(21, 3, 'Fisiolog?a de sistemas'),
-(22, 4, 'Geolog'),
-(23, 4, 'Hidrolog'),
-(24, 4, 'Ingiener?a ambiental'),
-(25, 4, 'Ecolog'),
-(26, 5, 'Anatom?a humana'),
-(27, 5, 'Psicolog?a general'),
-(28, 5, 'G?netica humana'),
-(29, 5, 'Alimentaci?n y cultura'),
-(30, 5, 'Nutrici?n basica'),
+(20, 3, 'Bioquímica estructural'),
+(21, 3, 'Fisiología de sistemas'),
+(22, 4, 'Geología'),
+(23, 4, 'Hidrología'),
+(24, 4, 'Ingeniería ambiental'),
+(25, 4, 'Ecología'),
+(26, 5, 'Anatomía humana'),
+(27, 5, 'Psicología general'),
+(28, 5, 'Genética humana'),
+(29, 5, 'Alimentación y cultura'),
+(30, 5, 'Nutrición básica'),
 (31, 5, 'Higiene'),
-(32, 5, 'Diet?tica');
+(32, 5, 'Dietética'),
+(33, 1, 'Algorítmica 2'),
+(34, 1, 'Sistemas Digitales'),
+(35, 1, 'Fundamentos de Computadores'),
+(36, 1, 'Sistemas Distribuidos'),
+(37, 1, 'Sistemas Operativos'),
+(38, 1, 'Álgebra');
 
 -- --------------------------------------------------------
 
@@ -195,7 +201,7 @@ INSERT INTO `edificio` (`numero_ed`, `nombre_ed`, `ubicaciones`, `plantas_ed`, `
 (14, 'Gaspar Melchor de Jovellanos', '37.356517748213186;-5.938531458377838', 2, 'Gaspar Melchor de Jovellanos'),
 (15, 'José Celestino Mutis', '37.35690577517552;-5.939556062221527', 2, 'Residencia Universitaria José Celestino Mutis'),
 (16, 'José Cadalso y Vázquez', '37.356794910533836;-5.9388506412506095', 2, 'José Cadalso y Vázquez'),
-(17, 'nombre', '37.357319384124416;-5.939531922340393', 3, 'José Celestino Mutis'),
+(17, 'José Celestino Mutis', '37.357319384124416;-5.939531922340393', 3, 'José Celestino Mutis'),
 (18, 'José Celestino Mutis', '37.35717440805126;-5.939065217971802', 3, 'José Celestino Mutis'),
 (20, 'El CABD', '37.35913156141107;-5.9384214878082275', 2, 'Centro Andaluz de Biología del Desarrollo El CABD se fundó en el año 2003 como el primer instituto español especializado en el estudio de la Biología del Desarrollo. El CABD es un centro mixto del CSIC  la Junta de Andalucía y la UPO. '),
 (21, 'SCI', '37.359609116140625;-5.936661958694458', 3, 'Servicios Centralizados de Investigación'),
@@ -237,11 +243,11 @@ CREATE TABLE IF NOT EXISTS `grado` (
 --
 
 INSERT INTO `grado` (`grado_id`, `nombre`) VALUES
-(1, 'Ingieneria informatica'),
-(2, 'Administracion de empresa'),
-(3, 'Biotecnologia'),
+(1, 'Ingeniería informática'),
+(2, 'Administración de empresa'),
+(3, 'Biotecnología'),
 (4, 'Ciencias Ambientales'),
-(5, 'Nutricion humana y dietetica');
+(5, 'Nutrición humana y dietética');
 
 -- --------------------------------------------------------
 
@@ -263,36 +269,36 @@ CREATE TABLE IF NOT EXISTS `lugares` (
 --
 
 INSERT INTO `lugares` (`lugar_id`, `ubicacion`, `tipo`, `descripcion`, `tag`) VALUES
-(1, '37.35741745601511;-5.939558744430542', 'comidas', 'Restaurante cafeteria Edificio Celestino Mutis', 'Cafeteria'),
-(2, '37.354449658588806;-5.937541723251343', 'comidas', 'Restaurante cafeteria Plaza de Am?rica', 'Cafeteria'),
-(3, '37.3575880155198;-5.939065217971802', 'comidas', 'Pizer?a Santa Clara', 'Pizer'),
-(4, '37.357306592129234;-5.939440727233887', 'comidas', 'Golosinas dulces bebidas..', 'kiosko'),
+(1, '37.35741745601511;-5.939558744430542', 'comidas', 'Cafetería Edificio Celestino Mutis', 'Cafetería'),
+(2, '37.354449658588806;-5.937541723251343', 'comidas', 'Cafetería Plaza de América', 'Cafetería'),
+(3, '37.3575880155198;-5.939065217971802', 'comidas', 'Pizzería Santa Clara', 'Pizzería'),
+(4, '37.357306592129234;-5.939440727233887', 'comidas', 'Kiosko', 'Kiosko'),
 (5, '37.355259844818015;-5.934945344924926', 'deportes', 'Gimnasio', 'Gimnasio'),
-(6, '37.35514897774522;-5.933293104171753', 'deportes', 'Pista de atletismo y campo de rugby', 'Rugby'),
-(7, '37.35689724713198;-5.935331583023071', 'deportes', 'pista f?tbol sala', 'Pista'),
-(8, '37.356939887340026;-5.935792922973633', 'deportes', 'pista de padel', 'pista'),
-(9, '37.35505516701724;-5.940964221954346', 'deportes', 'Campo de f?tbol 2', 'pista'),
-(10, '37.35520014718377;-5.942080020904541', 'deportes', 'Campo de f?tbol 1', 'pista'),
-(11, '37.35578006504967;-5.940738916397095', 'deportes', 'Pabell?n deportivo', 'pabel'),
-(12, '37.35508075177285;-5.9401702880859375', 'deportes', 'Pista cubierta de f?tbol sala', 'pista'),
-(13, '37.35432173364799;-5.93960165977478', 'deportes', 'Pista de baloncesto', 'pista'),
-(14, '37.353059529211045;-5.9360504150390625', 'deportes', 'Pabell?n polideportivo', 'pabell'),
-(15, '37.35494429964211;-5.938786268234253', 'aparcamientos', 'Aparcamiento 1', 'aparcamiento'),
-(16, '37.35559244505394;-5.939279794692993', 'aparcamientos', 'Aparcamiento 2', 'aparcamiento'),
-(17, '37.35619794426373;-5.9398698806762695', 'aparcamientos', 'Aparcamiento 3', 'aparcamiento'),
-(18, '37.35712750396765;-5.938045978546143', 'aparcamientos', 'Aparcamiento 5', 'aparcamiento'),
-(19, '37.356590236918954;-5.9375739097595215', 'aparcamientos', 'Aparcamiento 6', 'aparcamiento'),
-(20, '37.35569478329155;-5.936790704727173', 'aparcamientos', 'Aparcamiento 7', 'aparcamiento'),
-(21, '37.3550125257385;-5.9362757205963135', 'aparcamientos', 'Aparcamiento 8', 'aparcamiento'),
-(22, '37.35447524355082;-5.93611478805542', 'aparcamientos', 'Aparcamiento 9', 'aparcamiento'),
-(23, '37.359012172253884;-5.934494733810424', 'aparcamientos', 'Aparcamiento 10', 'aparcamiento'),
-(24, '37.359506783240086;-5.937713384628296', 'aparcamientos', 'Aparcamiento 11', 'aparcamiento'),
-(25, '37.35400618452846;-5.943152904510498', 'transportes', 'metro', 'metro'),
-(26, '37.357016639653466;-5.941929817199707', 'transportes', 'tussam 38', 'bus'),
-(27, '37.356436731341525;-5.940642356872559', 'transportes', 'M130', 'bus'),
-(28, '37.353980599406576;-5.939505100250244', 'transportes', 'M123', 'bus'),
-(29, '37.353946485897175;-5.939784049987793', 'transportes', 'M133', 'bus'),
-(30, '37.357195728079596;-5.939054489135742', 'estudiantes', 'gestion', 'interes');
+(6, '37.35514897774522;-5.933293104171753', 'deportes', 'Pista de Atletismo', 'Atletismo y Rugby'),
+(7, '37.35689724713198;-5.935331583023071', 'deportes', 'Fútbol Sala', 'Pista'),
+(8, '37.356939887340026;-5.935792922973633', 'deportes', 'Pádel', 'Pista'),
+(9, '37.35505516701724;-5.940964221954346', 'deportes', 'Campo Fútbol 2', 'Pista'),
+(10, '37.35520014718377;-5.942080020904541', 'deportes', 'Campo Fútbol 1', 'Pista'),
+(11, '37.35578006504967;-5.940738916397095', 'deportes', 'Pabellón Deportivo', 'Pabellón'),
+(12, '37.35508075177285;-5.9401702880859375', 'deportes', 'Fútbol Sala cubierta', 'Pista'),
+(13, '37.35432173364799;-5.93960165977478', 'deportes', 'Baloncesto', 'Pista'),
+(14, '37.353059529211045;-5.9360504150390625', 'deportes', 'Pabellón Polideportivo', 'Pabellón'),
+(15, '37.35494429964211;-5.938786268234253', 'aparcamientos', 'Aparcamiento 1', 'Aparcamiento'),
+(16, '37.35559244505394;-5.939279794692993', 'aparcamientos', 'Aparcamiento 2', 'Aparcamiento'),
+(17, '37.35619794426373;-5.9398698806762695', 'aparcamientos', 'Aparcamiento 3', 'Aparcamiento'),
+(18, '37.35712750396765;-5.938045978546143', 'aparcamientos', 'Aparcamiento 5', 'Aparcamiento'),
+(19, '37.356590236918954;-5.9375739097595215', 'aparcamientos', 'Aparcamiento 6', 'Aparcamiento'),
+(20, '37.35569478329155;-5.936790704727173', 'aparcamientos', 'Aparcamiento 7', 'Aparcamiento'),
+(21, '37.3550125257385;-5.9362757205963135', 'aparcamientos', 'Aparcamiento 8', 'Aparcamiento'),
+(22, '37.35447524355082;-5.93611478805542', 'aparcamientos', 'Aparcamiento 9', 'Aparcamiento'),
+(23, '37.359012172253884;-5.934494733810424', 'aparcamientos', 'Aparcamiento 10', 'Aparcamiento'),
+(24, '37.359506783240086;-5.937713384628296', 'aparcamientos', 'Aparcamiento 11', 'Aparcamiento'),
+(25, '37.35400618452846;-5.943152904510498', 'transportes', 'Metro', 'Metro'),
+(26, '37.357016639653466;-5.941929817199707', 'transportes', 'Tussam 38', 'Bus'),
+(27, '37.356436731341525;-5.940642356872559', 'transportes', 'M130', 'Bus'),
+(28, '37.353980599406576;-5.939505100250244', 'transportes', 'M123', 'Bus'),
+(29, '37.353946485897175;-5.939784049987793', 'transportes', 'M133', 'Bus'),
+(30, '37.357195728079596;-5.939054489135742', 'estudiantes', 'Gestión', 'Interés');
 
 -- --------------------------------------------------------
 
@@ -308,19 +314,21 @@ CREATE TABLE IF NOT EXISTS `profesor` (
   `asignatura_id` int(11) NOT NULL,
   `despacho_id` int(11) NOT NULL,
   PRIMARY KEY (`profesor_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- Volcado de datos para la tabla `profesor`
 --
 
 INSERT INTO `profesor` (`profesor_id`, `nombre_prof`, `apellido1_prof`, `apellido2_prof`, `asignatura_id`, `despacho_id`) VALUES
-(1, 'carlos', 'barranco', 'Gonz?lez', 2, 2),
-(2, 'manuel', 'benitez', 'sanchez', 24, 6),
-(3, 'Edwin', 'Quishpe', 'macdonado', 7, 3),
-(4, 'Paco', 'lopez', 'baena', 16, 4),
-(5, 'Domingo', 'savio', 'rodriguez', 9, 1),
-(6, 'sergio', 'bermuso', 'navarrete', 1, 5);
+(1, 'Carlos', 'Barranco', 'González', 2, 2),
+(2, 'Manue', 'Béjar', 'Domínguez', 35, 3),
+(3, 'Luis', 'Merino', 'Cabanas', 7, 3),
+(4, 'Federico', 'Divina', '', 16, 4),
+(5, 'Domingo Savio', 'Rodríguez', 'Baena', 9, 1),
+(6, 'Sergio', 'Bermudo', 'Navarrete', 1, 5),
+(7, 'Francisco', 'Martínez', 'Álvarez', 0, 0),
+(8, 'Francisco', 'Martínez', 'Álvarez', 4, 6);
 
 -- --------------------------------------------------------
 
