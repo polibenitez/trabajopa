@@ -27,7 +27,7 @@
 			<?php include("gestion-lugares-script.php"); ?>
 		</section>
 		<footer>
-			create by zadik copy-left 2013
+			create by Equipo2 copy-left 2013
 		</footer>
 	</div>
 </body>

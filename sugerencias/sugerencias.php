@@ -19,7 +19,7 @@
             
         </section>
         <footer>
-            create by MAMISHO copy-left 2013
+            create by Equipo2 copy-left 2013
         </footer>
     </div>
 </body>

@@ -28,9 +28,8 @@
 			<?php include("gestion-grados-script.php"); ?>
 		</section>
 		<footer>
-			create by zadik copy-left 2013
+			create by Equipo2 copy-left 2013
 		</footer>
-		mamisho es un pringui
 	</div>
 </body>
 </html>
