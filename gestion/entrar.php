@@ -93,7 +93,7 @@ function identificar(){
 		<header>
 			<div class="titulos">
 				<h1>MUPOS</h1>
-				<a href="../plantilla.php">Principal</a>
+				<a href="../index.php">Principal</a>
 				<img src="../images/guia-menu.png">
 				Login
 				<img src="../images/guia-menu.png">
