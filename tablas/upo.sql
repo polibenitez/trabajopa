@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `asignatura` (
 --
 
 INSERT INTO `asignatura` (`asignatura_id`, `grado_id`, `nombre_asi`) VALUES
-(1, 1, 'cálculo'),
+(1, 1, 'Cálculo'),
 (2, 1, 'Programación avanzada'),
 (3, 1, 'Computadores'),
 (4, 1, 'Algorítmica 1'),
